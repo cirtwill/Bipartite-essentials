@@ -1,0 +1,279 @@
+\documentclass[12pt]{letter}
+
+\usepackage[britdate]{LiU-letter}
+\usepackage{times}
+\usepackage{letterbib}
+\usepackage{geometry}
+\usepackage[round]{natbib}
+\usepackage{graphicx}
+\geometry{a4paper}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage[running]{lineno}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[margin=10pt,font=small,labelfont=bf]{caption}
+
+%\usepackage{natbib}
+% \bibpunct[; ]{(}{)}{;}{a}{,}{;}
+
+\newenvironment{refquote}{\bigskip \begin{it}}{\end{it}\smallskip}
+
+\newenvironment{figure}{}
+
+
+\begin{document}
+
+
+
+\newpage
+
+\setcounter{page}{1}
+
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+{\Large \bf Reply to Referee \#1}
+% ---------------------------------------
+
+
+  Referee 1 focused their critique entirely on our methods. They were concerned that our novel approach had not been properly validated or compared to previous methods, and that we did not have within-family resolution for our tree. We respond (preceded by \textbf{R:}) to each of these concerns in detail below.
+
+  1. Request for statistical validation
+
+    \begin{refquote}  
+
+      I think that the introduction of a new method should be validated in terms of statistical power (type I and II error) ... For example, how the new method accounts for the non-independent use of the same species in different pairwise interactions?
+
+    \end{refquote}
+
+    \textbf{R:} Solution was something to do with making >100 simulations of each empirical network and then >100 simulations of each simulation...
+
+  2. Request for comparison with other methods
+
+    \begin{refquote}
+
+      I think that the introduction of a new method should be ... compared with existing methods.  Does the new method outperforms  those of Ives \& Godfray (2006, Am Nat 168),  Rafferty and Ives (2013, Ecology 94) or Hadfield et al (2014, Am Nat 183)? The latter method identifies three sources of phylogenetic signal: host/parasite specialism-generalism, host/parasite evolutionary interactions, and the coevolutionary interaction. Can the new method identify these sources of phylogenetic signal between plants and animals (pollinators or herbivores)?
+
+    \end{refquote}
+
+    \textbf{R:} I need to re-read these papers. As I recall, they were asking slightly different questions but I didn't fully understand their methodologies.
+
+      %     Our study and those that the author mention are designed to answer different
+      % questions. Ives \& Godfray (2006) developed their method to ask whether a
+      % plant (or the majority of plants in a community) is visited by a related set of 
+      % pollinators (and vice versa). We are interested in whether related plants are 
+      % visited by similar sets of pollinators, regardless of whether or not the 
+      % pollinators are related. It is not obvious how to translate the results of their 
+      % method (e.g., individual species of pollinators tend to visit related sets of plants) 
+      % to our question, as two closely-related plants might be visited by non-overlapping 
+      % sets of pollinators which nevertheless tend to visit related plants. This could 
+      % occur, for example, if plants within a particular genus grow either in the 
+      % understory or in more open microhabitats and each pollinator visits only plants of 
+      % this genus that grow within its preferred microhabitat. 
+
+
+      % Similarly, Rafferty \& Ives (2013) used two phylogenetic linear
+      % mixed models (PLMM's) to model the strength of plant-pollinator
+      % interactions as a function of 1) plant traits and pollinator
+      % phylogeny; and 2) plant and pollinator phylogenies. We were instead
+      % interested in modelling plants' traits (i.e., their interaction
+      % partners) over their phylogeny. In our case, we did not have pollinator
+      % phylogenies and our `trait' of interest was the set of animals with
+      % which a plant interacts. In Rafferty \& Ives' first PLMM, then, we
+      % would need to include network structure as both a dependent and the
+      % independent variable, while in the second we would be obliged to assume
+      % that the pollinator phylogenies were completely uninformative. This is
+      % almost certainly not the case. More importantly, even if we accept this
+      % limitation and model the strength (or in our case, binary presence or 
+      % absence) of interactions purely based on the plant phylogeny, it is not
+      % clear how this model would allow us to assess whether or not plants 
+      % tend to interact with similar \emph{sets} of animals. That is, we are not
+      % interested in whether each particular animal has similar probabilities
+      % of interacting with closely-related plants but rather in the amount of
+      % overlap in the sets of animals that visit related and unrelated plants.
+
+
+      % Hadfield \emph{et. al.}'s 2014 study addresses questions that are even
+      % further from our study's focus. The authors of that study are mainly
+      % interested in the interplay of two phylogenies (also a focus of
+      % Rafferty \& Ives, 2013, but to a lesser degree). In our datset, we
+      % had access to phylogenies for the plants but not their animal interaction
+      % partners. As such, the referee is correct in noting that we do not 
+      % identify sources of phylogenetic signal \emph{a la} Hadfield \emph{et. al.}.
+      % In our study, we cannot test for co-evolution of plants and their 
+      % partners or for other forms of evolutionary interaction between them. 
+      % Without being able to eliminate these possibilities, testing for an 
+      % effect of animal or plant specialism on interaction patterns tells us
+      % little about the effect of plants' evolutionary histories.
+
+
+      % [[We have edited the main text to make our question of interest (and
+      % the ways in which it differs from the questions asked by other 
+      % researchers) clearer. We have also added tests for type I and type II
+      % statistical errors, as described below. We hope that this will provide
+      % a sufficient indication of the quality of our method, as we cannot 
+      % in good concience compare our results to those of methods asking different
+      % questions.]]
+
+
+
+  3. Between-family resolution is not sufficient
+
+    \begin{refquote}
+
+      Regarding the phylogenetic patterns within plant families, I am afraid that the authors do not have neither topological nor cronological resolution in the phylogenetic tree to run these analyses. The topology provided by phylomatic is resolved at the family level, and then it may produce a lot of polytomies at the genus and species level. Similarly, Wilkstrom et al's calibration points are not enough to calibrate divergence points within families. Instead, the authors use the bladj algorithm, which distribute the undated nodes following a mathematical function which is strongly dependent on the number of tips in that particular clade.  Bladj + Wikstrom ages may work well to detect patterns at the community level where phylogenetic distances among species from different clades are averaged.  However, when phylogenetic distances within lower taxonomic entities (families, genera) are needed, a more accurate calibration is needed. Otherwise, phylogenetic distance is confounded with species richness within clades (i.e. the phylogenetic distance between two species of a family will depend on the  number of species in that family and not on the true phylogenetic distance among them). For that reason, I have serious doubts about the phylogenetic patterns within families shown by the authors. Accurate chronograms at genus and species level would be necessary to extract robust conclusions.
+
+      \end{refquote}
+
+      \textbf{R:} We accept the author's reluctance to accept conclusions based on Bladj + Wikstrom age dates. As none of the authors of this manuscript has any expertise relevant to constructing chronograms, however, we are strictly limited to using published dates of divergence between taxa. Fortunately, while this manuscript was being revised a recent dated tree (that of Zanne \emph{et al.}, 2014) has been incorporated into the Phylomatic web tool. We have rebuilt our dated trees using this phlogeny, which incorporates within-family divisions. We hope that this additional detail will satisfy the reviewer.
+
+
+\section*{Referee 2}
+
+  Referee 2 was very positive about our manuscript and only had a few minor suggestions. We thank the Referee for her thoughtful input.
+
+  1. Expand the title
+
+    \begin{refquote}
+
+      I think the title could be improved to bring a "bigger message" (which is in the manuscript), such as stressing the great spatial extent of the study. E.g. Global assessment of plant-pollinator-herbivore evolutionary interactions reveals great variation across communities and plant families, etc.
+
+    \end{refquote}
+
+    \textbf{R:} Assuming this still fits after re-analysis, seems like a good idea.
+
+  2. Add more evolutionary/community-ecology context
+
+    \begin{refquote}
+
+      I also think it would be very interesting to put this work in a context of evolutionary community ecology, in order to potentially understand the evolutionary development of the traits in the plant families studied in this work. Specifically, it would be worth testing the study system in the framework of specialist vs. generalist herbivores and specialist vs. generalist pollinators. Taking into consideration that herbivores and pollinators have an evolutionary contrasting impact on plants: plants want to escape herbivores but want to be pollinated. So we can guess that being a specialist herbivore might have an opposite effect than being a specialist pollinator: we might find more distantly related species co-existing in plant communities where specialist herbivores dominate; and more closely related co-existing plant species when generalist herbivores dominate. Contrastingly, in the presence of specialist pollinators, co-existing plants are closely related. Whereas plant are distantly related when generalist pollinators dominate. These community-levels works might be interesting:
+
+      \smallskip
+      
+      Yguel, B., Bailey, R., Tosh, N. D., Vialatte, A., Vasseur, C., Vitrac, X., ... \& Prinzing, A. (2011). Phytophagy on phylogenetically isolated trees: why hosts should escape their relatives. Ecology Letters, 14(11), 1117-1124.
+      \smallskip
+      Castagneyrol, B., Jactel, H., Vacher, C., Brockerhoff, E. G., \& Koricheva, J. (2014). Effects of plant phylogenetic diversity on  herbivory depend on herbivore specialization. Journal of Applied Ecology, 51(1), 134-141.
+      \smallskip
+      Yguel, B., Bailey, R. I., Villemant, C., Brault, A., Jactel, H., \& Prinzing, A. (2014). Insect herbivores should follow plants escaping their relatives. Oecologia, 176(2), 521-532.
+
+      \end{refquote}
+
+
+    \textbf{R:}
+
+
+\section*{Referee 3}
+
+  Referee 3 saw "the potential [[for our study]] to become a significant contribution to the field of ecological networks" if a number of significant issues are addressed. Specifically, the Referee found several sections to be unclear, the discussion to be shallow, and lacked confidence in our statistical analyses. We address each point below and hope that our responses (preceded by \textbf{R:}) will satisfy the Referee.
+
+
+  1. Use randomization tests to address non-independence of pairs of species
+
+    \begin{refquote}
+
+      If I understood right the authors used the paired niche overlap and the shared evolutionary history of each pair of species as data points in their analyses. However, pairs of species are not independent. I am not here worried about the evolutionary dependence of pairs of species. Rather, I am worried that in a network with P plant species, each plant species will participate of P-1 data points. These data points, as a consequence, are not independent and the authors need to incorporate this dependency in their analysis. A simple way of circumvent this problem is to use randomization tests to build up an empirical distribution for the metric of interest in the presence of the dependency of data points.
+
+      \end{refquote}
+
+      \textbf{R:} 
+
+
+  2. Demand for more detailed discussion of system-specific biology
+
+    \begin{refquote}
+
+      One of the main weaknesses of the manuscript is that the huge amount of information we know about plant-insect interactions in the wild is ignored in the methods section and the discussion of the paper. Examples include:
+
+      \begin{itemize}
+
+      \item Line 77. The authors carefully restricted their herbivore dataset to only those insects that feed on leaves. Having said that, inspecting their dataset it is possible to notice that distinct herbivory networks are formed by distinct groups of insects such as grasshoppers, lepidopterans, and leaf beetles. We know for a long time these herbivores markedly vary in the way they interact with plants. As a result, networks formed by these herbivores and their host plants are very distinct, varying in many network structural patterns (Pires and Guimares 2013. Interface). I missed a deeper discussion on the role of biological traits (often mentioned in the vague "traits" way) in shaping network patterns. For example, physical and physiological integration associated with interaction intimacy might explain the stronger "phylogenetic effect" observed in herbivory networks that involve leaf beetles and lepidopterans.
+
+      \item There is a lot of information on plant families that are known to have secondary metabolites that deter multiple herbivores. Along the same lines, there is a lot of information on flower morphology that constrains or favors particular types of pollinators. Flower morphology, in turn, is often a family-level attribute. Nevertheless, there is no attempt of relate the patterns the authors observe with the solid body of information on the biology of plant-insect interactions.
+
+
+      \item Lines 238-248 and 339-341. Which is the biological meaning of the fact the families associated to networks with steepest relationships between niche overlap and shared evolutionary history did not show steep relationships between niche overlap and shared evolutionary history? It is not clear to me.
+
+
+      \item In the discussion the authors hypothesize that pollinator syndromes would be more common within families with weaker evidence of effects of shared evolutionary history. However, twenty years ago Jordano (1995. AmNat) showed that syndromes – at least in seed dispersal systems – are associated with shared evolutionary history. Thus, there is no reason to assume that syndromes are more likely to occur in interactions in which shared evolutionary history has an weaker association on patterns of interaction.
+
+    \end{itemize}
+    \end{refquote}
+
+    \textbf{R:} We hope that the Referee appreciates the fact that length restrictions limit our ability to go into too much detail in the Discussion without severely compromising our explanation of the methods. Nevertheless, where possible we have added biological details throughout the manuscript. We have taken particular care to address the specific points the Referee has highlighted above.
+
+
+  3. Request to provide more detail about specialist pollinators
+
+    \begin{refquote}
+
+      It is puzzling that pollinators show smaller number of interactions than herbivores. It is the opposite of all we know about herbivory and plant-pollinator interactions. It might be a consequence of lumped grasshoppers with other herbivores, the effect of analyzing occasional flower visitors as specialists in pollinator networks, or a consequence of poor sampling in pollinator networks. I would like the authors to provide more information on which are those "pollinator specialists" and on how exhaustive is the sampling of the networks they analyze.
+
+    \end{refquote}
+
+    \textbf{R:} As we used published networks rather than collecting data ourselves, we cannot provide information on the exhaustiveness of sampling other than that given in the original sources (detailed in the SI). In particular, we cannot say which apparently specialist pollinators appear specialized because of rarity and which are genuinely specialized as data on abundances were not published together with the bulk of the metworks we used. The questions the Referee asks about the adequacy of sampling and specialization in plant-pollinator networks are very important, but we respectfully suggest that they are best addressed by encouraging empirical researchers to publish abundance data as well as interaction networks. There is very little we can do to address these questions when re-analysing the limited data that have been made available.
+
+   One thing we can do, however, is investigate the effects of lumping grasshoppers in with other herbivores. To that end, we have repeated our analyses excluding the plant-herbivore networks which contained grasshoppers. As removing these networks substantially reduces our already small collection of plant-herbivore networks, we retain these networks in the main text and present the re-analysis in the SI. [[What changed?]]
+
+
+ 4. Demand for further clarification of the methods
+
+    \begin{refquote}
+
+      Some methodological approaches are not clear and becase of that it would be impossible to replicate this study.
+
+        \begin{itemize}
+          \item Line 113-115. Why? Please explain.
+          \item Line 122-125. How this difference is incorporated in the analysis? It is not clear. Differences between the two cases would not lead to an undesirable effect of generalism on your metric?
+        \end{itemize}
+
+      \end{refquote}
+
+      \textbf{R:} We appreciate the Referee's frankness.
+
+
+  5. The null model approach is confusing
+
+    \begin{refquote} 
+
+      The null model approach (Lines 163-170) makes no sense for me. The authors permutate species between networks of a given type but not between networks of different types. Why? Plants that are animal-pollinated can be attacked by herbivores and animals pollinate many plants attacked by herbivores. In contrast, the authors randomize species from pollinator networks that are occuring in distinct biogeographical regions. I understand that in such kind of broad scale study we need to simplify the use of biological information, but a really robust approach would control for non-sense geographical swaps (e.g., among distinct continents) and to prevent the swap that place plants that are not pollinated by animals in pollinator networks but otherwise would allow that plant species to be swaped between network types.
+
+      \end{refquote}
+
+      \textbf{R:}
+
+
+  6. Request for dated clades
+
+    \begin{refquote}
+
+      Lines 94-96. "These dates included divergence times in millions of years (My) between families and within some families, but did not give dates for divergences within genera". Please provide the dated clades.
+
+      \end{refquote}
+
+      \textbf{R:} The dated clades used in our original analyses are those given by Wikstrom \emph{et al.} ([[year]]). We have since re-created our analyses using the dated tree given in Zanne \emph{et al.} (2014) as found in the Phylomatic web application. We do not have separate dated clades for specific taxa. As both of these clades have already been published, repeating them in our manuscript would be purely redundant.
+
+
+  7. The Referee is confused  
+
+    \begin{refquote}
+
+      Some sentences are just hard to follow and/or are puzzling. Exemples include but are not limited to: "These relationships were also significantly related to the composition of the network’s plant component", "plants that produce noxious secondary metabolites may suffer fewer herbivores", "Interestingly, in our analyses the plant families associated with the steepest relationships between niche overlap and phylogenetic distance at the network level did not show particularly steep relationships within themselves".
+
+    \end{refquote}
+
+
+    \textbf{R:} We do not understand why the Referee finds some of the above examples confusing, particularly "plants that produce noxious secondary metabolites may suffer fewer herbivores". We have nevertheless rephrased the cited examples and revised our manuscript for clarity. This request for simpler phrasing often comes at the cost of brevity, which unfortanately makes it very difficult to comply with the Referee's demand for more biological detail (point 2). We hope that we have struck a reasonable balance between these two criticisms.
+
+
+  8. The Referee hates our conclusion
+
+    \begin{refquote}
+
+      Line 331. "This may be because pairing antagonistic and mutualistic interactions balances the indirect effects of these interactions, leading to a more stable community (Sauve et al., 2014)". The attempt of explain patterns of interaction that are mold by selection acting on individuals and shaping populations in terms of advantages for the community makes no sense in the light of what we known about evolutionary biology and ecological communities, which are transient aggregations of coexisting species that show no clear boundaries in either space or time and from which there is little evidence of heritability in traits.
+
+      \end{refquote}
+
+      \textbf{R:} We are confused by the Referee's argument that communities show no clear boundaries in either space or time and that there is little evidence of heritability in traits within a community. This seems to suggest that the Referee does not believe in ecological communities or networks as viable units of study or in evolution (which requires heritability of traits). If this is so, then the Referee is not an appropriate reviewer for this manuscript. We instead hope that the Referee is attempting to make the point that communities are not shaped for the benefit of the species within them and simply doing so in an unclear way. That being the case, of course we are aware of this and agree 100\%. We did not intend to suggest that either species are selected to stabilize their communities or that communities are selected to maintain the species within them. We are well aware of spatial and temporal turnover, and of the fact that most communities are not at equilibrium and therefore we should not expect network structure to remain constant. Our point was rather that a more stable community is likely to persist longer than a less stable community and, therefore, more likely to be observed. We therefore expect communities with patterns of interactions condusive to long-term persistence to be over-represented in the empirical networks available to us. We have revised and expanded our conclusion to explicitly state that we are \textbf{not} suggesting any kind of community-level selection process, only the disproportionate change of unstable communities to more stable ones. We hope that this revision is less objectionable to the Referee.
+
+
+\end{document}
