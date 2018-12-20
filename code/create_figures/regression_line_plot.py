@@ -18,6 +18,7 @@ scaledict={'centre':251.7093,'scale':91.05211}
 
 def signalreader(datapath,suffix):
   databank={'fixef':{},'ranef':{}}
+  print datapath+suffix
   f=open(datapath+suffix+'_fixef.tsv','r')
   for line in f:
     if line.split()[0]!='"Estimate"':
