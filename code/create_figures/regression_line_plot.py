@@ -18,12 +18,11 @@ scaledict={'centre':251.7093,'scale':91.05211}
 
 def signalreader(datapath,suffix):
   databank={'fixef':{},'ranef':{}}
-  print datapath+suffix
   f=open(datapath+suffix+'_fixef.tsv','r')
   for line in f:
     if line.split()[0]!='"Estimate"':
       name=line.split()[0][1:-1]
-      effect=float(line.split()[1][1:-1])
+      effect=float(line.split()[1])
       databank['fixef'][name]=effect
   f.close()
 
@@ -36,7 +35,6 @@ def signalreader(datapath,suffix):
       databank['ranef'][network]=(intercept,slope)
   ran.close()
 
-  print databank['fixef'].keys()
   return databank
 
 def simlines(inter,beta):
@@ -168,7 +166,7 @@ def lineplotter(datapath,modeltype,colormode):
       major=200
       prec=0
 
-    graph.world.ymax=1
+    graph.world.ymax=0.60000000001
     graph.yaxis.tick.configure(place='both',major_size=.4,minor_ticks=1,minor_size=.2,major=.2,major_linewidth=1,minor_linewidth=1)
 
     graph.yaxis.ticklabel.configure(char_size=.75,format='decimal',prec=1)
@@ -182,7 +180,7 @@ def lineplotter(datapath,modeltype,colormode):
     graph.panel_label.configure(char_size=.85,placement='ouc',dy=0.01,dx=0,just=2)
   grace.multi(rows=2,cols=1,hgap=.05,vgap=.04)
   grace.hide_redundant_labels()
-  grace.set_col_yaxislabel(col=0,rowspan=(0,1),label='Change in log(odds)',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
+  grace.set_col_yaxislabel(col=0,rowspan=(0,1),label='Probability of sharing partners',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
   # grace.hide_redundant_labels()
 
   if modeltype=='ranked':
