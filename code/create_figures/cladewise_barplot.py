@@ -88,6 +88,7 @@ scaledict={
 
 # Two families didn't converge (small samples with one odd value)
 non_convergent={'pp':'lauraceae','ph':'sapindaceae'}
+legenddict={'pp':'Plant-pollinator','ph':'Plant-herbivore'}
 
 def read_tree(filename):
     inFile = open(filename,'r')
@@ -112,6 +113,7 @@ def signalreader(datapath,family,nettype):
   return databank
 
 def overall_signalreader(datafile):
+  print datafile
   databank={}
   f=open(datafile,'r')
   for line in f:
@@ -126,6 +128,10 @@ def overall_signalreader(datafile):
   return phslope, ppslope
 
 def lineplotter(datapath,family,grace,graph,x,graphtype,supertype,nettype,summarydict):
+  if nettype=='pp':
+    shap=3
+  else:
+    shap=2
   databank=signalreader(datapath,family,nettype)
   if family not in non_convergent[nettype] and databank!={'fixef':{},'ranef':{}}:
     try:
@@ -163,10 +169,11 @@ def lineplotter(datapath,family,grace,graph,x,graphtype,supertype,nettype,summar
         else:
           col=10
 
-      dat.symbol.configure(color=1,fill_color=col,size=.6,linewidth=.3,shape=3)
+      dat.symbol.configure(color=1,fill_color=col,size=.6,linewidth=.3,shape=shap)
       dat.line.linestyle=0
       dat.errorbar.configure(riser_linewidth=1,linewidth=1.25,size=.75)
-
+      if family=='rubiaceae':
+        dat.legend=legenddict[nettype]
       if y>150:
         graph.add_drawing_object(DrawLine,arrow=2,start=(60,y),end=(85,y),loctype='world')
         # if y-err > 0:
@@ -195,7 +202,7 @@ def overall_lineplotter(graph,grace,supertype,graphtype):
   if supertype=='paper':
     Hline=graph.add_dataset([(0,phslope),(60,phslope)])
     Hline.symbol.size=0
-    Hline.line.configure(linewidth=1.25,color=col1)
+    Hline.line.configure(linewidth=1.25,linestyle=3,color=col1)
 
   # print phslope, ppslope
   Pline=graph.add_dataset([(0,ppslope),(60,ppslope)])
@@ -221,19 +228,6 @@ def main():
         'ranunculaceae']
 
 
-# # The only ones with two...
-# asteraceae_ph_reg_fixef.tsv
-# asteraceae_pp_reg_fixef.tsv
-# fabaceae_ph_reg_fixef.tsv
-# fabaceae_pp_reg_fixef.tsv
-# melastomataceae_ph_reg_fixef.tsv
-# melastomataceae_pp_reg_fixef.tsv
-# poaceae_ph_reg_fixef.tsv
-# poaceae_pp_reg_fixef.tsv
-# rubiaceae_ph_reg_fixef.tsv
-# rubiaceae_pp_reg_fixef.tsv
-
-
   grace=MultiPanelGrace()
   dummy=['','','','']
 
@@ -249,18 +243,9 @@ def main():
   graph=grace.add_graph(Panel)
 
   graph.world.ymin=-60
-  graph.world.ymax=60
-  graph.yaxis.tick.configure(place='both',major_size=.5,minor_ticks=1,minor_size=.3,major=50,major_linewidth=.5,minor_linewidth=.5)
+  graph.world.ymax=40
+  graph.yaxis.tick.configure(place='both',major_size=.5,minor_ticks=1,minor_size=.3,major=20,major_linewidth=.5,minor_linewidth=.5)
   graph.yaxis.ticklabel.configure(char_size=.5,)
-  # graph.xaxis.label.configure(text='Change in log odds',char_size=.75,just=2,place="normal")
-  # graph.altxaxis.onoff='on'
-  # graph.world.altxmin=-200
-  # graph.world.altxmax=200
-  # graph.altxaxis.bar.linewidth=.5
-  # graph.altxaxis.tick.configure(place='both',major_size=.3,minor_ticks=1,minor_size=.15,major=50,major_linewidth=.5,minor_linewidth=.5)
-  # graph.altxaxis.ticklabel.char_size=0
-  # # graph.altxaxis.label.configure(place='opposite',text='\T{-1 0 0 -1}Partial overlap',char_size=.75,just=2)
-  # graph.altxaxis.label.configure(place='opposite',text='Family',char_size=.5,just=2)
 
   overall_lineplotter(graph,grace,supertype,graphtype)
   print 'Overall line added'
@@ -277,6 +262,7 @@ def main():
   graph.yaxis.bar.linewidth=.5
   
   graph.panel_label.configure(char_size=.75,placement='ouc',dy=0.01,dx=0,just=2)
+  graph.legend.configure(box_linestyle=0,char_size=.5,loc=(0.25,-40),loctype='world')
 
   specials=graph.xaxis.tick.set_spec_ticks([1,2,3,4,5,6,7,8,9,10,11,12,13,14],[],tick_labels=sig_families)
   # specials=graph.yaxis.tick.set_spec_ticks([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
