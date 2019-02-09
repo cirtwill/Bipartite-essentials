@@ -47,7 +47,7 @@
 \title{Conservation of interaction partners between related plants varies widely across communities and between plant families.}
 
 \author{Alyssa R. Cirtwill$^{1}$, Giulio V. Dalla Riva$^{2}$, Nick J. Baker$^{1}$,\\
- Joshua A. Thia$^{1,3}$, Christie J. Webber$^{1}$, Daniel B. Stouffer$^{1}$}
+ Joshua A. Thia$^{1,3}$, Christie J. Webber$^{1}$, Daniel B. Stouffer$^{1}$, MSC helpers from Linkoping}
 \date{\small$^1$Centre for Integrative Ecology, School of Biological Sciences\\
     \medskip$^2$Biomathematics Research Centre, School of Mathematics and Statistics\\
             University of Canterbury\\Private Bag 4800\\
@@ -521,11 +521,11 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     Despite these general trends, there was substantial variation between 
     pollination networks, with overlap of interaction partners decreasing 
     with increasing phylogenetic distance in some networks and increasing in 
-    others (Fig.~\ref{within_network_regression}). Overlap of interaction partners decreased significantly with increasing phylogenetic distance in 7/11 plant-herbivore networks and 33/59 plant-pollinator networks. In the remaining four plant-herbivore networks and 25 of the 26 remaining plant-pollinator networks, overlap of interaction partners was not related to phylogenetic distance. Overlap of interaction partners increased with increasing phylogenetic distance in only a single plant-pollinator network. % (M_PL_026).
+    others (Fig.~\ref{within_network_regression}). Overlap of interaction partners decreased significantly with increasing phylogenetic distance in 7/11 plant-herbivore networks and 33/59 plant-pollinator networks. In the remaining four plant-herbivore networks and 25 of the 26 remaining plant-pollinator networks, overlap of interaction partners was not related to phylogenetic distance. Overlap of interaction partners increased with increasing phylogenetic distance in only a single plant-pollinator network.% (M_PL_026).
 
 
     [[Reviewers demanded this - it seems very boring]]
-    Comparing the results in the observed networks to those obtained after randomising phylogenetic distances across pairs of plants, the observed slope of the relationship between phylogenetic distance and interaction partner overlap was always more extreme (i.e., always lesser or always greater) than that obtained in the random networks. Observed networks with a negative relationship between phylogenetic distance and overlap always had a more negative slope than that obtained from the random networks, while the 10 networks with positive relationships between phylogenetic distance and overlap always had more positive relationships than the random networks.
+    Comparing the results in the observed networks to those obtained after randomising phylogenetic distances across pairs of plants, the observed slope of the relationship between phylogenetic distance and interaction partner overlap was always more extreme (i.e., always lesser or always greater) than that obtained in the random networks (Fig.~\ref{obs_vs_random}). Observed networks with a negative relationship between phylogenetic distance and overlap always had a more negative slope than that obtained from the random networks, while the 10 networks with positive relationships between phylogenetic distance and overlap always had more positive relationships than the random networks.
 
 
     Comparing the random networks to randomizations of the random networks, the slope obtained from the initial random network was quite variable with respect to the slopes obtained from 500 randomizations of the random network. Averaged over the 1000 randomizations of each observed network, the slope of the random network was more extreme than 48.1-51.3\% of the randomizations of the random network. This confirms that shuffling phylogenetic distances between plant pairs destroys the relationship between distance and interaction partner overlap, and that further shuffling distances does not have a predictable effect.
@@ -710,7 +710,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
 \section*{Author Contribution}
 
-  ARC, DBS, GVDR, and NJB designed the research. ARC, JAT, and CJW collected published data.
+  ARC, DBS, GVDR, and NJB designed the research. ARC, JAT, and CJW collected published data. [[Add MSC helpers!]]
   ARC and GVDR performed the analyses. All authors contributed to the manuscript.
 
 \end{spacing}
@@ -855,10 +855,17 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
      herbivory networks (top; green) and 59 pollination
      networks (bottom; purple). In both network types, the probability of a pair of plants
      sharing an interaction partner increased with increasing phylogenetic distance (thick,
-     dark lines). There was substantial variation among networks (thin, pale lines) of both types.}
+     dark lines). There was substantial variation among networks (thin, pale lines) of both types. The slope of the regression for each network was significantly more extreme than that obtained from 999 permutatations of that network (slopes obtained from the permuted networks ranged between -1.34$\times10^{-12}$ and 9.19$\times10*{-13}$).}
     \label{within_network_regression} 
   \end{figure}
 
+  \begin{figure}[!h]
+    \begin{center}
+      \centerline{\includegraphics*[width=.75\textwidth]{Figures/dataplots/observed_vs_random.eps}}
+    \end{center}
+     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance was signficantly different from 0 for each network. Here we show, for plant-herbivore (PH) and plant-pollinator (PP) networks, the observed slopes (depicted by green squares or purple diamonds, respectively). The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to 0.}
+    \label{obs_vs_random} 
+  \end{figure}
 
   \begin{figure}[!h]
     \begin{center}
