@@ -277,26 +277,28 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
 \subsection*{Calculating niche overlap within communities}
 
-  We calculated niche overlap for each pair of species within
-  a community using a modified Jaccard index. The 
-  Jaccard index $J_{ij}$ describes the proportion of shared interaction 
-  partners for for species $i$ and $j$ and is defined as: 
+  We calculated niche overlap for each pair of species within a community 
+  using a Jaccard index to describe the number of shared interaction 
+  partners, augmented with the number of interaction partners which were 
+  not shared. The Jaccard index $J_{ij}$ describes the proportion of 
+  shared interaction partners for for species $i$ and $j$ and is defined as: 
 
   \begin{equation}
-    J_{ij} = \frac{M_{ij}}{P_i+P_j-M_ij} ,,
+    J_{ij} = \frac{M_{ij}}{P_i+P_j-M_{ij}} ,
   \end{equation}
 
   where $M_{ij}$ is the set of \emph{mutual} (shared) interaction partners of 
-  species $i$ and $j$ and $P_i$ and $P_j$ are the sets of interaction 
+  species $i$ and $j$ and $P_i$ and $P_j$ are the sizes of the sets of interaction 
   \emph{partners} for species $i$ and $j$ respectively. We wished to give more 
   weight to species sharing a large number of interaction partners as well as 
   those sharing a large proportion (i.e., to emphasize pairs of generalists 
   sharing most of their interaction partners over specialists sharing a single 
   interaction partner). We therefore recorded, for each species, the number of 
   shared interaction partners $M_{ij}$ and the number of interaction partners 
-  that were not shared ($U_{ij}$ = $P_{i}$+$P_{j}$-2$M_{ij}$). Instead of a 
-  single index $J_{ij}$ we therefore defined niche overlap between species
-  $i$ and $j$ as a tuple: ($M_{ij}$, $U_{ij}$).
+  for each species pair that were not shared 
+  ($U_{ij}$ = $P_{i}$+$P_{j}$-2$M_{ij}$). Instead of a single index $J_{ij}$ 
+  we therefore keep track of the information needed to compute
+  niche between species $i$ and $j$ as a tuple: ($M_{ij}$, $U_{ij}$).
 
 
   % To fully describe the extent to which two plants' niches overlap,
@@ -334,42 +336,49 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 \subsection*{Statistical analysis} 
 
   We modelled the relationship between niche overlap and phylogenetic distance
-  using a logistic regression. We used both the numbers of shared and 
-  non-shared partners as dependent variables and centred, scaled phylogenetic 
-  distance as the independent variable. This is conceptually similar to 
+  using a logistic regression. We used both the numbers of shared ($M_{ij}$)and 
+  non-shared ($U_{ij}$) partners as dependent variables and centred, scaled phylogenetic 
+  distance as the independent variable. This approach is conceptually similar to 
   modelling successes and failures in a binomial-distributed process. 
-  Accordingly, we assumed a binomial distribution for residuals. All regressions were fit using the R~\citep{R} function 
-  ``glm'' from package \emph{lme4}~\citep{lme4}. To avoid potential 
-  confounding effects of different relationships in different networks, we 
-  modelled the relationship between overlap and phylogenetic distance within 
-  each network separately. 
+  Accordingly, we assumed a binomial distribution for residuals. Regressions of
+  niche overlap and phylogenetic distance within each network were fit using the
+  R~\citep{R} base function ``glm''. These separate regressions avoid the potential
+  for confounding the effects of different relationships in different networks. As
+  we also wished to evaluate the overall trend across networks, we fit an additional
+  regression of niche overlap and phylogenetic distance across all network types.
+  As well as the fixed effect of phylogenetic distance, this regression included 
+  fixed effects of network type (pollination or herbivory) and the interaction 
+  between phylogenetic network type and random intercepts and slopes per network.
+  This expanded regression was fit using the R~\citep{R} function ``glmer'' from
+  package \emph{lme4}~\citep{lme4}. [[Confirm that I actually use the separate 
+  regressions and not just the full one. ]]
 
 
   Note that pairs of plants are not always independent: the same plant will
   appear in many pairs. This violates the assumption of independence used when 
   calculating the significance of logistic regressions within the R~\citep{R} 
-  package \emph{lme4}~\citep{lme4}. To calculate significance of the 
-  relationships we observed, it was therefore necessary to compare the 
-  observed relationships to those in a suite of random networks. To create 
+  base package or the package \emph{lme4}~\citep{lme4}. To calculate significance 
+  of the regression coefficients we observed, it was therefore necessary to compare the 
+  observed relationships to those in a suite of appropriately permuted networks. To create 
   these networks, we shuffled interactions among species while preserving row 
   and column totals. That is, each species retained the same number of 
   interaction partners as in the observed network but the exact set of 
   partners (and therefore niche overlaps with all other species) varied across 
-  random networks. We preserved the observed phylogenetic relationships 
+  permuted networks. We preserved the observed phylogenetic relationships 
   between species in all cases. For each observed network, we created 999 such 
-  random networks and calculated the relationship between niche overlap and 
+  permuted networks and calculated the relationship between niche overlap and 
   phylogenetic distance. This gave us a null distribution for each observed 
   network with which to determine the significance of the observed 
   relationship.
 
 
-  This randomization approach also allows us to estimate type I and type II 
-  error for our analysis. To do this, we created 500 randomizations of each 
-  random network and, again keeping the observed phylogenetic distances 
+  This permutation approach also allows us to estimate type I and type II 
+  error for our analysis. To do this, we created 500 permutations of each 
+  permuted network and, again keeping the observed phylogenetic distances 
   between plant species, repeated our analyses. We can then determine the 
-  number of randomized networks which appear to have significant 
-  overlap-phylogenetic distance relationships relative to the randomizations 
-  of these random networks (type I error). [[How does this get at type II error?]] 
+  number of permuted networks which appear to have significant 
+  overlap-phylogenetic distance relationships relative to the permutations 
+  of these permuted networks (type I error). [[How does this get at type II error?]] 
 
 
   % To determine how overlap of interaction partners
@@ -520,10 +529,10 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
 
     [[Reviewers demanded this - it seems very boring]]
-    Comparing the results in the observed networks to those obtained after randomising phylogenetic distances across pairs of plants, the observed slope of the relationship between phylogenetic distance and interaction partner overlap was always more extreme (i.e., always lesser or always greater) than that obtained in the random networks (Fig.~\ref{obs_vs_random}). Observed networks with a negative relationship between phylogenetic distance and overlap always had a more negative slope than that obtained from the random networks, while the 10 networks with positive relationships between phylogenetic distance and overlap always had more positive relationships than the random networks.
+    Comparing the results in the observed networks to those obtained after permuting phylogenetic distances across pairs of plants, the observed slope of the relationship between phylogenetic distance and interaction partner overlap was always more extreme (i.e., always lesser or always greater) than that obtained in the permuted networks (Fig.~\ref{obs_vs_random}). Observed networks with a negative relationship between phylogenetic distance and overlap always had a more negative slope than that obtained from the permuted networks, while the 10 networks with positive relationships between phylogenetic distance and overlap always had more positive relationships than the permuted networks.
 
 
-    Comparing the random networks to randomizations of the random networks, the slope obtained from the initial random network was quite variable with respect to the slopes obtained from 500 randomizations of the random network. Averaged over the 1000 randomizations of each observed network, the slope of the random network was more extreme than 48.1-51.3\% of the randomizations of the random network. This confirms that shuffling phylogenetic distances between plant pairs destroys the relationship between distance and interaction partner overlap, and that further shuffling distances does not have a predictable effect.
+    Comparing the permuted networks to permutations of the permuted networks, the slope obtained from the initial permuted network was quite variable with respect to the slopes obtained from 500 permutationss of the permuted network. Averaged over the 1000 permutations of each observed network, the slope of the permuted network was more extreme than 48.1-51.3\% of the permutations of the permuted network. This confirms that shuffling phylogenetic distances between plant pairs destroys the relationship between distance and interaction partner overlap, and that further shuffling distances does not have a predictable effect.
 
 
   \subsection*{Linking network-level trends and community composition} 
