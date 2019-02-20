@@ -82,7 +82,7 @@ Figures: 3
 Tables: 2
 
 
-Supporting information: 1 file containing 4 sections.
+Supporting information: 1 file containing 1 section.
 
 
 \vspace{0.4 in}
@@ -240,7 +240,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   of herbivores. The adjusted networks range in size between 19 and 
   997 total species (mean=162, median=97) with  between 8 and 132 
   plant species (mean=39.1, median=29.5). See \emph{Table S1, 
-  Supporting Information} [[NOT DONE!]]for details on the original sources of all 
+  Supporting Information} for details on the original sources of all 
   networks. 
 
 \subsection*{Phylogenetic data}
@@ -331,11 +331,11 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   % of both would simply be one.
 
   % [[It appears we switched to Jaccard and Sorenson dissimilarities - number of shared partners and number of shared partners*2/notshared.]]
-
-
 \subsection*{Statistical analysis} 
 
-  We modelled the relationship between niche overlap and phylogenetic distance
+  We modelled the relationship between nich
+
+e overlap and phylogenetic distance
   using a logistic regression. We used both the numbers of shared ($M_{ij}$)and 
   non-shared ($U_{ij}$) partners as dependent variables and centred, scaled phylogenetic 
   distance as the independent variable. This approach is conceptually similar to 
@@ -350,8 +350,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   fixed effects of network type (pollination or herbivory) and the interaction 
   between phylogenetic network type and random intercepts and slopes per network.
   This expanded regression was fit using the R~\citep{R} function ``glmer'' from
-  package \emph{lme4}~\citep{lme4}. [[Confirm that I actually use the separate 
-  regressions and not just the full one. ]]
+  package \emph{lme4}~\citep{lme4}.
 
 
   Note that pairs of plants are not always independent: the same plant will
@@ -563,6 +562,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
   \subsection*{Within-family conservation of niche overlap} [[Still of interest given negative result above?]]
 
+  % Regression of all families at once with RE's for network
     Taking all families together, the probability of species in the same family sharing interaction partners decreased wiht increasing phylogenetic distance in both plant-pollinator and plant-herbivore networks and the strength of this relationship did not differ significantly between network types ($\beta_{distance}$=-4.75, $p$=0.012; $\beta_{distance:PH}$=-1.73, $p$=0.681). Plants in plant-herbivore networks had a higher probability of sharing interaction partners with a member of the same family ($\beta_{PH}$=0.78, $p$=0.007).
 
 
@@ -570,7 +570,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     varied widely in both pollination and herbivory networks. 
     % Gotta separate plant-herb and plant-poll networks.
 
-
+    % Regressions for each family separately.
     For the families
     that were well represented in pollination networks, overlap decreased
     with increasing phylogenetic distance in 18 (Table~\ref{family_slopes_pp}).
@@ -750,6 +750,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
   \begin{table}[!h]
   \caption{\small Change in log odds (per million years of phylogenetic distance) of a pair of plants in the same family sharing a herbivore.}
+  % These are from the regressions within each family. P-vals need to be replaced, to come from randomizations. Coefficients should be fine.
   \label{family_slopes_ph}
   \begin{tabular}{|l  rr|}
   \hline
@@ -779,6 +780,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   \begin{table}[!h]
   \caption{
   \small Change in log odds (per million years of phylogenetic distance) of a pair of plants in the same family sharing a pollinator.}
+  % These are from the regressions within each family. P-vals need to be replaced, to come from randomizations. Coefficients should be fine.
   \small
   \label{family_slopes_pp}
   \begin{tabular}{|l  rr|}
