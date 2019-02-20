@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}  
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage[dvips]{graphicx}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage{gensymb}
+% \usepackage{rotating}
+% make Figure 1 etc bold
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+
+\usepackage[running]{lineno}
+
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+%\usepackage{overcite}
+\usepackage[round]{natbib}
+
+\newcommand{\expect}[1]{\left\langle #1 \right\rangle}
+\newcommand{\etal}{\textit{et al.\ }}
+
+\newcommand{\beginsupplement}{%
+        \setcounter{table}{0}
+        \renewcommand{\thetable}{S\arabic{table}}%
+        \setcounter{figure}{0}
+        \renewcommand{\thefigure}{S\arabic{figure}}%
+     }
+
+% the abstract formatting
+\newenvironment{sciabstract}{%
+\begin{quote} \bf}
+{\end{quote}}
+\renewcommand\refname{References}
+
+% margin sizes`
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+
+\title{Conservation of interaction partners between related plants varies widely across communities and between plant families - Supporting Information}
+
+\author{Alyssa R. Cirtwill$^{1}$, Giulio V. Dalla Riva$^{2}$, Nick J. Baker$^{1}$,\\
+ Joshua A. Thia$^{1,3}$, Christie J. Webber$^{1}$, Daniel B. Stouffer$^{1}$, MSC helpers from Linkoping}
+\date{\small$^1$Centre for Integrative Ecology, School of Biological Sciences\\
+    \medskip$^2$Biomathematics Research Centre, School of Mathematics and Statistics\\
+            University of Canterbury\\Private Bag 4800\\
+Christchurch 8140, New Zealand\\
+\medskip$^3$Present Address: School of Biological Sciences\\
+University of Queensland\\Brisbane, QLD 4072, Australia }
+
+
+
+\begin{document}
+\maketitle
+\baselineskip=8.5mm
+\begin{spacing}{1.0}
+
+
+Supporting information: 1 file containing 4 sections.
+
+\section*{Supporting information 1: Sources for networks}
+
+
+
+
+\end{spacing}
+
+\newpage
+\bibliographystyle{newphy}
+\renewcommand*{\bibfont}{\raggedright}
+\bibliography{noisn}
+
+
+\newpage
+\section*{Tables}
+
+  \begin{table}[!h]
+  \caption{\small Change in log odds (per million years of phylogenetic distance) of a pair of plants in the same family sharing a herbivore.}
+  \label{family_slopes_ph}
+  \begin{tabular}{|l  rr|}
+  \hline
+    Family & Change in log odds & $P$-value \\
+    \hline
+    \emph{Asteraceae} & -1.73 &  0.550 \\
+    \emph{Euphorbiaceae} & -19.2 & \textbf{\textless0.001} \\
+    \emph{Fabaceae} & 18.7 &  \textbf{0.046} \\
+    \emph{Melastomataceae} & -13.2 & \textbf{0.022} \\
+    \emph{Moraceae} & -2.13 & 0.092 \\
+    \emph{Nothofagaceae} & -595 & \textgreater{0.999} \\
+    \emph{Pinaceae} &  -25.8 & 0.733 \\
+    \emph{Poaceae} & -4.50 & \textbf{0.020} \\
+    \emph{Rubiaceae} & -8.16 &  \textbf{0.006} \\
+  \hline
+  \end{tabular}
+  \smallskip
+  \footnotesize
+
+  Nine plant families were sufficiently diverse in our  dataset to permit this analysis
+  (see \emph{Materials \\and Methods} for details). For each pattern of overlap, we show the change
+  in log odds per million years \\and the associated $P$-value. Statistically significant values are
+  indicated in bold. \\
+
+  \end{table}
+
+  \begin{table}[!h]
+  \caption{
+  \small Change in log odds (per million years of phylogenetic distance) of a pair of plants in the same family sharing a pollinator.}
+  \small
+  \label{family_slopes_pp}
+  \begin{tabular}{|l  rr|}
+    \hline
+    Family  & Change in log odds & $P$-value \\
+    \hline
+    \emph{Adoxaceae} &  -65.8 & 0.163 \\
+    \emph{Amaryllidaceae} &  -17.9 & \textbf{0.015} \\
+    \emph{Apiaceae} &  10.9  & \textbf{0.006} \\
+    \emph{Apocynaceae} &  -6.96  & \textbf{0.037} \\
+    \emph{Asparagaceae} &  -6.23  & 0.189 \\
+    \emph{Asteraceae}* &  -1.47  & \textbf{\textless0.001} \\
+    \emph{Berberidaceae} &  -1.48$\times10^3$ & \textgreater0.999 \\
+    \emph{Boraginaceae} &  -5.15  & \textbf{\textless0.001} \\
+    \emph{Brassicaceae} &  -11.2 & 0.072 \\
+    \emph{Calceolariaceae} &  156 & 0.998 \\
+    \emph{Campanulaceae} &  334 & 0.999 \\
+    \emph{Caprifoliaceae} &  0.310 & 0.959 \\
+    \emph{Caryophyllaceae} &  2.09 & 0.644 \\
+    \emph{Cistaceae} &  -11.4 & \textbf{\textless0.001} \\
+    \emph{Convolvulaceae} &  -1.84  & 0.837 \\
+    \emph{Ericaceae} &  4.61 & 0.116 \\
+    \emph{Fabaceae}* &  -12.9 & \textbf{\textless0.001} \\
+    \emph{Geraniaceae} &  -3.31  & 0.624 \\
+    \emph{Hydrangeaceae} &  0.057 & 0.982 \\
+    \emph{Iridaceae} &  -27.9 & 0.078 \\
+    \emph{Lamiaceae} &  -5.01  & \textbf{\textless0.001} \\
+    \emph{Loasaceae} &  -865  & \textgreater0.999 \\
+    \emph{Malpighiaceae} &  2.80 & 0.168 \\
+    \emph{Malvaceae} &  -5.56  & 0.363 \\
+    \emph{Melastomataceae}* &  5.19 & 0.577 \\
+    \emph{Montiaceae} &  -1.12  & 0.870 \\
+    \emph{Myrtaceae} &  8.55 & 0.071 \\
+    \emph{Oleaceae} &  0.995 & 0.855 \\
+    \emph{Onagraceae} &  -556  & \textgreater0.999 \\
+    \emph{Orchidaceae} &  -14.5 & 0.145 \\
+    \emph{Orobanchaceae} &  24.2  & 0.326 \\
+    \emph{Papaveraceae} &  -11.2 & 0.511 \\
+    \emph{Phyllanthaceae} &  9.99 & 0.433 \\
+    \emph{Plantaginaceae} &  -8.48  & \textbf{0.001} \\
+    \emph{Poaceae}* &  69.2  & \textbf{0.003} \\
+    \emph{Polygonaceae} &  -14.8 & \textbf{\textless0.001} \\
+    \emph{Primulaceae} &  14.9  & 0.343 \\
+    \emph{Ranunculaceae} &  -38.0 & \textbf{\textless0.001} \\
+    \emph{Rosaceae} &  0.759 & 0.735 \\
+    \emph{Rubiaceae}* &  -13.0 & \textbf{0.026} \\
+    \emph{Salicaceae} &  -1.90  & 0.545 \\
+    \emph{Sapindaceae} &  821 & 0.999 \\
+    \emph{Saxifragaceae} &  -0.092  & 0.992 \\
+    \emph{Solanaceae} &  -21.9 & 0.189 \\
+    \emph{Tropaeolaceae} &  192 & 0.997 \\
+    \emph{Verbenaceae} &  -9.03  & 0.627 \\
+    \emph{Violaceae} &  -0.487  & 0.974 \\
+  \hline
+  \end{tabular}
+  \smallskip
+  \footnotesize
+
+    We were able to fit these models to 47 plant families (see \emph{Materials and Methods} for     details). 
+    Families \\ marked with an asterisk were also sufficiently diverse in herbivory networks. 
+    Statistically significant values \\ are indicated in bold. 
+
+    \end{table}
+
+\clearpage
+
+\end{document}
