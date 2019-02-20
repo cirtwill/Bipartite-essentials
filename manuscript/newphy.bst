@@ -273,6 +273,12 @@ FUNCTION {bbl.mthesis}
 FUNCTION {bbl.phdthesis}
 { "Ph.D. thesis" }
 
+FUNCTION {bbl.mscthesis}
+{ "M.Sc. thesis" }
+
+FUNCTION {bbl.bscthesis}
+{ "B.Sc. thesis" }
+
 FUNCTION {bbl.first}
 { "1st" }
 
@@ -1288,7 +1294,40 @@ FUNCTION {phdthesis}
   fin.entry
   write.url
 }
-
+FUNCTION {mscthesis}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  format.date "year" output.check
+  date.block
+  format.btitle
+  "title" output.check
+  new.block
+  bbl.mscthesis format.thesis.type output.nonnull
+  school "school" bibinfo.warn output
+  address "address" bibinfo.check output
+  new.block
+  format.note output
+  fin.entry
+  write.url
+}
+FUNCTION {bscthesis}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  format.date "year" output.check
+  date.block
+  format.btitle
+  "title" output.check
+  new.block
+  bbl.bscthesis format.thesis.type output.nonnull
+  school "school" bibinfo.warn output
+  address "address" bibinfo.check output
+  new.block
+  format.note output
+  fin.entry
+  write.url
+}
 FUNCTION {proceedings}
 { output.bibitem
   format.editors output
