@@ -333,16 +333,20 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   % [[It appears we switched to Jaccard and Sorenson dissimilarities - number of shared partners and number of shared partners*2/notshared.]]
 \subsection*{Statistical analysis} 
 
-  We modelled the relationship between nich
-
-e overlap and phylogenetic distance
+  We modelled the relationship between niche overlap and phylogenetic distance
   using a logistic regression. We used both the numbers of shared ($M_{ij}$)and 
   non-shared ($U_{ij}$) partners as dependent variables and centred, scaled phylogenetic 
   distance as the independent variable. This approach is conceptually similar to 
   modelling successes and failures in a binomial-distributed process. 
   Accordingly, we assumed a binomial distribution for residuals. Regressions of
   niche overlap and phylogenetic distance within each network were fit using the
-  R~\citep{R} base function ``glm''. These separate regressions avoid the potential
+  R~\citep{R} base function ``glm'' and took the form. The fixed effect of distance
+  in this regression, $\beta_{distance}$, can
+  be understood as the change in log odds of sharing an interaction partner per
+  million-year change in phylogenetic distance. 
+
+
+  These separate regressions avoid the potential
   for confounding the effects of different relationships in different networks. As
   we also wished to evaluate the overall trend across networks, we fit an additional
   regression of niche overlap and phylogenetic distance across all network types.
@@ -379,17 +383,15 @@ e overlap and phylogenetic distance
   overlap-phylogenetic distance relationships relative to the permutations 
   of these permuted networks (type I error). Type II error can be determined
   from the distribution of p-values obtained when comparing the permuted 
-  networks to permutations of the permuted networks. The distribution of 
-  p-values should be uniform. [[I still do not see how this gives us the
-  probability of a false negative... ]] [[Something to do with comparing
-  the distributions of p-values from glmer and the ones from the randomization.
-  I don't think I actually kept the p-values from glmer, but the p-values from
-  the randomizations are bang-on uniform.]]
-  [[Maybe go back to whichever reviewer comment this was based on?]]
-  [[How does this get at type II error?]] 
-  [[Seems we can calculate power for a specific alternative hypothesis by
-  comparing distributions of p-values from glmer and from the permutations.
-  I can only pray I kept the p-values from the randomised regressions...]]
+  networks to permutations of the permuted networks. Although calculating the
+  exact type II error requires a specific alternative hypothesis, the uniform
+  distribution of p-values we obtained after permuting the permuted networks
+  means that the type II error would increase linearly as the alternative 
+  hypothesis was set farther from zero. [[Is this cogent? Correct? If not, I think I
+  will have to remove all reference to type II error and hope we don't get the
+  same reviewer again. It may not be an issue since we've moved away from the
+  motif-like measures.]]
+
 
   % To determine how overlap of interaction partners
   % breaks down over phylogenetic distance,
@@ -487,10 +489,6 @@ e overlap and phylogenetic distance
 
 \subsection*{Calculating niche overlap within families}
 
-  [[I need to double-check that I'm actually doing this, and that the right things
-  are being plotted.]][[I think I may not have updated this since the family composition 
-  was not singificant. Still of interest, so redo. Guess I will also need to do randomisations
-  to make the p-vals here?]]
 
   Finally, we wished to compare the breakdown of overlap of interactions in
   different plant families. To do this, we used the same definitions of overlap
@@ -503,36 +501,23 @@ e overlap and phylogenetic distance
 
 
   For each plant family, within each network type, we then fit one of two similar 
-  sets of models. First, when family $f$ was found in several networks of network
-  type $t$, we fit mixed-effects logistic regressions for the probability of sharing an interaction partner $\omega_{ntfij}$ of the form
-  \begin{equation}
-    logit(\omega_{ntfij}) \propto \delta_{ij} + N_{n} ,
-    \label{full}
-  \end{equation}
-
-  \noindent where $\omega_{tnfij}$ is the probability of sharing a partner 
-  in network $n$ of network type $t$ for plants $i$ and $j$ in plant family $f$,
-  $\delta_{ij}$ is the phylogenetic distance between plants $i$ and $j$, and
-  $N_{n}$ is a random effect of network $n$.
-  Second, if a plant family was represented in only one network 
-  and therefore necessarily in only one network type, we omitted the 
-  network-level random effect giving mixed-effects logistic regressions of the form
- \begin{equation}
-    logit(\omega_{pntfij}) \propto \delta_{ij} .
-    \label{minimal}
-  \end{equation}
-
-  \noindent We fit Eq.~\ref{full} using the function `glmer' from the
-  R package lme4~\citep{lme4} and fit Eq.~\ref{minimal} in R using the
-  function `glm' from the same package.
+  sets of models. If family $f$ was found in several networks of the same type
+  (e.g., several pollination networks), we fit a mixed-effects logistic regression
+  relating niche overlap to a fixed effect of phylogenetic distance and a random
+  effect for each network using the R~\citep{R} function ``glmer'' from
+  package \emph{lme4}~\citep{lme4}. If family $f$ was found in only one network
+  (and therefore only one network type), we omitted the 
+  network-level random effect and fit a logistic regression using the R~\citep{R}
+  base function ``glm''. [[We didn't use equations to explain the first round
+  of logistic regressions, so not sure why I was doing that here...]]
 
 
 \section*{Results}
 
 
-  \subsection*{Within-network conservation of niche overlap}
+  \subsection*{Within-network conservation of niche overlap} [[ok, need to make some updates here.]]
 
-    Across all networks, overlap of interaction partners decreased with increasing phylogenetic distance and the decrease in overlap of pollinators was steeper than that in herbivores ($\beta_{distance}$=-6.82, $p$\textless0.001 and $\beta_{distance:PP}$=-18.5, $p$\textless0.001, respectively). That is, a pair of plants in the same genus was more likely to share interaction partners than a pair of plants in the same family in both types of networks, but a pair of congeners would be less likely to share pollinators than to share herbivores. Regardless of phylogenetic distance, a pair of plants were also less likely to share pollinators than herbivores ($\beta_{PP}$=-1.44, $p$\textless0.001). This may be due to the greater proportion of
+    Across all networks, overlap of interaction partners decreased with increasing phylogenetic distance and the decrease in overlap of pollinators was steeper than that in herbivores ($\beta_{distance:herbivory}$=-6.82, $p$\textless0.001 and $\beta_{distance:pollination}$=-18.5, $p$\textless0.001, respectively). That is, a pair of plants in the same genus was more likely to share interaction partners than a pair of plants in the same family in both types of networks, but a pair of congeners would be less likely to share pollinators than to share herbivores. Regardless of phylogenetic distance, a pair of plants were also less likely to share pollinators than herbivores ($\beta_{PP}$=-1.44, $p$\textless0.001). This may be due to the greater proportion of
     specialist pollinators than specialist herbivores. In our dataset, an
     average of 48\% (+/- 14) of pollinators in a given web were extreme 
     specialists (i.e., visited only one plant species) compared to 29\% 
@@ -548,7 +533,7 @@ e overlap and phylogenetic distance
 
 
     [[Reviewers demanded this - it seems very boring]]
-    Comparing the results in the observed networks to those obtained after permuting phylogenetic distances across pairs of plants, the observed slope of the relationship between phylogenetic distance and interaction partner overlap was always more extreme (i.e., always lesser or always greater) than that obtained in the permuted networks (Fig.~\ref{obs_vs_random}). Observed networks with a negative relationship between phylogenetic distance and overlap always had a more negative slope than that obtained from the permuted networks, while the 10 networks with positive relationships between phylogenetic distance and overlap always had more positive relationships than the permuted networks.
+    Comparing the results in the observed networks to those obtained after permuting phylogenetic distances across pairs of plants, the observed slope of the relationship between phylogenetic distance and interaction partner overlap was always more extreme (i.e., always lesser or always greater) than that obtained in the permuted networks (Fig.~\ref{obs_vs_random}). Observed networks with a negative relationship between phylogenetic distance and overlap always had a more negative slope than that obtained from the permuted networks, while the 10 networks with positive relationships between phylogenetic distance and overlap always had more positive relationships than the permuted networks. This suggests that even in the networks with non-significant relationships between niche overlap and phylogenetic distance, the association between niche overlap and phylogenetic distance was not random. 
 
 
     Comparing the permuted networks to permutations of the permuted networks, the slope obtained from the initial permuted network was quite variable with respect to the slopes obtained from 500 permutationss of the permuted network. Averaged over the 1000 permutations of each observed network, the slope of the permuted network was more extreme than 48.1-51.3\% of the permutations of the permuted network. This confirms that shuffling phylogenetic distances between plant pairs destroys the relationship between distance and interaction partner overlap, and that further shuffling distances does not have a predictable effect.
@@ -560,7 +545,7 @@ e overlap and phylogenetic distance
     % Also performed a CCA to see which fams had most positive/negative associations, but with non-sig results I don't think it's interesting.
 
 
-  \subsection*{Within-family conservation of niche overlap} [[Still of interest given negative result above?]]
+  \subsection*{Within-family conservation of niche overlap} 
 
   % Regression of all families at once with RE's for network
     Taking all families together, the probability of species in the same family sharing interaction partners decreased wiht increasing phylogenetic distance in both plant-pollinator and plant-herbivore networks and the strength of this relationship did not differ significantly between network types ($\beta_{distance}$=-4.75, $p$=0.012; $\beta_{distance:PH}$=-1.73, $p$=0.681). Plants in plant-herbivore networks had a higher probability of sharing interaction partners with a member of the same family ($\beta_{PH}$=0.78, $p$=0.007).
