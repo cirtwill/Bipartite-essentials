@@ -6,8 +6,8 @@ files2<-as.character(list.files(path="../data/Jaccard/Overlap_dist/Stouffer_Ecol
 
 files=c(files1,files2)
 
-outtab=matrix(nrow=length(files),ncol=5)
-colnames(outtab)=c('network','Jaccard_slope','Jaccard_p','Sorenson_slope','Sorenson_p')
+outtab=matrix(nrow=length(files),ncol=6)
+colnames(outtab)=c('network','Jaccard_slope','Jaccard_p','Sorenson_slope','Sorenson_p','n_pairs')
 combi=matrix(nrow=0,ncol=6)
 
 for(n in 1:length(files)){
@@ -17,9 +17,10 @@ for(n in 1:length(files)){
   netdata=read.csv(network,header=TRUE,row.names=1,check.names=FALSE,sep=',')
   Jaccard=glm(cbind(n_shared_animals,n_notshared)~scale(distance),data=netdata,family="binomial")
   Sorenson=glm(cbind(n_shared_interactions,n_notshared)~scale(distance),data=netdata,family="binomial")
+  size=nrow(netdata)
 
   obs_slopes=c(Jaccard$coefficients['scale(distance)'],summary(Jaccard)$coefficients['scale(distance)',4],Sorenson$coefficients['scale(distance)'],summary(Sorenson)$coefficients['scale(distance)',4])
-  outtab[n,]=c(net,obs_slopes)
+  outtab[n,]=c(net,obs_slopes,size)
 
   if(n<12){
   	netdata$nettype='ph'
@@ -29,6 +30,7 @@ for(n in 1:length(files)){
   print(n)
   netdata$network=netname
   combi=rbind(combi,netdata)
+  print(outtab[n,])
 
 }
 

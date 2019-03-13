@@ -393,6 +393,9 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   motif-like measures.]]
 
 
+  To test whether the relationship between phylogenetic distance and niche overlap
+  depended on network size, we fit a general linear model for the slope  of this relationship against the number of plant pairs for which distances could be calculated (hereafter ``network size"), network type, and their interaction. As the interaction between network type and network size was strong and opposite to the direction of the main effect of network size, we fit an additional general linear model using only data from plant-pollinator networks and including only the effect of network size (plant-herbivore networks were the baseline in the full glm). Both models were fit using the R~\citep{R} base function ``glm".
+
   % To determine how overlap of interaction partners
   % breaks down over phylogenetic distance,
   % we modelled the probabilities of observing each pattern
@@ -530,6 +533,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     pollination networks, with overlap of interaction partners decreasing 
     with increasing phylogenetic distance in some networks and increasing in 
     others (Fig.~\ref{within_network_regression}). Overlap of interaction partners decreased significantly with increasing phylogenetic distance in 7/11 plant-herbivore networks and 33/59 plant-pollinator networks. In the remaining four plant-herbivore networks and 25 of the 26 remaining plant-pollinator networks, overlap of interaction partners was not related to phylogenetic distance. Overlap of interaction partners increased with increasing phylogenetic distance in only a single plant-pollinator network.% (M_PL_026).
+    The slope of the relationship between phylogenetic distance and overlap of interaction partners was related to the number of plant pairs in plant-herbivore, but not plant-pollinator, networks. Larger plant-herbivore networks had higher values of $\beta_{distance}$ ($\beta_{size}$=2.58$\times$10$^{-4}$, $p$=0.011 for the full glm; plant-herbivore networks are the baseline). Plant-pollinator networks had higher (less negative) slopes overall ($\beta_{pollinator}$=0.306, $p$\textless0.001 compared to the intercept value of -0.434 for plant-herbivore networks). Plant-pollinator networks moreover showed a much weaker relationship between network size and the strength of the overlap-distance relationship ($\beta_{pollination:size}$=-2.64$\times$10$^{-4}$, $p$=0.009). After refitting the glm to the plant-pollinator networks alone, there was no significant relationship between network size and the slope of the overlap-distance relationship ($\beta_{size}$=-5.91$\times$10$^{-6}$, $p$=0.572).
 
 
     [[Reviewers demanded this - it seems very boring]]
