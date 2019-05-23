@@ -113,7 +113,7 @@ def main():
   # grace.set_label_scheme("dummy")
   for i in range(0,12):
   	keys=sorted(pps)[i*5:i*5+5]
-  	print i, len(keys)
+  	# print i, len(keys)
 	graph=grace.add_graph(Panel)
 	graph=format_graph(graph)
 	j=0
@@ -126,7 +126,7 @@ def main():
   		keys.append(sorted(phs)[-1])
   	elif i==2:
   		keys=[]
-  	print i,len(keys)
+  	print i,keys
 	graph=grace.add_graph(Panel)
 	graph=format_graph(graph)
 	j=0
