@@ -105,7 +105,7 @@ Supporting information: 1 file containing 1 section.
           overlap of interaction
           partners for each pair of plants in 59 pollination and 11 herbivory
           networks.  We then tested for relationships between phylogenetic 
-          distance and overlap within each network, and whether these 
+          distance and partner overlap within each network, and whether these 
           relationships varied with the composition of the plant community.
           Finally, we tested for different relationships within well-represented
           plant families.
@@ -118,7 +118,7 @@ Supporting information: 1 file containing 1 section.
 
     \item The variety of relationships between phylogenetic distance and
           interaction partners in different plant families likely
-          reflects a variety of ecological and evolutionary processes. To 
+          reflects a comparable variety of ecological and evolutionary processes. To 
           understand the distribution of interactions within a community, 
           it is therefore important to consider factors affecting particular 
           plant families.
@@ -128,6 +128,8 @@ Supporting information: 1 file containing 1 section.
 \section*{Warning}
 
 Our original methodology was different from that in Fontaine \& Th\'{e}bault 2015 (Popul Ecol), but now that we've switched to Jaccard as our overlap measure we're doing almost the exact same thing with a slightly different set of networks. This will probably make it quite hard to argue novelty.
+
+\textbf{DBS: }
 
 
 \section*{Keywords}
@@ -166,7 +168,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   Recent studies that have investigated this question at the level of whole
   communities, however, have yielded mixed results~\citep{Rezende2007a,Gomez2010,Rohr2014a,Fontaine2015,Lind2015,Ibanez2016,Bergamini2017,Sydenham2017,Volf2017,Hutchinson2017}.
   In particular, significant phylogenetic signal in plants' sets of interaction partners tends to be rare in empirical networks (\citealp{Rezende2007a,Lind2015,Ibanez2016}; but see~\citealp{Elias2013,Fontaine2015,Hutchinson2017}). Significant degrees of phylogentic signal and/or coevolution may also lead to only small differences in network structure, adding to the difficulty of understanding patterns in species' interaction partners~\citep{Ponisio2017}.
-  Further, the plant and animal components of networks can show different degrees of phylogenetic conservation of interaction partners. In mutualistic networks, animals often show a stronger phylogenetic signal in their partners than plants~\citep{Rezende2007a,Chamberlain2014,Rohr2014,Vamosi2014,Lind2015,Fontaine2015} (but see~\citep{Rafferty2013} for a counterexample). In antagonistic networks, however, actively-foraging consumers tend to show less phylogenetic signal than their prey~\citep{Ives2006,Cagnolo2011,Naisbit2011,Fontaine2015}. Thus, it is not straightforward to assume that interactions will be similar among related species. [[GVDR was skeptical of a similar point in the previous draft - less contentious now?]]
+  Further, the plant and animal components of networks can show different degrees of phylogenetic conservation of interaction partners. In mutualistic networks, animals often show a stronger phylogenetic signal in their partners than do plants~\citep{Rezende2007a,Chamberlain2014,Rohr2014,Vamosi2014,Lind2015,Fontaine2015} (but see~\citep{Rafferty2013} for a counterexample). In antagonistic networks, however, actively-foraging consumers tend to show less phylogenetic signal than their prey~\citep{Ives2006,Cagnolo2011,Naisbit2011,Fontaine2015}. Thus, it is not straightforward to assume that interactions will always be similar among related species. [[GVDR was skeptical of a similar point in the previous draft - less contentious now?]]
   % Further, plants' roles [[how defined?]] within networks tend to be less phylogenetically constrained than those of 
   % animals~\citep{Rezende2007a,Chamberlain2014,Rohr2014,Vamosi2014,Lind2015}. [[GVDR is skeptical of this - check partiteness, size, type of role and add more detail to support.]] % I doubt this is really important, probably more trouble than it's worth.
 
@@ -221,21 +223,21 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   Whereas previous 
   studies have focused on the presence or absence of phylogenetic
   signal across entire networks, we take a pairwise perspective in
-  order to ontain a more detailed picture of how plant phylogeny
+  order to obtain a more detailed picture of how plant phylogeny
   relates to network structure. Specifically,
   we test whether niche overlap decreases over increasing phylogenetic
   distance in a large dataset of pollination and herbivory networks, 
   whether the plant family composition of a community affects the
   relationship between niche overlap and phylogenetic distance in that 
   community, and whether the relationship between niche overlap and 
-  phylogenetic distance differs across plant families.
+  phylogenetic distance differs systematically across plant families.
 
 
 \section*{Materials and Methods}
 
 \subsection*{Network data}
 
-  We studied tested for phylogenetic signal in niche overlap within a 
+  We tested for phylogenetic signal in niche overlap within a 
   set of 59 pollination and 11 herbivory networks. These networks span 
   a range of biomes (desert to scrub forest to grassland) and 
   countries (Sweden to Australia). The herbivory networks included a 
@@ -272,7 +274,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   plants were removed from each network (median 4.60\%, range 0-55.10\%).
 
 
-  We then estimated phylogenetic distances between species. To accomplish 
+  We then estimated phylogenetic distances between the remaining species. To accomplish 
   this, we constructed a phylogenetic tree for our dataset based on a dated
   `mega-tree' of angiosperms~\citep{Zanne2014}. Some species were not included
   in the angiosperm mega-tree (largely ferns and tree ferns). For angiosperms,
@@ -280,7 +282,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   Ferns, tree ferns, and a single club moss were added to the base of the tree.
   This means that closely-related non-angiosperm species appear to have very long 
   phylogenetic distances between them. For this reason, we excluded comparisons 
-  between pairs of non-angiosperms from our analyses. As only two networks (both 
+  between pairs of non-angiosperms from our subsequent analyses. As only two networks (both 
   herbivory networks) included more than one such species and non-angiosperms
   were always a small minority of any network, we do not 
   believe that omitting these comparisons has greatly affected our results.
@@ -295,23 +297,23 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   partners, augmented with the number of interaction partners which were 
   not shared. The Jaccard index $J_{ij}$ describes the proportion of 
   shared interaction partners for for species $i$ and $j$ and is defined as: 
-
+%
   \begin{equation}
     J_{ij} = \frac{M_{ij}}{P_i+P_j-M_{ij}} ,
   \end{equation}
-
+%
   where $M_{ij}$ is the set of \emph{mutual} (shared) interaction partners of 
   species $i$ and $j$ and $P_i$ and $P_j$ are the sizes of the sets of interaction 
   \emph{partners} for species $i$ and $j$ respectively. We wished to give more 
   weight to species sharing a large number of interaction partners as well as 
   those sharing a large proportion (i.e., to emphasize pairs of generalists 
   sharing most of their interaction partners over specialists sharing a single 
-  interaction partner). We therefore recorded, for each species, the number of 
-  shared interaction partners $M_{ij}$ and the number of interaction partners 
-  for each species pair that were not shared 
-  ($U_{ij}$ = $P_{i}$+$P_{j}$-2$M_{ij}$). Instead of a single index $J_{ij}$ 
-  we therefore keep track of the information needed to compute
-  niche between species $i$ and $j$ as a tuple: ($M_{ij}$, $U_{ij}$).
+  interaction partner). For each species pair, we therefore recorded the number of 
+  shared interaction partners ($M_{ij}$) and the number of interaction partners 
+  that were not shared 
+  ($U_{ij}$ = $P_{i}$+$P_{j}$-2$M_{ij}$). Instead of a single index $J_{ij}$, 
+  we thus kept track of the full information needed to compute
+  niche overlap between species $i$ and $j$ as a tuple: ($M_{ij}$, $U_{ij}$).
 
 
   % To fully describe the extent to which two plants' niches overlap,
@@ -352,18 +354,17 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   ($M_{ij}$) and non-shared ($U_{ij}$) partners as dependent variables and 
   centred, scaled phylogenetic distance as the independent variable. This 
   approach is conceptually similar to modelling successes and failures in a 
-  binomial-distributed process. Accordingly, we assumed a binomial 
-  distribution for residuals and used a logit link function to model the 
+  binomial-distributed process. Accordingly, we assumed a binomially-  distributed error structure and used a logit link function to model the 
   probability $\omega_{ij}$ of plants $i$ and $j$ sharing an interaction 
   partner. Regressions of niche overlap and phylogenetic distance within 
   each network were fit using the R~\citep{R} base function ``glm'' and 
   took the form
-
+%
     \begin{equation}
-      \omega_{ij} \propto \beta_{distance}\delta_{ij} ,
+      {\rm logit}\left(\omega_{ij}\right) \propto \beta_{distance}\delta_{ij} ,
       \label{basic}
     \end{equation}
-
+%
   where $\delta_{ij}$ is the phylogenetic distance between plants $i$ and 
   $j$. The fixed effect of distance in this regression, $\beta_{distance}$, 
   can be understood as the change in log odds of sharing an interaction 
@@ -380,11 +381,11 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   random intercepts and slopes per network. This expanded regression was fit
   using the R~\citep{R} function ``glmer'' from package 
   \emph{lme4}~\citep{lme4} and took the form
-
+%
     \begin{equation}
-      \omega_{ij} \propto \beta_{distance} \delta_{ij} + \beta_{pollination} I_{ij} + \beta_{distance:pollination} \delta_{ij} I_{ij} ,
+      {\rm logit}\left(\omega_{ij}\right) \propto \beta_{distance} \delta_{ij} + \beta_{pollination} I_{ij} + \beta_{distance:pollination} \delta_{ij} I_{ij} ,
     \end{equation}
-
+%
   where $I_{ij}=1$ when plants $i$ and $j$ are drawn from a 
   pollination network and $I_{ij}=0$ otherwise and all other symbols 
   are as above. Note that we only compared pairs of plants taken from the 
@@ -425,15 +426,16 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   the exact type II error requires a specific alternative hypothesis, the 
   uniform distribution of p-values we obtained after permuting the permuted 
   networks means that the type II error would increase linearly as the 
-  alternative hypothesis was set farther from zero. [[Is this cogent? Correct? If not, I think I will have to remove all reference to type II error and hope we don't get the same reviewer again. It may not be an issue since we've moved away from the motif-like measures.]]
+  alternative hypothesis was set farther from zero.
+  % [[Is this cogent? Correct? If not, I think I will have to remove all reference to type II error and hope we don't get the same reviewer again. It may not be an issue since we've moved away from the motif-like measures.]]
+  % DBS: I think it's fine.
 
-
-  To test whether the relationship between phylogenetic distance and niche overlap depended on network size, we fit a general linear model for the slope of this relationship in the glm models against the number of plant pairs for which distances could be calculated (hereafter ``network size"), network type (again using herbivory networks as a baseline), and their interaction:
-
+  To test whether the relationship between phylogenetic distance and niche overlap depended on network size, we fit a general linear model for the slope of this relationship inferred from the glm models against the number of plant pairs for which distances could be calculated (hereafter ``network size"), network type (again using herbivory networks as a baseline), and their interaction:
+%
     \begin{equation}
       \beta_{distance} \propto \beta_{size} \eta_{N} + \beta_{pollination} I_N + \beta_{size:pollination} \eta_{N} I_N ,
     \end{equation}
-
+%
   where $\eta_{N}$ is the number of plant pairs in network $N$ for which distances could be calculated, $I_N$ is an indicator equal to 1 if network $N$ is a pollination network and 0 otherewise. 
 
 
@@ -481,7 +483,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   of families across networks. We defined the relationship between
   phylogenetic distance and niche overlap as the change in 
   log odds of two plants in a given network sharing an interaction 
-  partner per million years of divergence (i.e., the slope from the 
+  partner per million years of divergence (i.e., the slope $\beta_{distance}$ from the 
   regression of niche overlap against phylogenetic distance within
   a single network). We then related differences in this relationship
   to differences in the composition of the plant community in each
@@ -490,7 +492,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   As we did not wish to inflate the perceived similarity between
   pairs of networks which did not include many of the same families,
   we used Bray-Curtis dissimilarity to define differences in plant
-  community composition. Bray-Curtwis dissimilarity considers only
+  community composition. Bray-Curtis dissimilarity considers only
   those plant families which appear in at least one of a pair of
   networks~\citep{Anderson2001,Cirtwill2015}, ensuring that the
   shared absence of rare plant families will not make 
@@ -503,7 +505,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   distribution obtained by permuting the raw data. As 
   pollination and herbivory networks might have different
   community composition, we stratified these permutations
-  by network type. That is, the change in log odds for a pollination
+  by network type. That is, the response variable of change in log odds for a pollination
   network could only be exchanged for that of another pollination
   network. Stratifying the permutations in this way ensures that 
   the null distribution used to calculate the $P$-value is not 
@@ -633,11 +635,10 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     permuted networks, while the 10 networks with positive relationships 
     between phylogenetic distance and overlap always had more positive 
     relationships than the permuted networks. This suggests that even in 
-    the networks with non-significant relationships between niche overlap 
-    and phylogenetic distance, the association between niche overlap and 
+    the networks with non-significant relationships, the association between niche overlap and 
     phylogenetic distance was not random. When the slopes of the permuted 
     networks were compared to those obtained from permutations of the 
-    permuted networks, there was no relationship (\emph{Supporting 
+    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting 
     information 2}).
 
 
@@ -646,7 +647,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
   \subsection*{Linking network-level trends and community composition} 
 
-    We were interested in whether the slope of the relationship between phylogenetic distance varied with community composition. In a PERMANOVA of slope against community composition, stratified by network type, we did not find a significant relationship between slope and community composition ($F_{1,68}$=1.06, $p$=0.493). Of the 200 families in our dataset, only 29 were represented by more than 20 species. Lumping all other families into an "other" category and repeating the PERMANOVA, we still did not find a significant relationship between slope and community composition ($F_{1,68}$=1.12, $p$=0.409). 
+    We were interested in whether the slope of the relationship between phylogenetic distance varied with community composition. In a PERMANOVA of slope against community composition, stratified by network type, we did not find a significant relationship between slope and community composition ($F_{1,68}$=1.06, $p$=0.493). Of the 200 families in our dataset, only 29 were represented by more than 20 species. Lumping all other families into an ``other'' category and repeating the PERMANOVA, we still did not find a significant relationship between slope and community composition ($F_{1,68}$=1.12, $p$=0.409). 
     % Also performed a CCA to see which fams had most positive/negative associations, but with non-sig results I don't think it's interesting.
 
 
@@ -657,11 +658,12 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
 
     Considering each family separately, the relationship between within-family niche overlap and phylogenetic distance varied widely in both pollination and herbivory networks. 
-    For the families
+    For the 47 families % DBS: Alyssa, please check this number!
     that were well represented in pollination networks, overlap decreased
     with increasing phylogenetic distance in 18 (Table~\ref{family_slopes_pp}).
     There was no significant relationship between overlap and phylogenetic distance in
     a further 15 plant families. Finally, the overlap between pairs of \emph{Polygonaceae}
+    % DBS: According to the table, this should probably be Apiaceae and Poaceae. Please check.
     increased with increasing phylogenetic distance. 
     Of the seven plant families that were sufficiently well represented in herbivory 
     networks, overlap decreased with increasing phylogenetic distance in four 
@@ -673,6 +675,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
     Models for two families did not converge. In both the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} in herbivory networks (represented by five species in one network), one pair of species shared a single interaction partner while all other pairs did not share any interaction partners. The model for \emph{Sapindaceae} in pollination networks did converge.
 
+    % DBS: The section above seems like it would fit better in the Methods and then we just say nothing about these families.
 
 \section*{Discussion} 
 
@@ -687,7 +690,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   $\approx$56\%  of the pollination and $\approx$64\% of the 
   herbivory networks exhibited the expected trend of decreasing 
   overlap with increasing distance. This variation between networks
-  echoes earlier studies (e.g.,~\citep{Fontaine2015,Hutchinson2017})
+  echoes earlier studies \citep[e.g.,][]{Fontaine2015,Hutchinson2017}
   which also found broad evidence for phylogenetic conservation
   of interaction partners despite variation between particular 
   networks. 
@@ -804,7 +807,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   % of stasis~\citep{Davis2014}.
 
 
-  For those families which were well-represented in both pollination
+  For those few families which were well-represented in \emph{both} pollination
   and herbivory networks, we can also contrast the 
   trends in the two network types. While \emph{Asteraceae} showed the
   expected decrease in interaction partner overlap with increasing
@@ -980,7 +983,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
      herbivory networks (top; green) and 59 pollination
      networks (bottom; purple). In both network types, the probability of a pair of plants
      sharing an interaction partner increased with increasing phylogenetic distance (thick,
-     dark lines). There was substantial variation among networks (thin, pale lines) of both types. The slope of the regression for each network was significantly more extreme than that obtained from 999 permutatations of that network (slopes obtained from the permuted networks ranged between -1.34$\times10^{-12}$ and 9.19$\times10*{-13}$).}
+     dark lines). There was substantial variation among networks (thin, pale lines) of both types. The slope of the regression for each network was significantly more extreme than that obtained from 999 permutatations of that network (slopes obtained from the permuted networks ranged between -1.34$\times10^{-12}$ and 9.19$\times10^{-13}$).}
     \label{within_network_regression} 
   \end{figure}
 
@@ -1001,6 +1004,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
      in the 14 plant families where there was a significant
      relationship between log odds of sharing interaction
      partners and phylogenetic distance.
+     % DBS: The above is near indecipherable. Can we please simplify it substantially?
      Families in pollination networks are indicated
      by dark purple diamonds while families in herbivory
      networks are indicated by pale green circles.
@@ -1016,7 +1020,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
      pollination (dark, purple horizontal line) networks.
      % See~\emph{Figure S1; Supporting Information} for more details.
      The phylogenetic tree below the plots indicates the
-     relatedness between plant families. Error bars represent 95\% confidence
+     relatedness between these plant families. Error bars represent 95\% confidence
      intervals.}
     \label{within_family_regression}
   \end{figure}
