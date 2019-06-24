@@ -105,7 +105,6 @@ def lineplotter(grace,datapath,modeltype,colormode):
         nettype='pp'
       else:
         nettype='ph'
-
       if nettype==rowtype:
         if nettype=='pp':
           inter=ppinter+databank['ranef'][network][0]

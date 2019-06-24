@@ -52,5 +52,17 @@ outtab$Jaccard_slope=as.numeric(as.character(outtab$Jaccard_slope))
 outtab$Jaccard_p=as.numeric(as.character(outtab$Jaccard_p))
 outtab$Sorenson_slope=as.numeric(as.character(outtab$Sorenson_slope))
 outtab$Sorenson_p=as.numeric(as.character(outtab$Sorenson_p))
-
+outtab$nettype=c(rep('PH',11),rep('PP',59))
+outtab$nettype=as.factor(outtab$nettype)
+outtab$n_pairs=as.numeric(as.character(outtab$n_pairs))
 # I think it may be best to make observed slopes, random slopes, and random-random slopes separately?
+
+
+slope_test=with(outtab,glm(Jaccard_slope~nettype*n_pairs))
+pval_test=with(outtab,glm(Jaccard_p~nettype*n_pairs))
+pptab=outtab[which(outtab$nettype=='PP'),]
+# Significant positive effect of size and negative interaction with nettype==PP
+PP_slope_test=with(pptab,glm(Jaccard_slope~n_pairs))
+PP_pval_test=with(pptab,glm(Jaccard_p~n_pairs))
+
+
