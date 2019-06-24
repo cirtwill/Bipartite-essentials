@@ -47,21 +47,39 @@ def simlines_scaled(inter,beta):
     simdata.append((dist,logity))
   return simdata
 
-def lineplotter(datapath,modeltype,colormode):
-  # dummy=[r"\| \|",r"\|\\\|",r"\|,X\|"]
-  dummy=['Plant-herbivore networks','Plant-pollinator networks','','','','']
-  # dummy=['Total overlap','Partial overlap','No overlap','','','']
-  if modeltype=='scaled':
-    suffix='_reg_unranked_scaled'
+def format_graph(rowtype,graph,colormode):
 
   graphtype='full'
-  if colormode=='grey':
-    grace=MultiPanelGrace(colors=ColorBrewerScheme('Greys'))
-  else:
-    grace=MultiPanelGrace(colors=ColorBrewerScheme('PRGn'))
 
-  grace.add_label_scheme("dummy",dummy)
-  grace.set_label_scheme("dummy")
+  if rowtype=='ph':
+    ytext='Proportion of shared herbivores'
+  else:
+    ytext='Proportion of shared pollinators'
+
+  graph.yaxis.configure(text=ytext,char_size=0.5,just=2)
+  graph.world.xmax=800
+  major=200
+  prec=0
+
+  graph.world.ymax=0.60000000001
+  graph.yaxis.tick.configure(place='both',major_size=.4,minor_ticks=1,minor_size=.2,major=.2,major_linewidth=1,minor_linewidth=1)
+
+  graph.yaxis.ticklabel.configure(char_size=.75,format='decimal',prec=1)
+  graph.xaxis.tick.configure(place='both',major_size=.4,minor_ticks=1,minor_size=.2,major=major,major_linewidth=1,minor_linewidth=1)
+  graph.xaxis.ticklabel.configure(char_size=.75,format='decimal',prec=prec)
+
+  graph.frame.linewidth=1
+  graph.xaxis.bar.linewidth=1
+  graph.yaxis.bar.linewidth=1
+  
+  graph.panel_label.configure(char_size=.85,placement='iuc',dy=0.01,dx=0,just=2)
+
+  return graph
+
+def lineplotter(grace,datapath,modeltype,colormode):
+
+  if modeltype=='scaled':
+    suffix='_reg_unranked_scaled'
 
   for rowtype in ['ph','pp']:
     # Looks like these are supposed to be overall regs?
@@ -127,26 +145,35 @@ def lineplotter(datapath,modeltype,colormode):
       dat=graph.add_dataset(dataset)
       dat.symbol.shape=0
       dat.line.configure(linestyle=1,linewidth=4,color=linecol)
+      graph=format_graph(graph,rowtype,colormode)
 
-    graph.world.xmax=800
-    major=200
-    prec=0
+    return grace
 
-    graph.world.ymax=0.60000000001
-    graph.yaxis.tick.configure(place='both',major_size=.4,minor_ticks=1,minor_size=.2,major=.2,major_linewidth=1,minor_linewidth=1)
+def main():
 
-    graph.yaxis.ticklabel.configure(char_size=.75,format='decimal',prec=1)
-    graph.xaxis.tick.configure(place='both',major_size=.4,minor_ticks=1,minor_size=.2,major=major,major_linewidth=1,minor_linewidth=1)
-    graph.xaxis.ticklabel.configure(char_size=.75,format='decimal',prec=prec)
+  modeltype='scaled'
+  colormode='color'
 
-    graph.frame.linewidth=1
-    graph.xaxis.bar.linewidth=1
-    graph.yaxis.bar.linewidth=1
-    
-    graph.panel_label.configure(char_size=.85,placement='ouc',dy=0.01,dx=0,just=2)
+  datapath='../../data/Jaccard/Observed_regression/overall_bynetwork'
+  if colormode=='grey':
+    grace=MultiPanelGrace(colors=ColorBrewerScheme('Greys'))
+  else:
+    grace=MultiPanelGrace(colors=ColorBrewerScheme('PRGn'))
+
+  # dummy=[r"\| \|",r"\|\\\|",r"\|,X\|"]
+  dummy=['Plant-herbivore networks','Plant-pollinator networks','','','','']
+  # dummy=['Total overlap','Partial overlap','No overlap','','','']
+
+
+  grace.add_label_scheme("dummy",dummy)
+  grace.set_label_scheme("dummy")
+
+  lineplotter(grace,datapath,modeltype,colormode)
+  print 'plots made'
+
   grace.multi(rows=2,cols=1,hgap=.05,vgap=.04)
   grace.hide_redundant_labels()
-  grace.set_col_yaxislabel(col=0,rowspan=(0,1),label='Probability of sharing partners',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
+  # grace.set_col_yaxislabel(col=0,rowspan=(0,1),label='Probability of sharing partners',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
   # grace.hide_redundant_labels()
 
 
@@ -154,16 +181,7 @@ def lineplotter(datapath,modeltype,colormode):
   grace.write_file('../../manuscript/Figures/dataplots/scaled_regression_lines_'+graphtype+'_'+colormode+'.eps')
 
 
-def main():
 
-  datapath='../../data/Jaccard/Observed_regression/overall_bynetwork'
-
-
-  # sumplotter(datapath)
-  modeltype='scaled'
-  colormode='color'
-  lineplotter(datapath,modeltype,colormode)
-  print 'plots made'
 
 if __name__ == '__main__':
   main()
