@@ -25,7 +25,7 @@ def signalreader(datapath,suffix):
       effect=float(line.split()[1])
       databank['fixef'][name]=effect
   f.close()
-
+ 
   ran=open(datapath+suffix+'_ranef.tsv','r')
   for line in ran:
     if len(line.split())==3:
@@ -47,8 +47,8 @@ def simlines_scaled(inter,beta):
     simdata.append((dist,logity))
   return simdata
 
-def format_graph(rowtype,graph,colormode):
-
+def format_graph(graph,rowtype,colormode):
+  print rowtype
   graphtype='full'
 
   if rowtype=='ph':
@@ -56,7 +56,7 @@ def format_graph(rowtype,graph,colormode):
   else:
     ytext='Proportion of shared pollinators'
 
-  graph.yaxis.configure(text=ytext,char_size=0.5,just=2)
+  graph.yaxis.label.configure(text=ytext,char_size=0.85,just=2)
   graph.world.xmax=800
   major=200
   prec=0
@@ -78,13 +78,13 @@ def format_graph(rowtype,graph,colormode):
 
 def lineplotter(grace,datapath,modeltype,colormode):
 
-  if modeltype=='scaled':
-    suffix='_reg_unranked_scaled'
+  suffix='_reg_unranked_scaled'
 
   for rowtype in ['ph','pp']:
     # Looks like these are supposed to be overall regs?
     databank=signalreader(datapath,suffix)
     graph=grace.add_graph(Panel)
+    graph=format_graph(graph,rowtype,colormode)
 
     fdatabank=databank['fixef']
 
@@ -131,26 +131,23 @@ def lineplotter(grace,datapath,modeltype,colormode):
           else:
             dat.line.configure(linestyle=1,linewidth=1,color=10)
 
-    for dataset in [eval(rowtype+'_simdata')]:
-      if colormode=='grey':
-        if dataset==pp_simdata:
-          linecol=9
-        else:
-          linecol=9
-      else:
-        if dataset==pp_simdata:
-          linecol=2
-        else:
-          linecol=11
-      dat=graph.add_dataset(dataset)
-      dat.symbol.shape=0
-      dat.line.configure(linestyle=1,linewidth=4,color=linecol)
-      graph=format_graph(graph,rowtype,colormode)
+    # Add thick overall lines
+	for dataset in [eval(rowtype+'_simdata')]:
+	  if colormode=='grey':
+	    linecol=9
+	  else:
+	    if dataset==pp_simdata:
+	      linecol=2
+	    else:
+	      linecol=11
+	  dat=graph.add_dataset(dataset)
+	  dat.symbol.shape=0
+	  dat.line.configure(linestyle=1,linewidth=4,color=linecol)
 
-    return grace
+  return grace
 
 def main():
-
+  graphtype='full'
   modeltype='scaled'
   colormode='color'
 
@@ -172,6 +169,7 @@ def main():
   print 'plots made'
 
   grace.multi(rows=2,cols=1,hgap=.05,vgap=.04)
+  # grace.automulti()
   grace.hide_redundant_labels()
   # grace.set_col_yaxislabel(col=0,rowspan=(0,1),label='Probability of sharing partners',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
   # grace.hide_redundant_labels()
@@ -185,6 +183,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-
-
-
