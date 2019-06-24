@@ -14,6 +14,8 @@ from PyGrace.drawing_objects import DrawText, DrawLine
 from PyGrace.Extensions.distribution import CDFGraph, PDFGraph
 from PyGrace.Extensions.latex_string import LatexString, CONVERT
 
+from regression_line_plot import signalreader
+
 
 def read_regfile(regfile):
   obslopes={'pp':[],'ph':[]}
@@ -41,7 +43,7 @@ def read_regfile(regfile):
 def format_graph(graph,nettype):
 
   graph.world.ymin=-.600000000001
-  graph.world.ymax=.2
+  graph.world.ymax=.25
   graph.yaxis.tick.configure(place='both',major_size=.4,minor_ticks=1,minor_size=.2,major=.2,major_linewidth=1,minor_linewidth=1)
   graph.yaxis.ticklabel.configure(char_size=.75,format='decimal',prec=1)
   graph.yaxis.bar.linewidth=1
@@ -54,13 +56,13 @@ def format_graph(graph,nettype):
   graph.frame.linewidth=1
   graph.xaxis.bar.linewidth=1
   
-  graph.panel_label.configure(char_size=.85,placement='ouc',dy=0.01,dx=0,just=2)
+  graph.panel_label.configure(char_size=.85,placement='iuc',dy=0.01,dx=0,just=2)
 
   return graph
 
-def grace_setup(obsslopes,ranslopes):
+def grace_setup(obsslopes,ranslopes,slopedict):
   # dummy=[r"\| \|",r"\|\\\|",r"\|,X\|"]
-  dummy=['PH','PP','','','','']
+  dummy=['Plant-herbivore','Plant-pollinator','','','','']
   # dummy=['Total overlap','Partial overlap','No overlap','','','']
   grace=MultiPanelGrace(colors=ColorBrewerScheme('PRGn'))
 
@@ -70,20 +72,20 @@ def grace_setup(obsslopes,ranslopes):
   for nettype in ['ph','pp']:
     graph=grace.add_graph(Panel)
     graph=format_graph(graph,nettype)
-    graph=lineplotter(graph,obsslopes[nettype],ranslopes[nettype],nettype)
+    graph=lineplotter(graph,obsslopes[nettype],ranslopes[nettype],nettype,slopedict)
 
   grace.multi(rows=1,cols=2,hgap=.05,vgap=.04)
   grace.hide_redundant_labels()
   # grace.hide_redundant_labels()
-  grace.graphs[0].set_view(0.15,0.15,.3,.95)
-  grace.graphs[1].set_view(0.32,0.15,.47,.95)
+  grace.graphs[0].set_view(0.15,0.15,.35,.95)
+  grace.graphs[1].set_view(0.37,0.15,.57,.95)
   grace.set_col_yaxislabel(col=0,rowspan=(None,None),label='Slope of regression line',place='normal',just=2,char_size=1,perpendicular_offset=0.07)
 
   grace.set_row_xaxislabel(row=0,colspan=(None,None),label='',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
   grace.write_file('../../manuscript/Figures/dataplots/observed_vs_random.eps')
 
 
-def lineplotter(graph,obs,ran,nettype):
+def lineplotter(graph,obs,ran,nettype,slopedict):
   if nettype=='pp':
     col=3
     shap=3
@@ -109,70 +111,34 @@ def lineplotter(graph,obs,ran,nettype):
   line1.symbol.shape=0
   line1.line.linewidth=.5
   line1.fill.configure(color=1,style=2,fill_pattern=2)
-  print ranmin,ranmax
+  # print ranmin,ranmax
 
+  graph=overall_lineplotter(graph,nettype,slopedict)
 
-    # for network in databank['ranef']:
-    #   subfolder=network.split('-')[0].split('/')[0]
-    #   if subfolder=='Stouffer_Ecology_Matrices':
-    #     nettype='pp'
-    #   else:
-    #     nettype='ph'
+  return graph
 
-    #   if nettype==rowtype:
-    #     if nettype=='pp':
-    #       inter=ppinter+databank['ranef'][network][0]
-    #       beta=ppbeta+databank['ranef'][network][1]
-    #       if modeltype=='ranked':
-    #         data=simlines(inter,beta)
-    #       else:
-    #         data=simlines_scaled(inter,beta)
-
-    #       dat=graph.add_dataset(data)
-    #       dat.symbol.shape=0
-    #       if colormode=='grey':
-    #         dat.line.configure(linestyle=1,linewidth=1,color=6)
-    #       else:
-    #         dat.line.configure(linestyle=1,linewidth=1,color=4)
-
-    #     else:
-    #       inter=phinter+databank['ranef'][network][0]
-    #       beta=phbeta+databank['ranef'][network][1]
-    #       if modeltype=='ranked':
-    #         data=simlines(inter,beta)
-    #       else:
-    #         data=simlines_scaled(inter,beta)
-
-    #       dat=graph.add_dataset(data)
-    #       dat.symbol.shape=0
-    #       if colormode=='grey':
-    #         dat.line.configure(linestyle=1,linewidth=1,color=6)
-    #       else:
-    #         dat.line.configure(linestyle=1,linewidth=1,color=10)
-
-    # for dataset in [eval(rowtype+'_simdata')]:
-    #   if colormode=='grey':
-    #     if dataset==pp_simdata:
-    #       linecol=9
-    #     else:
-    #       linecol=9
-    #   else:
-    #     if dataset==pp_simdata:
-    #       linecol=2
-    #     else:
-    #       linecol=11
-    #   dat=graph.add_dataset(dataset)
-    #   dat.symbol.shape=0
-    #   dat.line.configure(linestyle=1,linewidth=4,color=linecol)
+def overall_lineplotter(graph,nettype,slopedict):
+  if nettype=='ph':
+    y=slopedict['fixef']['scale(distance)']
+    col=10
+  else:
+    y=slopedict['fixef']['scale(distance)']+slopedict['fixef']['scale(distance):nettypepp']
+    col=3
+  dats=graph.add_dataset([(-1,y),(1,y)])
+  dats.symbol.configure(shape=0,size=0)
+  dats.line.configure(linestyle=3,linewidth=2.5,color=col)
 
   return graph
 
 def main():
 
-  regfile='../../data/Jaccard/Observed_Regression/observed_vs_random.tsv'
+  regfile='../../data/Jaccard/Observed_regression/observed_vs_random.tsv'
+
+  slopedict=signalreader('../../data/Jaccard/Observed_regression/overall_bynetwork_reg_unranked_scaled','')
+  print slopedict['fixef'].keys()
 
   obs,ranslopes=read_regfile(regfile)
-  grace_setup(obs,ranslopes)
+  grace_setup(obs,ranslopes,slopedict)
 
 if __name__ == '__main__':
   main()

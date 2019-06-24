@@ -158,7 +158,7 @@ def main():
     grace=MultiPanelGrace(colors=ColorBrewerScheme('PRGn'))
 
   # dummy=[r"\| \|",r"\|\\\|",r"\|,X\|"]
-  dummy=['Plant-herbivore networks','Plant-pollinator networks','','','','']
+  dummy=['Plant-herbivore','Plant-pollinator','','','','']
   # dummy=['Total overlap','Partial overlap','No overlap','','','']
 
 
