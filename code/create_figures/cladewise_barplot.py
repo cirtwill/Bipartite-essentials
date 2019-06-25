@@ -86,8 +86,8 @@ scaledict={
   "overall":(92.11035845,42.69432146)}
 
 
-# Two families didn't converge (small samples with one odd value)
-non_convergent={'pp':'lauraceae','ph':'sapindaceae'}
+# One family didn't converge (small samples with one odd value). Lauraceae converges fine now.
+non_convergent={'ph':'sapindaceae','pp':''}
 legenddict={'pp':'Plant-pollinator','ph':'Plant-herbivore'}
 
 def read_tree(filename):
@@ -133,6 +133,9 @@ def lineplotter(datapath,family,grace,graph,x,graphtype,supertype,nettype,summar
   else:
     shap=2
   databank=signalreader(datapath,family,nettype)
+  if family=='lauraceae':
+    print databank
+  # sys.exit()
   if family not in non_convergent[nettype] and databank!={'fixef':{},'ranef':{}}:
     try:
       scal=scaledict[family]
@@ -142,8 +145,9 @@ def lineplotter(datapath,family,grace,graph,x,graphtype,supertype,nettype,summar
     err=databank['fixef']['scale(distance)'][1]*scal[1]*1.96
     p=databank['fixef']['scale(distance)'][2]
     summarydict[family][nettype]=(str(x),str(p))
-    if nettype=='ph' and family in ['rubiaceae']:
+    if nettype=='ph' and family in ['asteraceae','fabaceae','melastomataceae','poaceae','rubiaceae']:
       x=x+.25
+    # print x, y
     if y>0:
       if y-err >0:
         sig=1
@@ -156,18 +160,19 @@ def lineplotter(datapath,family,grace,graph,x,graphtype,supertype,nettype,summar
         sig=0
     else:
       print family
-    if sig==1:
-      dat=graph.add_dataset([(x,y,err)],type='xydy')
-      if graphtype=='grey':
-        if nettype=='pp':
-          col=8
-        else:
-          col=5
+    # if sig==1:
+    # print sig
+    dat=graph.add_dataset([(x,y,err)],type='xydy')
+    if graphtype=='grey':
+      if nettype=='pp':
+        col=8
       else:
-        if nettype=='pp':
-          col=3
-        else:
-          col=10
+        col=5
+    else:
+      if nettype=='pp':
+        col=3
+      else:
+        col=10
 
       dat.symbol.configure(color=1,fill_color=col,size=.6,linewidth=.3,shape=shap)
       dat.line.linestyle=0
@@ -209,6 +214,10 @@ def overall_lineplotter(graph,grace,supertype,graphtype):
   Pline.symbol.size=0
   Pline.line.configure(linewidth=1.25,linestyle=1,color=col2)
 
+  zero=graph.add_dataset([(-10,0),(50,0)])
+  zero.symbol.shape=0
+  zero.line.configure(linewidth=.15)
+
   return graph
 
 def main():
@@ -216,17 +225,16 @@ def main():
   datapath='../../data/Jaccard/families_to_networks/Regressions/'
 
   summarydict={}
-  families=['adoxaceae','amaryllidaceae','apiaceae','apocynaceae','asparagaceae','asteraceae','berberidaceae','boraginaceae','brassicaceae','calceolariaceae','campanulaceae','caprifoliaceae','caryophyllaceae','cistaceae','convolvulaceae','ericaceae','euphorbiaceae','fabaceae','geraniaceae','hydrangeaceae','iridaceae','lamiaceae','loasaceae','malpighiaceae','malvaceae','melastomataceae','montiaceae','moraceae','myrtaceae','nothofagaceae','oleaceae','onagraceae','orchidaceae','orobanchaceae','papaveraceae','phyllanthaceae',
+  families=['adoxaceae','amaryllidaceae','apiaceae','apocynaceae','asparagaceae','asteraceae','berberidaceae','boraginaceae','brassicaceae','calceolariaceae','campanulaceae','caprifoliaceae','caryophyllaceae','cistaceae','convolvulaceae','ericaceae','euphorbiaceae','fabaceae','geraniaceae','hydrangeaceae','iridaceae','lamiaceae','lauraceae','loasaceae','malpighiaceae','malvaceae','melastomataceae','montiaceae','moraceae','myrtaceae','nothofagaceae','oleaceae','onagraceae','orchidaceae','orobanchaceae','papaveraceae','phyllanthaceae',
             'pinaceae','plantaginaceae','poaceae','polygonaceae','primulaceae','ranunculaceae','rosaceae','rubiaceae','salicaceae','sapindaceae','saxifragaceae','solanaceae','tropaeolaceae','verbenaceae','violaceae']
 
   # # It appears we are only plotting significant families. This brings us down to 15 instead of 51, so good plan.
   # sig_families=['apiaceae','apocynaceae','asteraceae','boraginaceae','cistaceae','euphorbiaceae'
   #               ,'fabaceae','lamiaceae','melastomataceae','plantaginaceae','poaceae','polygonaceae','ranunculaceae','rubiaceae']
   # In order following the tree:
-  sig_families=['poaceae','fabaceae','euphorbiaceae','melastomataceae','cistaceae','polygonaceae',
-        'lamiaceae','plantaginaceae','rubiaceae','amaryllidaceae','boraginaceae','apiaceae','asteraceae',
-        'ranunculaceae']
-
+  sig_families=['boraginaceae','lamiaceae','plantaginaceae','rubiaceae','apiaceae',
+                'asteraceae','polygonaceae','fabaceae','euphorbiaceae','cistaceae',
+                'melastomataceae','ranunculaceae','lauraceae','poaceae','amaryllidaceae']
 
   grace=MultiPanelGrace()
   dummy=['','','','']
@@ -242,8 +250,8 @@ def main():
 
   graph=grace.add_graph(Panel)
 
-  graph.world.ymin=-60
-  graph.world.ymax=40
+  graph.world.ymin=-80
+  graph.world.ymax=80
   graph.yaxis.tick.configure(place='both',major_size=.5,minor_ticks=1,minor_size=.3,major=20,major_linewidth=.5,minor_linewidth=.5)
   graph.yaxis.ticklabel.configure(char_size=.5,)
 
@@ -251,6 +259,7 @@ def main():
   print 'Overall line added'
   x=1
   for family in sig_families:
+  # for family in ['asteraceae','fabaceae','melastomataceae','poaceae','rubiaceae']:
     summarydict[family]={'pp':(),'ph':()}
     for nettype in ['pp','ph']:
       lineplotter(datapath,family,grace,graph,x,graphtype,supertype,nettype,summarydict)
@@ -264,13 +273,13 @@ def main():
   graph.panel_label.configure(char_size=.75,placement='ouc',dy=0.01,dx=0,just=2)
   graph.legend.configure(box_linestyle=0,char_size=.5,loc=(0.25,-40),loctype='world')
 
-  specials=graph.xaxis.tick.set_spec_ticks([1,2,3,4,5,6,7,8,9,10,11,12,13,14],[],tick_labels=sig_families)
+  specials=graph.xaxis.tick.set_spec_ticks([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],[],tick_labels=sig_families)
   # specials=graph.yaxis.tick.set_spec_ticks([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
   #  17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,
   #  44,45,46,47,48,49,50,51],[],tick_labels=families)
 
   graph.world.xmin=0
-  graph.world.xmax=15
+  graph.world.xmax=16
   graph.xaxis.tick.configure(place='both',major_size=.3,minor_ticks=0,major_linewidth=.5)
   graph.xaxis.ticklabel.configure(char_size=0,format='decimal',prec=0,angle=90,)
 
@@ -301,8 +310,8 @@ def main():
   view = grace.graphs[1].get_view()
 
   grace.graphs[0].yaxis.label.configure(text='Change in log odds (My\S-1\N)',place='normal',just=2,char_size=1,place_tup=(0, 0),)
-  grace.graphs[0].set_view(.25,.65,.75,.95)
-  grace.graphs[1].set_view(.25,.3,2,.52)
+  grace.graphs[0].set_view(.25,.55,.75,.95)
+  grace.graphs[1].set_view(.25,.23,1.88,.42)
 
   grace.write_file('../../manuscript/Figures/dataplots/Family/allfams_'+graphtype+'.eps')
 
