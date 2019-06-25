@@ -77,8 +77,8 @@ def grace_setup(obsslopes,ranslopes,slopedict):
   grace.multi(rows=1,cols=2,hgap=.05,vgap=.04)
   grace.hide_redundant_labels()
   # grace.hide_redundant_labels()
-  grace.graphs[0].set_view(0.15,0.15,.35,.95)
-  grace.graphs[1].set_view(0.37,0.15,.57,.95)
+  grace.graphs[0].set_view(0.15,0.15,.3,.95)
+  grace.graphs[1].set_view(0.32,0.15,.47,.95)
   grace.set_col_yaxislabel(col=0,rowspan=(None,None),label='Slope of regression line',place='normal',just=2,char_size=1,perpendicular_offset=0.07)
 
   grace.set_row_xaxislabel(row=0,colspan=(None,None),label='',place='normal',just=2,char_size=1,perpendicular_offset=0.06)

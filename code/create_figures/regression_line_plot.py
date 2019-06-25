@@ -178,6 +178,32 @@ def main():
   grace.write_file('../../manuscript/Figures/dataplots/scaled_regression_lines_'+graphtype+'_'+colormode+'.eps')
 
 
+  proppath='../../data/Proportions/Observed_regression/overall_bynetwork'
+  if colormode=='grey':
+    grace=MultiPanelGrace(colors=ColorBrewerScheme('Greys'))
+  else:
+    grace=MultiPanelGrace(colors=ColorBrewerScheme('PRGn'))
+
+  # dummy=[r"\| \|",r"\|\\\|",r"\|,X\|"]
+  dummy=['Herbivory','Pollination','','','','']
+  # dummy=['Total overlap','Partial overlap','No overlap','','','']
+
+
+  grace.add_label_scheme("dummy",dummy)
+  grace.set_label_scheme("dummy")
+
+  lineplotter(grace,proppath,modeltype,colormode)
+  print 'plots made'
+
+  grace.multi(rows=2,cols=1,hgap=.05,vgap=.04)
+  # grace.automulti()
+  grace.hide_redundant_labels()
+  # grace.set_col_yaxislabel(col=0,rowspan=(0,1),label='Probability of sharing partners',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
+  # grace.hide_redundant_labels()
+
+
+  grace.set_row_xaxislabel(row=1,colspan=(None,None),label='Phylogenetic distance (My)',place='normal',just=2,char_size=1,perpendicular_offset=0.06)
+  grace.write_file('../../manuscript/Figures/dataplots/proportion_regression_lines_'+graphtype+'_'+colormode+'.eps')
 
 
 if __name__ == '__main__':
