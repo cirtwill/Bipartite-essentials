@@ -88,7 +88,7 @@ Figures: 3
 Tables: 2
 
 
-Supporting information: 1 file containing 1 section.
+Supporting information: 1 file containing 4 sections.
 
 
 \vspace{0.4 in}
@@ -112,9 +112,8 @@ Supporting information: 1 file containing 1 section.
 
     \item Across all networks, more closely-related plants tended to have 
           greater overlap, and this tendency was stronger in herbivory 
-          networks than pollination networks. These relationships were also significantly related 
-          to the composition of the network's plant component. Within plant families, 
-          relationships varied greatly in both network types. 
+          networks than pollination networks. While the strength of this relationship within a network was not related to the composition of the network's plant component, we nevertheless found that different plant families showed different relationships between phylogenetic distance and overlap of interaction partners.
+
 
     \item The variety of relationships between phylogenetic distance and
           interaction partners in different plant families likely
@@ -395,6 +394,9 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     herbivory networks.
 
 
+    To demonstrate the power of defining $\omega_{ij}$ as a tuple of $M_{ij}$ and $U_{ij}$, we repeated the above analyses instead defining $\omega_{ij}$ as the proportion of interaction partners that are shared (i.e., $M_{ij}$/[$M_{ij}+U_{ij}$]). We observed similar trends but, notably, the tuple definition of $\omega_{ij}$ had greater power to detect weak relationships (\emph{Supporting information 2}). We therefore show only the results when defining $\omega_{ij}$ as a tuple in the main text.
+
+
     Note that pairs of plants are not always independent: the same plant will 
     appear in many pairs. This violates the assumption of independence used 
     when calculating the significance of logistic regressions within 
@@ -640,11 +642,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     the networks with non-significant relationships, the association between niche overlap and 
     phylogenetic distance was not random. When the slopes of the permuted 
     networks were compared to those obtained from permutations of the 
-    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting 
-    information 2}).
-
-
-   
+    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting information 3}). 
 
 
   \subsection*{Linking network-level trends and community composition} 
@@ -662,7 +660,9 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     Considering each family separately, the relationship between within-family niche overlap and phylogenetic distance varied widely in both pollination and herbivory networks. 
     For the 48 families that were well represented in pollination networks, overlap decreased significantly with increasing phylogenetic distance in 12 (Table~\ref{family_slopes_pp}).
     There was no significant relationship between overlap and phylogenetic distance in
-    a further 34 plant families. Finally, the overlap between pairs of \emph{Apiaceae} and \emph{Poaceae} increased significantly with increasing phylogenetic distance.
+    a further 34 plant families (see \emph{Supporting information 4} for further 
+    details). Finally, the overlap between pairs of \emph{Apiaceae} and \emph{Poaceae} increased significantly with increasing phylogenetic distance.
+
 
     Of the nine plant families that were sufficiently well represented in herbivory 
     networks, overlap decreased significantly with increasing phylogenetic distance in four 
@@ -935,7 +935,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   \smallskip
   \footnotesize
 
-    We were able to fit these models to 47 plant families (see \emph{Materials and Methods} for details). 
+    We were able to fit these models to 48 plant families (see \emph{Materials and Methods} for details). 
     Families marked with an asterisk were also sufficiently diverse to model in herbivory networks. 
     Statistically significant values are indicated in bold. 
 
@@ -946,32 +946,10 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
 \section*{Figures}
 
-  % \begin{figure}[!h]
-  %   \begin{center}
-  %     \centerline{\includegraphics*[width=.75\textwidth]{Figures/Sketches/methods_breakdown.eps}}
-  %   \end{center}
-  %    \caption{Visual depiction of our decomposition of pairwise niche overlap of plants' interaction
-  %    partners. \textbf{(a)} First, consider the representation of any pollination or herbivory network
-  %    as an adjacency matrix. Here, filled cells indicate an interaction between a particular plant 
-  %    (letters on rows) and an animal (numbers on columns). \textbf{(b)} For a given pair of plants (e.g., plants 
-  %    A and B), we then considered the set of animals that interact with at least one of the focal
-  %    plants. Taking each pair of animals in this set in turn, we assigned the resulting quartet (the
-  %    two focal plants plus two animals) to one of three patterns of overlap.
-  %    In the \textbf{total overlap} pattern, both plants interact with both animals. 
-  %    In the \textbf{partial overlap} pattern, one plant interacts with both animals and the other plant
-  %    interacts with only one.
-  %    Finally, in the \textbf{no overlap} pattern each animal interacts with only one plant; note that 
-  %    this includes cases where both animals interact with the same plant (e.g., animals 1 and 5 and plant A)
-  %    as well as cases where each animal interacts with a different plant (e.g., animals 1 with plant A and animal
-  %    4 with plant B). \textbf{(c-e)} The number of times each pattern occurred was used to summarise the pairwise niche 
-  %    overlap between the two plants and then related to their phylogenetic distance.}
-  %   \label{overlap_patterns}
-  % \end{figure}
-
 
   \begin{figure}[!h]
     \begin{center}
-      \centerline{\includegraphics*[width=.75\textwidth]{Figures/dataplots/scaled_regression_lines_full_color.eps}}
+      \centerline{\includegraphics*[width=.5\textwidth]{Figures/dataplots/scaled_regression_lines_full_color.eps}}
     \end{center}
      \caption{Results of a mixed-effects logistic regression of pairwise niche overlap
      against phylogenetic distance for plants in 11
@@ -986,7 +964,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     \begin{center}
       \centerline{\includegraphics*[height=.75\textwidth]{Figures/dataplots/observed_vs_random.eps}}
     \end{center}
-     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance was signficantly different from 0 for each network. Here we show, for herbivory (PH) and pollination (PP) networks, the observed slopes (depicted by green squares or purple diamonds, respectively). The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to 0.}
+     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance was signficantly different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to 0.}
     \label{obs_vs_random} 
   \end{figure}
 
@@ -994,26 +972,25 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     \begin{center}
       \centerline{\includegraphics*[height=.62\textheight]{Figures/dataplots/Family/allfams_full.eps}}
     \end{center}
-     \caption{Change in log odds of a pair of plants sharing a pollinator or herbivore as phylogenetic distance between the plants increases. For clarity, we show only the 15 plant families for which the slope of the regression of the proportion of shared interaction partners against phylogenetic distance was significant in at least one network type.       Note that the change in log odds for \emph{Asteraceae} in herbivory networks and \emph{Melastomataceae} and \emph{Poaceae} in pollination networks are not significantly different from zero; we present these values only for comparison across network types. All other plant families were well-represented in only one network type.
-     % DBS: The above is near indecipherable. Can we please simplify it substantially?
-     [[Simpler now?]]
-     Families in pollination networks are indicated
-     by dark purple diamonds while families in herbivory
-     networks are indicated by pale green circles.
-     Note that changes in log odds are analogous to the 
-     slopes of the regression lines from Eq. 2-3
-     in logit-transformed space and represent
-     the change in the probability of observing shared 
-     interaction partners per million years of divergence time. We also
-     show the slope of the relationship between the
-     log-odds of observing each overlap pattern and 
-     phylogenetic distance across all plant families
-     in herbivory (pale, green horizontal line) and
-     pollination (dark, purple horizontal line) networks.
-     % See~\emph{Figure S1; Supporting Information} for more details.
-     The phylogenetic tree below the plots indicates the
-     relatedness between these plant families. Error bars represent 95\% confidence
-     intervals.}
+    \caption{Change in the log odds of a pair of plants sharing a pollinator or herbivore as phylogenetic distance between the plants increases. These values are analogous to the slopes of the regression lines from Eq. 2-3 and represent
+    the change in the probability of observing shared 
+    interaction partners per million years of divergence time. 
+    For clarity, we show only the 15 plant families for which the slope of the regression of the proportion of shared interaction partners against phylogenetic distance was significant in at least one network type. 
+    Note that the change in log odds for \emph{Asteraceae} in herbivory networks and \emph{Melastomataceae} and \emph{Poaceae} in pollination networks are not significantly different from zero; we present these values only for comparison across network types. All other plant families were well-represented in only one network type.
+    % DBS: The above is near indecipherable. Can we please simplify it substantially?
+    [[Simpler now?]]
+    Families in pollination networks are indicated
+    by dark purple diamonds while families in herbivory
+    networks are indicated by pale green circles.
+    We also
+    show the slope of the relationship between the
+    log-odds of observing each overlap pattern and 
+    phylogenetic distance across all plant families
+    in herbivory (pale, green horizontal line) and
+    pollination (dark, purple horizontal line) networks.
+    The phylogenetic tree below the plots indicates the
+    relatedness between these plant families. Error bars represent 95\% 
+    confidence intervals.}
     \label{within_family_regression}
   \end{figure}
 
