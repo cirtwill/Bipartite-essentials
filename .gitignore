@@ -1,0 +1,4 @@
+manuscript/*.aux
+manuscript/*.dvi
+manuscript/*.log
+manuscript/*.bbl
