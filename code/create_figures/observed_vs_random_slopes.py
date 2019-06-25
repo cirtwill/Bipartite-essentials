@@ -62,7 +62,7 @@ def format_graph(graph,nettype):
 
 def grace_setup(obsslopes,ranslopes,slopedict):
   # dummy=[r"\| \|",r"\|\\\|",r"\|,X\|"]
-  dummy=['Plant-herbivore','Plant-pollinator','','','','']
+  dummy=['Herbivory','Pollination','','','','']
   # dummy=['Total overlap','Partial overlap','No overlap','','','']
   grace=MultiPanelGrace(colors=ColorBrewerScheme('PRGn'))
 
