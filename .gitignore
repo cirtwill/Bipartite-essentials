@@ -2,3 +2,8 @@ manuscript/*.aux
 manuscript/*.dvi
 manuscript/*.log
 manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.ps
+
+code/*.pyc
+code/*/*.pyc
