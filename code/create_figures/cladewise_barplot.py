@@ -88,7 +88,7 @@ scaledict={
 
 # One family didn't converge (small samples with one odd value). Lauraceae converges fine now.
 non_convergent={'ph':'sapindaceae','pp':''}
-legenddict={'pp':'Plant-pollinator','ph':'Plant-herbivore'}
+legenddict={'pp':'Pollination','ph':'Herbivory'}
 
 def read_tree(filename):
     inFile = open(filename,'r')
