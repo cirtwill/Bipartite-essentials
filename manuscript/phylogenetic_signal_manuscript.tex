@@ -70,16 +70,17 @@ University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \section*{Word Counts}
 
-Main text: 4522
+Main text: 5612 % Limit 6,500
 
 \begin{itemize}
-  \item Introduction: 805 
-  \item Materials and Methods: 1831 
-  \item Results: 665
-  \item Discussion: 1139 
+  \item Introduction: 1074
+  \item Materials and Methods: 2223 
+  \item Results: 890
+  \item Discussion: 1342
   \item Acknowledgements: 83
 \end{itemize}
 
+% Word counts updated July 2, include some comments.
 
 
 Figures: 3
@@ -104,7 +105,7 @@ Supporting information: 1 file containing 4 sections.
     \item We introduce a novel approach with which to quantify
           overlap of interaction
           partners for each pair of plants in 59 pollination and 11 herbivory
-          networks.  We then tested for relationships between phylogenetic 
+          networks based on the numbers of potential interaction partners which are shared and not shared.  We then tested for relationships between phylogenetic 
           distance and partner overlap within each network, and whether these 
           relationships varied with the composition of the plant community.
           Finally, we tested for different relationships within well-represented
@@ -124,12 +125,6 @@ Supporting information: 1 file containing 4 sections.
 
   \end{itemize}
 
-\section*{Warning}
-
-Our original methodology was different from that in Fontaine \& Th\'{e}bault 2015 (Popul Ecol), but now that we've switched to Jaccard as our overlap measure we're doing almost the exact same thing with a slightly different set of networks. This will probably make it quite hard to argue novelty.
-
-\textbf{DBS: }
-
 
 \section*{Keywords}
 
@@ -137,6 +132,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 
 \end{spacing}
 \begin{spacing}{1.5}
+% \clearpage
 
 \section*{Introduction}
 \linenumbers
@@ -232,6 +228,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   This fine-grained approach gives more detailed information than 
   previous studies.
 
+% \clearpage
 
 \section*{Materials and Methods}
 
@@ -277,7 +274,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     We then estimated phylogenetic distances between the remaining species. To accomplish 
     this, we constructed a phylogenetic tree for our dataset based on a dated
     `mega-tree' of angiosperms~\citep{Zanne2014}. Some species were not included
-    in the angiosperm mega-tree (largely ferns and tree ferns). For angiosperms,
+    in the angiosperm mega-tree. For angiosperms,
     a sister taxon was identified using~\citet{APW} and the species added manually.
     Ferns, tree ferns, and a single club moss were added to the base of the tree.
     This means that closely-related non-angiosperm species appear to have very long 
@@ -564,8 +561,9 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     R~\citep{R} base function ``glm''. These equations took the same form as equation~\ref{basic}.
 
 
-    Models for two families did not converge. In both the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} in herbivory networks (represented by five species in one network), one pair of species shared a single interaction partner while all other pairs did not share any interaction partners. The model for \emph{Sapindaceae} in pollination networks did converge.
+    Models for two families did not converge. In the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} (represented by five species in one herbivory network and five species in two pollination networks), only one pair of species per network type shared any interaction partners while all other pais did not share any interaction partners.
 
+% \clearpage
 
 \section*{Results}
 
@@ -672,6 +670,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     and in one family, \emph{Fabaceae}, overlap of interaction partners increased significantly with 
     increasing phylogenetic distance.
 
+% \clearpage
 
 \section*{Discussion} 
 
@@ -843,6 +842,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   phylogenetic distances between species, can affect the strength
   of phylogenetic signal~\citep{Chamberlain2014a}. 
 
+% \clearpage
 
 \section*{Acknowledgements}
 
