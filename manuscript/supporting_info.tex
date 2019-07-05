@@ -173,14 +173,14 @@ University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \section*{Supporting information 2: Repeating our analyses with proportion of shared partners}
 
-    We repeated some of our analyses using the proportion of shared interaction partners as the response rather than a tuple describing the number of interaction partners that are shared and not shared. This approach is more common when performing logistic regressions, but loses information about the varying weights of evidence about different plant pairs. This lost information can limit the power of the regression to detect weak trends.
+    We repeated some of our analyses using the proportion of shared interaction partners as the response rather than a tuple describing the number of interaction partners that are shared and not shared. This approach is common when performing logistic regressions, but loses information about the varying weights of evidence about different plant pairs. This lost information can limit the power of the regression to detect weak trends.
 
 
     Across all networks, more distantly-related plants remained less likely
     to share interaction partners, but this relationship was not significant 
     in herbivory networks ($\beta_{distance}$=-1.07, $p$=0.477; compare to 
     $\beta_{distance}$=-6.82, $p$\textless0.001 in the main text). Plants in pollination networks again tended to share fewer interaction partners overall ($\beta_{pollination}$=-0.881, $p$\textless0.001; compare to $
-    beta_{pollination}$=-1.44, $p$\textless0.001 in the main text), and the decrease in overlap with increasing phylogenetic distance was steeper than in herbivory networks ($\beta_{distance:pollination}$=-26.8, $p$\textless0.001). Thus, while we observed the same trends when treating the response as a proportion and as a tuple, the tuple format displayed these trends more clearly. This is likely because of the additional informaion incorporated in the tuple.
+    \beta_{pollination}$=-1.44, $p$\textless0.001 in the main text), and the decrease in overlap with increasing phylogenetic distance was steeper than in herbivory networks ($\beta_{distance:pollination}$=-26.8, $p$\textless0.001; compare to $\beta_{distance:pollination}$=-18.5, $p$\textless0.001 in the main text). Thus, while we observed the same trends when treating the response as a proportion and as a tuple, the tuple format displayed these trends more clearly. This is likely because of the additional informaion incorporated in the tuple.
 
 
     Within networks, using the proportion of shared interaction partners rather than a tuple resulted in significant relationships between phylogenetic distance and overlap in interaction partners in five herbivory networks and seven pollination networks (compare to seven and 34 networks, respectively, in the main text). In each case, the proportion of shared interaction partners decreased with increasing phylogenetic distance. Again, this demonstrates the greater power of a Jaccard regression with a tuple response to capture weak trends. The best-fit models for individual networks show much less variation when framing the response as a proportion (Fig.~\ref{lineplot}).
@@ -190,9 +190,9 @@ University of Queensland\\Brisbane, QLD 4072, Australia }
         \begin{center}
           \centerline{\includegraphics*[width=.75\textwidth]{Figures/dataplots/proportion_regression_lines_full_color.eps}}
         \end{center}
-         \caption{\small When considering niche overlap as the proportion of shared interaction partners rather than both the number of interaction partners that are shared and not shared, there is much less variability between networks. The overall trends observed are also much weaker than those detected when using all of the available information. Compare with Fig. 1, main text.
+         \caption{\small When considering niche overlap as the proportion of shared interaction partners rather than both the number of interaction partners that are shared and not shared, there is much less variability between networks. The overall trends (thicker, darker lines) observed are also much weaker than those detected when using all of the available information. Compare with Fig. 1, main text. Both figures are plotted on the same scale.
          }
-        \label{within_family_regression}
+        \label{lineplot}
       \end{figure}
 
 
@@ -216,7 +216,7 @@ University of Queensland\\Brisbane, QLD 4072, Australia }
       \end{figure}
 
 
-    \subsection*{Networks shown in each panel of Figure S1}
+    \subsection*{Networks shown in each panel of Figure S2}
 
     All names are as in Table S1. Networks included in each panel (from darkest to lightest line colours) are:
 
@@ -240,7 +240,7 @@ University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \section*{Supporting information 4: Details of within-family regressions}
 
-    Models for nine families could not be fit because there was no variation in the phylogenetic distance between plants, their numbers of shared interaction partners, or both. These families were \emph{Amaranthaceae}, \emph{Araliaceae}, \emph{Cactaceae}, \emph{Cornaceae}, \emph{Gentianaceae}, \emph{Liliaceae}, \emph{Oxalidaceae}, \emph{Rhamnaceae}, and \emph{Zingiberaceae}. Further, we could not fit a model for \emph{Sapindaceae} in herbivory networks as all but one plant pair had the same phylogenetic distances.
+    Models for nine families could not be fit because there was no variation in the phylogenetic distance between plants, their numbers of shared interaction partners, or both. These families were \emph{Amaranthaceae}, \emph{Araliaceae}, \emph{Cactaceae}, \emph{Cornaceae}, \emph{Gentianaceae}, \emph{Liliaceae}, \emph{Oxalidaceae}, \emph{Rhamnaceae}, and \emph{Zingiberaceae}. Further, we could not fit a model for \emph{Lauraceae} in pollination networks or \emph{Sapindaceae} in herbivory or pollination networks as only one plant pair in each network type shared any interaction partners.
 
 
     Only nine families were sufficiently well-represented to fit models for shared herbivores. Five of these were also well-represented in plant-pollinator networks: \emph{Asteraceae}, \emph{Fabaceae}, \emph{Melastomataceae}, \emph{Poaceae}, and \emph{Rubiaceae}. In total, there were 48 families which were well-represented enough to fit models for shared pollinators. Note that singular fits were obtained for \emph{Amaranthaceae}, \emph{Araliaceae}, \emph{Boraginaceae},
