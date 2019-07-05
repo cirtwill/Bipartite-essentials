@@ -27,8 +27,8 @@ def pval_binner(ps):
 	bins={}
 	used=[]
 	for i in range(0,21):
-		binmin=round(i*0.05,2)
-		binmax=round(binmin+0.05,2)
+		binmin=round(i*0.1,2)
+		binmax=round(binmin+0.1,2)
 		binmed=round(np.mean([binmin,binmax]),3)
 		bins[binmed]=[]
 		for x in sorted(ps):
@@ -42,8 +42,8 @@ def pval_binner(ps):
 	total=0
 	for x in sorted(bins):
 		y=len(bins[x])
-		lens.append((x-0.025,float(y)/999))
-		lens.append((x+0.025,float(y)/999))
+		lens.append((x-0.05,float(y)/999))
+		lens.append((x+0.05,float(y)/999))
 		total=total+y
 
 	if total!=len(ps):
@@ -58,7 +58,7 @@ def format_graph(graph):
   graph.xaxis.tick.configure(major=.2,minor_ticks=0,major_size=.5,major_linewidth=.5)
   graph.xaxis.ticklabel.char_size=0.5
 
-  graph.world.ymax=.08
+  graph.world.ymax=.15
   graph.yaxis.tick.configure(major=.02,minor_ticks=0,major_size=.5,major_linewidth=.5)
   graph.yaxis.ticklabel.char_size=0.5
 
@@ -113,7 +113,7 @@ def main():
   # grace.set_label_scheme("dummy")
   for i in range(0,12):
   	keys=sorted(pps)[i*5:i*5+5]
-  	# print i, len(keys)
+  	print i, len(keys)
 	graph=grace.add_graph(Panel)
 	graph=format_graph(graph)
 	j=0
@@ -126,7 +126,7 @@ def main():
   		keys.append(sorted(phs)[-1])
   	elif i==2:
   		keys=[]
-  	print i,keys
+  	print i,len(keys)
 	graph=grace.add_graph(Panel)
 	graph=format_graph(graph)
 	j=0
