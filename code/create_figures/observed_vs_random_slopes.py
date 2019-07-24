@@ -124,7 +124,7 @@ def overall_lineplotter(graph,nettype,slopedict):
   else:
     y=slopedict['fixef']['scale(distance)']+slopedict['fixef']['scale(distance):nettypepp']
     col=3
-  dats=graph.add_dataset([(-1,y),(1,y)])
+  dats=graph.add_dataset([(-2,y),(2,y)])
   dats.symbol.configure(shape=0,size=0)
   dats.line.configure(linestyle=3,linewidth=2.5,color=col)
 
