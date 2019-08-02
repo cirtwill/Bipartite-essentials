@@ -30,13 +30,23 @@
 
 \setcounter{page}{1}
 
+{\Large \bf Preface}
+
+Here we include the Reply to Referees for a previous submission of this manuscript. Note that we substantially changed our methodology and repeated all analyses such that many of the Referee comments do not apply to the current submission. We appreciate the Referee's feedback and feel that we have been able to substantially improve the manuscript after consideration of their comments.
+
+
+\clearpage
+
+
+
+
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 {\Large \bf Reply to Referee \#1}
 % ---------------------------------------
 
 
-  Referee 1 focused their critique entirely on our methods. They were concerned that our novel approach had not been properly validated or compared to previous methods, and that we did not have within-family resolution for our tree. We respond (preceded by \textbf{R:}) to each of these concerns in detail below.
+  Referee 1 focused their critique entirely on our methods. They were concerned that our novel approach had not been properly validated or compared to previous methods, and that we did not have within-family resolution for our tree. In the current submission we have adopted a more tried-and-true methodology and now use an improved phylogeny. We respond (preceded by \textbf{R:}) to each of these concerns in detail below.
 
   1. Request for statistical validation
 
@@ -46,7 +56,8 @@
 
     \end{refquote}
 
-    \textbf{R:} Solution was something to do with making >100 simulations of each empirical network and then >100 simulations of each simulation...
+    \textbf{R:} We now use a more common method (logistic regression of Jaccard dissimilarity between plants' interaction partners) rather than our previous attempt to quantify degrees of overlap among quartets of species. In addition, we have validated the statistical power of our approach by repeating our analyses using permutations of the original networks. We hope that this proves more convincing.
+
 
   2. Request for comparison with other methods
 
@@ -56,64 +67,7 @@
 
     \end{refquote}
 
-    \textbf{R:} I need to re-read these papers. As I recall, they were asking slightly different questions but I didn't fully understand their methodologies.
-
-      %     Our study and those that the author mention are designed to answer different
-      % questions. Ives \& Godfray (2006) developed their method to ask whether a
-      % plant (or the majority of plants in a community) is visited by a related set of 
-      % pollinators (and vice versa). We are interested in whether related plants are 
-      % visited by similar sets of pollinators, regardless of whether or not the 
-      % pollinators are related. It is not obvious how to translate the results of their 
-      % method (e.g., individual species of pollinators tend to visit related sets of plants) 
-      % to our question, as two closely-related plants might be visited by non-overlapping 
-      % sets of pollinators which nevertheless tend to visit related plants. This could 
-      % occur, for example, if plants within a particular genus grow either in the 
-      % understory or in more open microhabitats and each pollinator visits only plants of 
-      % this genus that grow within its preferred microhabitat. 
-
-
-      % Similarly, Rafferty \& Ives (2013) used two phylogenetic linear
-      % mixed models (PLMM's) to model the strength of plant-pollinator
-      % interactions as a function of 1) plant traits and pollinator
-      % phylogeny; and 2) plant and pollinator phylogenies. We were instead
-      % interested in modelling plants' traits (i.e., their interaction
-      % partners) over their phylogeny. In our case, we did not have pollinator
-      % phylogenies and our `trait' of interest was the set of animals with
-      % which a plant interacts. In Rafferty \& Ives' first PLMM, then, we
-      % would need to include network structure as both a dependent and the
-      % independent variable, while in the second we would be obliged to assume
-      % that the pollinator phylogenies were completely uninformative. This is
-      % almost certainly not the case. More importantly, even if we accept this
-      % limitation and model the strength (or in our case, binary presence or 
-      % absence) of interactions purely based on the plant phylogeny, it is not
-      % clear how this model would allow us to assess whether or not plants 
-      % tend to interact with similar \emph{sets} of animals. That is, we are not
-      % interested in whether each particular animal has similar probabilities
-      % of interacting with closely-related plants but rather in the amount of
-      % overlap in the sets of animals that visit related and unrelated plants.
-
-
-      % Hadfield \emph{et. al.}'s 2014 study addresses questions that are even
-      % further from our study's focus. The authors of that study are mainly
-      % interested in the interplay of two phylogenies (also a focus of
-      % Rafferty \& Ives, 2013, but to a lesser degree). In our datset, we
-      % had access to phylogenies for the plants but not their animal interaction
-      % partners. As such, the referee is correct in noting that we do not 
-      % identify sources of phylogenetic signal \emph{a la} Hadfield \emph{et. al.}.
-      % In our study, we cannot test for co-evolution of plants and their 
-      % partners or for other forms of evolutionary interaction between them. 
-      % Without being able to eliminate these possibilities, testing for an 
-      % effect of animal or plant specialism on interaction patterns tells us
-      % little about the effect of plants' evolutionary histories.
-
-
-      % [[We have edited the main text to make our question of interest (and
-      % the ways in which it differs from the questions asked by other 
-      % researchers) clearer. We have also added tests for type I and type II
-      % statistical errors, as described below. We hope that this will provide
-      % a sufficient indication of the quality of our method, as we cannot 
-      % in good concience compare our results to those of methods asking different
-      % questions.]]
+    \textbf{R:} We thank the Referee for the literature suggestions. Ultimately, we opted to change our methodology to a less novel and hopefully more palatable approach. Therefore we have not explicitly compared our approach with those mentioned above.
 
 
 
@@ -128,9 +82,13 @@
       \textbf{R:} We accept the author's reluctance to accept conclusions based on Bladj + Wikstrom age dates. As none of the authors of this manuscript has any expertise relevant to constructing chronograms, however, we are strictly limited to using published dates of divergence between taxa. Fortunately, while this manuscript was being revised a recent dated tree (that of Zanne \emph{et al.}, 2014) has been incorporated into the Phylomatic web tool. We have rebuilt our dated trees using this phlogeny, which incorporates within-family divisions. We hope that this additional detail will satisfy the reviewer.
 
 
+\clearpage
+
+
 \section*{Referee 2}
 
-  Referee 2 was very positive about our manuscript and only had a few minor suggestions. We thank the Referee for her thoughtful input.
+  Referee 2 was very positive about our manuscript and only had a few minor suggestions. We thank the Referee for her thoughtful input. In the present submission, however, we were more focused on the more fundamental issues of methodology. We apologise deeply for neglecting the suggestions below and hope to address them in a subsequent round of revisions, after questions about our methodology have been satisfied.
+
 
   1. Expand the title
 
@@ -140,7 +98,7 @@
 
     \end{refquote}
 
-    \textbf{R:} Assuming this still fits after re-analysis, seems like a good idea.
+
 
   2. Add more evolutionary/community-ecology context
 
@@ -159,7 +117,6 @@
       \end{refquote}
 
 
-    \textbf{R:}
 
 
 \section*{Referee 3}
@@ -175,7 +132,7 @@
 
       \end{refquote}
 
-      \textbf{R:} 
+      \textbf{R:} We thank the Referee for this suggestion and have repeated our analyses using permutations of the original networks, as requested.
 
 
   2. Demand for more detailed discussion of system-specific biology
@@ -199,7 +156,7 @@
     \end{itemize}
     \end{refquote}
 
-    \textbf{R:} We hope that the Referee appreciates the fact that length restrictions limit our ability to go into too much detail in the Discussion without severely compromising our explanation of the methods. Nevertheless, where possible we have added biological details throughout the manuscript. We have taken particular care to address the specific points the Referee has highlighted above.
+    \textbf{R:} We appreciate the Referee's comments, but feel that a detailed discussion of the traits (flower morphology, metabolites, etc.) is beyond the scope of this manuscript. In particular, the interaction networks we use did not contain any information on plant traits. Any inference we might draw based on more general literature would therefore be highly speculative. Taking the Referee's broader point that our manuscript lacked biological detail, however, we have revised the introduction and discussion where possible to include more nuance. We hope that these additions have improved the discussion.
 
 
   3. Request to provide more detail about specialist pollinators
@@ -210,9 +167,7 @@
 
     \end{refquote}
 
-    \textbf{R:} As we used published networks rather than collecting data ourselves, we cannot provide information on the exhaustiveness of sampling other than that given in the original sources (detailed in the SI). In particular, we cannot say which apparently specialist pollinators appear specialized because of rarity and which are genuinely specialized as data on abundances were not published together with the bulk of the metworks we used. The questions the Referee asks about the adequacy of sampling and specialization in plant-pollinator networks are very important, but we respectfully suggest that they are best addressed by encouraging empirical researchers to publish abundance data as well as interaction networks. There is very little we can do to address these questions when re-analysing the limited data that have been made available.
-
-   One thing we can do, however, is investigate the effects of lumping grasshoppers in with other herbivores. To that end, we have repeated our analyses excluding the plant-herbivore networks which contained grasshoppers. As removing these networks substantially reduces our already small collection of plant-herbivore networks, we retain these networks in the main text and present the re-analysis in the SI. [[What changed?]]
+    \textbf{R:} As we used published networks rather than collecting data ourselves, we cannot provide information on the exhaustiveness of sampling. In particular, we cannot say which apparently specialist pollinators appear specialized because of rarity and which are genuinely specialized as data on abundances were not published together with the bulk of the metworks we used. The questions the Referee asks about the adequacy of sampling and specialization in plant-pollinator networks are very important, but we respectfully suggest that they are best addressed by encouraging empirical researchers to publish abundance data as well as interaction networks. There is very little we can do to address these questions \emph{post hoc} when re-analysing the limited data that have been made available.
 
 
  4. Demand for further clarification of the methods
@@ -228,7 +183,7 @@
 
       \end{refquote}
 
-      \textbf{R:} We appreciate the Referee's frankness.
+      \textbf{R:} We appreciate the Referee's frankness. Due to comments by this Referee and Referee 1 we have changed our methodology. We hope that the new methods are clearer and more appoachable.
 
 
   5. The null model approach is confusing
@@ -239,7 +194,7 @@
 
       \end{refquote}
 
-      \textbf{R:}
+      \textbf{R:} We do not agree that it is sensible to swap plants between network types. Antagonistic interaction networks tend to be structured quite differently from mutualistic networks, such that a mixture of the two is not a good null model for either network type. Moreover, as many plant families and genera are quite widespread and/or morphologically similar to species in other continents. We therefore see no particular reason by network structure should differ betweeen continents. Without a stronger justification for this additional layer of stratification, we have left the null model approach as-is.
 
 
   6. Request for dated clades
@@ -253,7 +208,7 @@
       \textbf{R:} The dated clades used in our original analyses are those given by Wikstrom \emph{et al.} ([[year]]). We have since re-created our analyses using the dated tree given in Zanne \emph{et al.} (2014) as found in the Phylomatic web application. We do not have separate dated clades for specific taxa. As both of these clades have already been published, repeating them in our manuscript would be purely redundant.
 
 
-  7. The Referee is confused  
+  7. Some phrasing puzzling 
 
     \begin{refquote}
 
@@ -262,10 +217,10 @@
     \end{refquote}
 
 
-    \textbf{R:} We do not understand why the Referee finds some of the above examples confusing, particularly "plants that produce noxious secondary metabolites may suffer fewer herbivores". We have nevertheless rephrased the cited examples and revised our manuscript for clarity. This request for simpler phrasing often comes at the cost of brevity, which unfortanately makes it very difficult to comply with the Referee's demand for more biological detail (point 2). We hope that we have struck a reasonable balance between these two criticisms.
+    \textbf{R:} We do not understand what is puzzling about these sentences and have not been able to find a simpler, yet accurate, way to phrase them. We hope that adopting a more straightforward methodology will improve the manuscript's overall readability and allow the Referee to follow these points. If not, we welcome further feedback as to how we may improve our writing.
 
 
-  8. The Referee hates our conclusion
+  8. The Referee dislikes our conclusion
 
     \begin{refquote}
 
@@ -273,7 +228,11 @@
 
       \end{refquote}
 
-      \textbf{R:} We are confused by the Referee's argument that communities show no clear boundaries in either space or time and that there is little evidence of heritability in traits within a community. This seems to suggest that the Referee does not believe in ecological communities or networks as viable units of study or in evolution (which requires heritability of traits). If this is so, then the Referee is not an appropriate reviewer for this manuscript. We instead hope that the Referee is attempting to make the point that communities are not shaped for the benefit of the species within them and simply doing so in an unclear way. That being the case, of course we are aware of this and agree 100\%. We did not intend to suggest that either species are selected to stabilize their communities or that communities are selected to maintain the species within them. We are well aware of spatial and temporal turnover, and of the fact that most communities are not at equilibrium and therefore we should not expect network structure to remain constant. Our point was rather that a more stable community is likely to persist longer than a less stable community and, therefore, more likely to be observed. We therefore expect communities with patterns of interactions condusive to long-term persistence to be over-represented in the empirical networks available to us. We have revised and expanded our conclusion to explicitly state that we are \textbf{not} suggesting any kind of community-level selection process, only the disproportionate change of unstable communities to more stable ones. We hope that this revision is less objectionable to the Referee.
+      \textbf{R:} We are confused by the Referee's argument that communities show no clear boundaries in either space or time and that there is little evidence of heritability in traits within a community. This seems to suggest that the Referee does not believe in ecological communities or networks as viable units of study, which is the entire basis of network ecology. We fully agree that communities change over time (including both community turnover and species traits), but do not believe that this means we can learn nothing from studying current communities.
+
+
+      Moreover, we do not suggest that either species are selected to stabilize their communities or that communities are selected to maintain the species within them and are not sure how the Referee has got this idea. In our original manuscript, we referred to the over-representation of stable communities. Note that this can occur purely due to the longer persistence of stable than unstable configures of species, with no selection required. However, this theme was peripheral to the main goal of our study and, 
+      to avoid such confusion in the future, our discussion no longer references community stability.
 
 
 \end{document}
