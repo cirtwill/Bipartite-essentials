@@ -44,7 +44,7 @@
 \footskip 1.0cm
 
 
-\title{Conservation of interaction partners between related plants varies widely across communities and between plant families.}
+\title{At a global scale, conservation of pollinators and herbivores between related plants varies widely across communities and between plant families.}
 
 \author{Alyssa R. Cirtwill$^{1,2}$, Giulio V. Dalla Riva$^{3}$, Nick J. Baker$^{1}$,\\
 Mikael Ohlsson$^{4}$, Isabelle Norstr\"{o}m$^{4}$, Inger-Marie Wohlfarth$^{4}$,\\ % All confirmed to submit
@@ -120,7 +120,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
 % \clearpage
 
 \section*{Introduction}
-\linenumbers
+% \linenumbers
 
   Interactions with animals affect plants' life cycles in several critical
   ways~\citep{Mayr2001,Sauve2016}. On one hand,
@@ -133,7 +133,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   For example, plants that 
   produce abundant or high-quality nectar may receive more visits from
   pollinators~\citep{Robertson1999} whereas plants that produce noxious 
-  secondary metabolites may suffer fewer herbivores~\citep{Johnson2014}. 
+  secondary metabolites may have fewer herbivores~\citep{Johnson2014}. 
   A plant's traits are also likely to determine \emph{which} specific pollinators 
   and herbivores interact with that plant. Plants with different defences 
   (e.g., thorns vs. chemical defences) may deter different groups of 
@@ -167,7 +167,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   herbivory~\citep{Strauss2002,Adler2004,Theis2006}. 
   Conversely, herbivory can reduce pollination by inducing chemical 
   defences~\citep{Adler2006} or altering floral display or nectar 
-  availability~\citep{Strauss1997}. There may also be tradeoffs between chemical and physical defenses, or defenses at different life stages, that weaken the overall heritability of plants' sets of herbivores~\citep{Karinho2014,Endara2017}. Observed patterns
+  availability~\citep{Strauss1997}. There may also be trade-offs between chemical and physical defences, or defences at different life stages, that weaken the overall heritability of plants' sets of herbivores~\citep{Karinho2014,Endara2017}. Observed patterns
   of similarity in plants' interaction partners therefore represent
   a mixture of environmental effects and various selection pressures as
   well as plants' shared phylogenetic history.
@@ -178,12 +178,13 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   not constant across plant clades. Closely-related plants
   in one clade might be under strong selection to favour dissimilar
   sets of pollinators to avoid exchanging pollen with other
-  species~\citep{Levin1970,Bell2005,Mitchell2009}. Similarly, plants may experience disruptive selection on defenses against herbivores if congeners tend to grow in the same places such that herbivore able to consume one species could easily spread to close relatives. 
+  species~\citep{Levin1970,Bell2005,Mitchell2009}. Similarly, plants may experience disruptive selection on defences against herbivores if congeners tend to grow in the same places such that herbivore able to consume one species could easily spread to close relatives~\citep{Kursar2009}. 
   % Similar pressures  could also affect related plants' defences against herbivores if congeners tend to grow in the same places such that herbivores could easily move between them.  
   Unrelated plants might also 
   converge upon similar phenotypes, attracting a particularly 
-  efficient or abundant pollinator~\citep{Ollerton1996,Ollerton2009,Ibanez2016}. 
-  Likewise, unrelated plants may converge upon similar defenses, leading them to share herbivores which can overcome these defenses~\citep{Pichersky2000}. 
+  efficient or abundant pollinator~\citep{Ollerton1996,Wilson2007,Ollerton2009,Ibanez2016}. 
+  Likewise, unrelated plants may converge upon similar defences, leading them to share 
+  those herbivores which can overcome these defences~\citep{Pichersky2000}. 
   In either case, dissimilarity of interactions among related species 
   or similarity of interactions among unrelated species could result 
   in weaker phylogenetic signal across an entire plant community. 
@@ -285,7 +286,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     species $i$ and $j$ and $P_i$ and $P_j$ are the sizes of the sets of interaction 
     \emph{partners} for species $i$ and $j$ respectively. We wished to give more 
     weight to species sharing a large number of interaction partners as well as 
-    those sharing a large proportion (i.e., to emphasize pairs of generalists 
+    those sharing a large proportion (i.e., to emphasise pairs of generalists 
     sharing most of their interaction partners over specialists sharing a single 
     interaction partner). Note that species sharing a large \emph{number} of interaction partners may not share a large \emph{proportion} of interaction partners if the number of interaction partners that are not shared is also large. % Added because Josh got confused about the distinction.
     To capture all of this information for each species pair, we therefore recorded the number of 
@@ -387,7 +388,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
         \beta_{distance} \propto \beta_{size} \eta_{N} + \beta_{pollination} I_N + \beta_{size:pollination} \eta_{N} I_N ,
       \end{equation}
   %
-    where $\eta_{N}$ is the number of plant pairs in network $N$ for which distances could be calculated, $I_N$ is an indicator equal to 1 if network $N$ is a pollination network and 0 otherewise. 
+    where $\eta_{N}$ is the number of plant pairs in network $N$ for which distances could be calculated, $I_N$ is an indicator equal to 1 if network $N$ is a pollination network and 0 otherwise. 
 
 
     As the interaction between network type and network size was strong and opposite to the direction of the main effect of network size, we fit an additional general linear model using only data from pollination networks and including only the effect of network size (herbivory networks were the baseline in the full glm). Both models were fit using the R~\citep{R} base function ``glm".
@@ -513,7 +514,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
     R~\citep{R} base function ``glm''. These equations took the same form as equation~\ref{basic}.
 
 
-    Models for two families did not converge. In the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} (represented by five species in one herbivory network and five species in two pollination networks), only one pair of species per network type shared any interaction partners while all other pais did not share any interaction partners.
+    Models for two families did not converge. In the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} (represented by five species in one herbivory network and five species in two pollination networks), only one pair of species per network type shared any interaction partners while all other pairs did not share any interaction partners.
 
 % \clearpage
 
@@ -640,14 +641,19 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   echoes earlier studies \citep[e.g.,][]{Fontaine2015,Hutchinson2017},
   which also found broad evidence for phylogenetic conservation 
   of interaction partners despite variation between particular 
-  networks. 
-  % The lack of a relationship between phylogenetic
-  % distance and interaction partner overlap in many networks 
-  % could have several explanations. First, our dataset included
-  % many extreme specialists, especially among the pollination 
-  % networks. These species interact with only one plant and
-  % therefore weaken any signal of interaction partner overlap.
- 
+  networks. The lack of a significant relationship between
+  phylogenetic distance and interaction partner overlap in many
+  networks could be partly due to the large number of extreme
+  specialists, especially among the pollination networks.
+  These species interact with only one plant and
+  therefore weaken any signal of interaction partner overlap.
+  The herbivory networks did not contain as many obligate 
+  specialists, but we note that many herbivorous insects are
+  oligotrophs which consume only a few closely-related 
+  hosts~\citep{Novotny2005,Yguel2011}.
+  These oligotrophs may affect overall phylogenetic signal in the same
+  way as the specialist partners: in both cases plants in different
+  families are unlikely to share interaction partners.
 
 
   We found that the composition of plant families in a network
@@ -661,10 +667,17 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   Odegaard2005} and in whole herbivory networks~\citep{Volf2017}. As
   we did not find any relationship between the families present in
   a network and the relationship between phylogenetic distance and
-  interaction partner overlap in pollination or herbivory networks,
+  interaction partner overlap in either pollination or herbivory networks,
   the greater importance of shallow phylogeny (as reported for leaf
   miners and gallers in~\citet{Volf2017}) may be a general 
-  feature of plant-insect interaction networks.
+  feature of plant-insect interaction networks. This contrasts with
+  the findings of~\citet{Chamberlain2014}, who found that the \emph{shape}
+  of the phylogenetic tree rather than whether speciation was more or
+  less recent had a larger effect on network structure. As~\citet{Chamberlain2014}
+  were interested in overall structural properties of networks rather
+  than interaction partner overlap, this discrepancy may indicate that
+  different aspects of plant-insect interaction networks are influenced
+  by different aspects of plant phylogenies.
 
 
   The variability of the strength of phylogenetic signal across networks 
@@ -766,7 +779,7 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   different network types. This may indicate that one type of interaction
   places greater constraints upon these families than the other, 
   similar to the expectation that greater constraints upon consumers 
-  than upon their resources explains the assymmetry in conservation  
+  than upon their resources explains the asymmetry in conservation  
   of interaction partners~\citep{Fontaine2015}. Plants
   may not be able to respond to selection on both types of interaction
   simultaneously because traits affecting pollination can also affect herbivory, and vice
@@ -786,23 +799,28 @@ defensive syndrome, ecological networks, herbivory, niche overlap, phylogenetic 
   between plants in the same family. Regardless of the precise mechanisms
   behind these relationships, it is clear
   that the differences between families can affect the relationship
-  between overlap and phylogenetic distance at the network level. 
-  Interestingly, in our analyses the plant families associated with
-  the steepest relationships between niche overlap and phylogenetic
-  distance at the network level did not show particularly steep
-  relationships within themselves. This result suggests
-  that it is not just which plant families are present but the additional 
-  relationships between the families that affects conservation of
-  interactions at the network level and is consistent with previous
-  work showing that the shape of phylogenetic tress, as well as the
-  phylogenetic distances between species, can affect the strength
-  of phylogenetic signal~\citep{Chamberlain2014a}. 
+  between overlap and phylogenetic distance at the network level.  
+  Although here we considered only the presence or absence of interactions,
+  recent work also suggests that the phylogenetic composition of a plant
+  community can affect the strength of 
+  interactions, and that the spatial arrangement of plants within a 
+  community may be particularly important~\citep{Yguel2011,Castagneyrol2014}.
+  If so, then the study of how phylogenetic relationships between plants
+  affect their interactions with animals has only just begun.
+  % This result suggests
+  % that it is not just which plant families are present but the additional 
+  % relationships between the families that affects conservation of
+  % interactions at the network level and is consistent with previous
+  % work showing that the shape of phylogenetic tress, as well as the
+  % phylogenetic distances between species, can affect the strength
+  % of phylogenetic signal~\citep{Chamberlain2014a}. 
+
 
 % \clearpage
 
 \section*{Acknowledgements}
   
-  We thank Christiee J. Webber for comments on the design of the 
+  We thank Christie J. Webber for comments on the design of the 
   study and for data collection. 
   We also thank the authors of the published networks used in this study. 
   We are grateful for the use of the Edward Percival field station in Kaikoura, 
