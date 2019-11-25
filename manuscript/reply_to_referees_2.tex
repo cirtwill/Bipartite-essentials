@@ -640,7 +640,7 @@ Decision: Accept subject to revision
 	\textbf{R:} We thank the Referee for their compliments to our analysis and for taking the time to review our manuscript. We appreciate that our writing can be dense at times and appreciate the Referee pointing out places where we may clarify our prose. Below, we respond to each comment in detail (preceded by \textbf{R:}). We are confident that revising the manuscript in response to the Referee's comments has improved the manuscript.
 
 
-1. Confusion about description of two dependent variables in analyses
+1. Confusion about description of two dependent variables in analyses [[done]]
 
 	\begin{refquote}
 		* Modelling the relationship between niche overlap and phylogenetic distance
@@ -656,7 +656,21 @@ Decision: Accept subject to revision
 	\end{refquote}
 
 
-	\textbf{R:} The number of shared and unshared interactions are both dependent variables included in the analysis. The number of shared variables is indeed the key variable, but the number of unshared interactions is also important as it indicates how extraordinary a particular number of shared interactions is. The binomial process incorportates both quantities; converting the numbers of shared and unshared interactions to a proportion and weighting the observations by the total number of interactions. [[Need to address this in the text]]
+	\textbf{R:} The number of shared and unshared interactions are both dependent variables included in the analysis. The number of shared variables is indeed the key variable, but the number of unshared interactions is also important as it indicates how extraordinary a particular number of shared interactions is. The binomial process incorportates both quantities; converting the numbers of shared and unshared interactions to a proportion and weighting the observations by the total number of interactions. We thank the Referee for pointing out text in the introduction which clarifiedthe purpose of including unshared interactions. We have expanded the beginning of this section to explain the logic of our modelling approach in more detail.
+
+
+	lines XX-XX:
+
+
+	\begin{quotation}
+
+	    We calculated niche overlap for each pair of plants $i$ and $j$ based on the number of shared interaction
+	    partners ($M_{ij}$) and the number of interaction partners which are not
+	    shared ($U_{ij}$). The number of unshared interaction 
+	    partners gives valuable information about cases where, for example, 
+	    closely-related plants may have experienced disruptive selection, leading to weaker phylogenetic signal. The number of shared and unshared interaction partners together indicates the amount of information  provided by each pair of plants: a pair of generalists which share most of their interaction partners gives a stronger indication of phylogenetic signal than a pair of specialists with one common interaction partner.
+
+	\end{quotation} 
 
 
 2. Request to state that we use the Jaccard index more explicitly [[done]]
@@ -712,7 +726,7 @@ Decision: Accept subject to revision
 	\end{quotation}
 
 
-5. Suggestion to consider phylogenetic diversity instead of number of plant pairs
+5. Suggestion to consider phylogenetic diversity instead of number of plant pairs [[done]]
 
 	\begin{refquote}
 		* Testing the effect of network size on the existence of a phylogenetic signal
@@ -721,7 +735,7 @@ Decision: Accept subject to revision
 	\end{refquote}
 
 
-	\textbf{R:} Umm... what does this mean? [[Probably going to go with "beyond the scope"]]
+	\textbf{R:} We agree that phylogenetic diversity would be another option for quantifying the 'size' of these networks. However, defining the phylogenetic diversity of each network would depend strongly upon the correctness of of base tree. As we discuss in the methods, our estimates for non-angiosperms are likely to be fairly rough, and some other species are also only approximately dated. Because of this, and because this analysis would more compliment our community-composition analysis than introduce new material, we have opted no to pursue phylogenetic diversity in this manuscript. Here, we were more concerned with numbers of plant pairs since numbers of species are known to affect many areas of network structure. This did not appear to be a major issue for our analyses.
 
 
 6. Request for consideration of multiple testing

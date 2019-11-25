@@ -273,10 +273,15 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 
   \subsection*{Calculating niche overlap within communities}
 
-    We calculated niche overlap for each pair of plants $i$ and $j$ by 
-    combining the number of shared interaction
+    We calculated niche overlap for each pair of plants $i$ and $j$ based on the number of shared interaction
     partners ($M_{ij}$) and the number of interaction partners which are not
-    shared ($U_{ij}$) into a Jaccard index ($J_{ij}$) describing 
+    shared ($U_{ij}$). The number of unshared interaction 
+    partners gives valuable information about cases where, for example, 
+    closely-related plants may have experienced disruptive selection, leading to weaker phylogenetic signal. The number of shared and unshared interaction partners together indicates the amount of information  provided by each pair of plants: a pair of generalists which share most of their interaction partners gives a stronger indication of phylogenetic signal than a pair of specialists with one common interaction partner.
+
+
+    We combined the numbers ofshared and unshared interaction partners
+    into a Jaccard index ($J_{ij}$) describing 
     the proportion of shared interactions. Importantly, we do this while 
     preserving the amount of information provided by each pair of plants
     (indicated by their numbers of interaction partners). $J_{ij}$ is usually defined as: 
