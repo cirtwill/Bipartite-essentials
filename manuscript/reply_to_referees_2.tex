@@ -384,25 +384,51 @@ Decision: Accept subject to revision
 		\textbf{R:} Where, specifically, does the Referee feel that we have included discussion in our results? This vague and somewhat condescending feedback is not helpful.
 
 
-	19. Possible complaint about mixing numbers and percentages?
+	19. Incorrect claim that beginning of results is inaccurate [[done]]
 
 		\begin{refquote}
 			Line 262. Your first sentence of results do not correspond with what follows. We will suggest you use most networks, or most herbivory networks and half pollination networks, or using the percentages you present in the discussion section.
 		\end{refquote}
 
-		\textbf{R:} This comment is in such poor English as to be nearly unintelligible. It is not clear whether the Referee is suggesting that we repeat our analyses using half of the pollination networks (without any clear reason as to why) or complaining that we have mixed qualitative descriptors, numbers, and percentages. We assume the latter as we are able to address this complaint. [[check what's going on]] 
+		\textbf{R:} This comment is in such poor English as to be nearly unintelligible. It is not clear whether the Referee is suggesting that we repeat our analyses using half of the pollination networks (without any clear reason as to why) or is simply confused about which analysis these results refer to. Since the Referee appears to have assumed that the within-family analyses are the \emph{only} analyses in the manuscript, the latter seems likely.
 
 
-	20. Confusion about methodology
+		Note that the results in lines XX-XX correspond to our first analysis: testing whether niche overlap decreases over increasing phylogenetic
+		distance in a large dataset of pollination and herbivory networks. The overall regression did show that partner overlap decreases with increasing phylogenetic distance, so that more distantly-related plants are less likely to share interaction partners (see Fig. 1). The rest of this section gives more details about the differences between pollination and herbivory networks (lines XX-XX) and variation across networks (lines XX-XX), but note that none of these details change the overall regression. As this text is correct we have left it unchanged.
+
+
+	20. Definition of community composition unclear [[done]]
+
 
 		\begin{refquote}
 			Line 310. How was community composition measured? Is difficult to evaluate the quality of this result because you haven't described this methodology.
 		\end{refquote}
 
-		\textbf{R:} Community composition is the set of plant species that make up a community. It was defined by the researchers constructing each network according to the specific methodology employed in each case. [[Add a parenthetical definition]]
+
+		\textbf{R:} Community composition is the set of plant species that make up a community, as described by the researchers constructing each network. For tractability, we have summarized community composition as the number of species in each plant family. We have added text to the methods to state this more obviously.
 
 
-	21. Confusion about permutation methodology
+		Lines XX-XX:
+
+
+		\begin{quotation}
+			Next, we examined the connection between our network-level observations
+		    and the number of species in each plant family present in each community.
+		    Specifically, we tested the hypothesis that
+		    varying relationships between phylogenetic distance and
+		    pairwise niche overlap are due to the different distributions 
+		    of families across networks. We defined the relationship between
+		    phylogenetic distance and niche overlap as the change in 
+		    log odds of two plants in a given network sharing an interaction 
+		    partner per million years of divergence (i.e., the slope $\beta_{distance}$ from the 
+		    regression of niche overlap against phylogenetic distance within
+		    a single network). We then related differences in this relationship
+		    to differences in the composition of the plant community (defined as the number of species in each plant family present in each network) using a non-parametric permutational multi-variate 
+		    analysis of variance (PERMANOVA;~\citealp{Anderson2001}).
+	    \end{quotation}
+
+
+	21. Confusion about permutation methodology [[done]]
 
 		\begin{refquote}
 			Minor comments on Results
@@ -410,16 +436,17 @@ Decision: Accept subject to revision
 		\end{refquote}
 
 
-		\textbf{R:} [[double-check and provide a line ref]]
+		\textbf{R:} As stated in the methods, we permuted interactions. Note that, in statistical terms, the two approaches are equivalent. We have rephrased the results to match the methods.
 
 
-	22. Request to change direction of relationship?
+	22. Typo in Fig. 1 caption [[done]]
+
 		\begin{refquote}
 			Fig 1. "...the probability of a pair of plants sharing an interaction partner increased with increasing phylogenetic distance..." please, write decreased instead of increased.
 		\end{refquote}
 
 
-		\textbf{R:} Sweet Satan, I hope this isn't a typo?
+		\textbf{R:} We thank the Referee for pointing out this truly egregious typo, and have corrected it.
 
 
 	23. Difference between minimum and maximum slopes not visible
@@ -432,16 +459,26 @@ Decision: Accept subject to revision
 		\textbf{R:} [[Check that caption states that min and max are very close together since permutation completely destroyed pattern.]]
 
 
-	24. Missing word in line 328
+	24. Confusion about line 328 [[done]]
 
 		\begin{refquote}
 			Line  328: "...increasing phylogenetic distance in 12...", what is 12? the number of families?
 		\end{refquote}
 
-		\textbf{R:}
+		\textbf{R:} Yes, 12 is the number of families. We have revised the line to make this more explicit.
 
 
-	25. Sundry complaints about table numbering and figure referencing
+		Lines XX-XX: 
+
+
+		\begin{quotation}
+
+		In pollination networks, overlap decreased significantly with increasing phylogenetic distance in 12 of the 48 well-represented families
+
+		\end{quotation}
+
+
+	25. Complaints about table numbering and figure referencing [[done]]
 
 		\begin{refquote}
 			Table number seem to be erroneous as you first mention table 2 and then table 1.
@@ -451,7 +488,7 @@ Decision: Accept subject to revision
 			Figure 3 is only referenced in the text when talking about herbivory networks but not for pollination networks.
 		\end{refquote}
 
-		\textbf{R:}
+		\textbf{R:} We have reordered the tables and added a redundant reference to Fig. 3.
 
 
 	26. Blanket demand for more evolution content
@@ -653,7 +690,7 @@ Decision: Accept subject to revision
 	\textbf{R:} We actually address the non-independence of trials (pairs of plants) by calculating $p$-values based on permutations of the observed networks (as opposed to assuming independent, binomially-distributed trials, which is certainly not the case). To emphasize our explanation of this, we have reordered the text and placed our discussion of the permutation methods under the sub-heading 'accounting for non-independence'. We hope that this will calm reader's worries about the validity of our conclusions.
 
 
-4. Permuting the permuted networks is confusing
+4. Permuting the permuted networks is confusing [[done]]
 
 	\begin{refquote}
 		* Evaluating type I and type II errors: Permutations of permutations
@@ -664,7 +701,15 @@ Decision: Accept subject to revision
 	\end{refquote}
 
 
-	\textbf{R:} We agree with the Referee about the difficulty of describing this procedure. [[Can I just swap in whatever is in S3?]] Despite the difficulty in describing our process for finding type II error verbally, we are pleased that the Referee found the end result (Fig. 2) interpretable. [[Maybe I can move all of the type II error testing to SI?]]
+	\textbf{R:} We agree with the Referee about the difficulty of describing this procedure. We have added an extra line to further explain the logic behind the second round of permutations and hope that this will clarify the goal of these analyses. We have also added a reference to Supplementary Information 3 and thank the Referee for pointing out the oversight.
+
+
+	Lines XX-XX:
+
+	\begin{quotation}
+		This permutation approach also allows us to estimate type I and type II 
+	    error for our analysis. Because the permuted networks should not demonstrate any particular relationship between phylogenetic distance and partner overlap, these slopes should be similar to those obtained after permuting these networks a second time.
+	\end{quotation}
 
 
 5. Suggestion to consider phylogenetic diversity instead of number of plant pairs
@@ -687,7 +732,7 @@ Decision: Accept subject to revision
 	\end{refquote}
 
 
-	\textbf{R:} [[Wasn't this the point of looking at type I errors? Or something?]]
+	\textbf{R:} [[Wasn't this the point of looking at type I errors? Or something?]] [[maybe we talk about this in the discussion?]][[Or I can compare to the permuted networks?]]
 
 
 7. Suggestion to mention sampling completeness as a potential explanation for specialists (discussion)
@@ -842,14 +887,14 @@ Minor comments
 	    \end{quotation}
 
 
-14. R4 has identified the source of R2's confusion about whether we permuted interactions or phylogenetic distances!
+14. Rephrasing of permutation strategy confusing [[done]]
 	
 	\begin{refquote}
 		p. 14, l. 297-298 “Comparing the results in the observed networks with those obtained after permuting phylogenetic distances across pairs of plants (...)”: In the methods, interactions are shuffled, not phylogenetic distances. Doing one of the other seems equivalent for this test, but this rephrasing is a bit confusing.
 	\end{refquote}
 
 
-	\textbf{R:}
+	\textbf{R:} We thank the Referee for pointing out this rephrasing, and have corrected the results to read the same as the methods.
 
 
 15. Typo in page 15, lines 322-324 [[done]]
@@ -867,23 +912,23 @@ Minor comments
 	\end{quotation}
 
 
-16. Fig. 3, Table 2 conflict for Poaceae
+16. Fig. 3, Table 2 conflict for Poaceae [[done]]
 
 	\begin{refquote}
 		Legend of Fig. 3 “(…) Melastomatoaceae and Poaceae in pollination networks are not significantly different from zero.” but Table 2 shows the opposite for Poaceae.
 	\end{refquote}
 
-	\textbf{R:}
+	\textbf{R:} We thank the Referee for pointing out this error. The table is correct, and the change in log odds for \emph{Poaceae} in pollination networks was significant. We have corrected the legend of Fig. 3.
 
 
-17. A confusing attempt at subtelty
+17. A confusing attempt at subtelty [[done]]
 
 	\begin{refquote}
-		In the figures, \beta_distance is alternatively named “slope of regression line” (Fig. 2) and “change in log odds” (Fig. 3).
+		In the figures, $\beta_{distance}$ is alternatively named “slope of regression line” (Fig. 2) and “change in log odds” (Fig. 3).
 	\end{refquote}
 
 
-	\textbf{R:} I think this was intentional since both interpretations apply ... but this appears to have caused some confusion. Oops.
+	\textbf{R:} $\beta_{distance}$ is both the slope of the regression line \emph{and} the change in log odds of a pair of plants sharing a partner as distance increases. We wanted to include both interpretations to help readers relate the regressions to what is happening ecologically. However, we can see how having the different interpretations isolated in different figures could be confusing. We have therefore added parenthetical definitions in both captions to make it clear that Fig. 2 and Fig. 3 are referring to the same quantity.
 
 
 % References
