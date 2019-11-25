@@ -253,7 +253,38 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
     \emph{Saxifragaceae}, and \emph{Verbenaceae}. 
   
 
+    To account for multiple testing, we compared the $p$-values of the significant slopes to critical values in a sequential correlated Bonferroni test~\citep{Drezner2016}. This test accounts for the increased likelihood of obtaining at least one significant result by chance when conducting multiple hypothesis tests, but is less conservative and less prone to type II errors than the original Bonferroni test. All $p$-values remained signficant after applying this test (Table~\ref{SCBT_values}).
 
+    \begin{table}[h!]
+        \caption{
+          Below, we show the ranked $p$-values for the significant slopes in pollination and herbivory networks side-by-side with the critical values from the SCBT. Any $p$-value which is less than the corresponding critical value remains significant. We obtained critical values separately for the pollination and herbivory networks. }
+          \label{SCBT_values}
+        \begin{tabular}{l | l | l l |}
+        Family & Network type & $p$-value & Critical value \\
+        \hline
+        \emph{Apocynaceae}      &   pollination &   0.037   &   0.05000 \\
+        \emph{Rubiaceae}  &   pollination &   0.026   &   0.03952 \\
+        \emph{Amaryllidaceae}   &   pollination &   0.015   &   0.03656 \\
+        \emph{Apiaceae}     &   pollination &   0.006   &   0.03300 \\
+        \emph{Poaceae}    &   pollination &   0.003   &   0.03009 \\
+        \emph{Asteraceae}      &   pollination &   \textless0.001   &   0.02784 \\
+        \emph{Boraginaceae}     &   pollination &   \textless0.001   &   0.02610 \\
+        \emph{Cistaceae}    &   pollination &   \textless0.001   &   0.02473 \\
+        \emph{Fabaceae}    &   pollination &   \textless0.001   &   0.02363 \\
+        \emph{Lamiaceae}    &   pollination &   \textless0.001   &   0.02273 \\
+        \emph{Lauraceae}    &   pollination &   \textless0.001   &   0.02198 \\
+        \emph{Plantaginaceae}  &   pollination &   \textless0.001   &   0.02134 \\
+        \emph{Polygonaceae}    &   pollination &   \textless0.001   &   0.02080 \\
+        \emph{Ranunculaceae}   &   pollination &   \textless0.001   &   0.02033 \\
+        \hline
+        \emph{Moraceae}         &herbivory&  0.046 & 0.05000 \\
+        \emph{Nothofagaceae}    &herbivory&  0.022 & 0.03201 \\
+        \emph{Pinaceae}         &herbivory&  0.020 & 0.02627 \\
+        \emph{Poaceae}          &herbivory&  0.006 & 0.02231 \\
+        \emph{Rubiaceae}        &herbivory&  \textless0.001 & 0.01952 \\
+        \hline
+     \end{tabular}
+    \end{table}
 
 \end{spacing}
 
