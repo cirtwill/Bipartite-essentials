@@ -529,7 +529,8 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     R~\citep{R} base function ``glm''. These equations took the same form as equation~\ref{basic}.
 
 
-    Models for two families did not converge. In the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} (represented by five species in one herbivory network and five species in two pollination networks), only one pair of species per network type shared any interaction partners while all other pairs did not share any interaction partners.
+    Models for two families did not converge. In the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} (represented by five species in one herbivory network and five species in two pollination networks), only one pair of species per network type shared any interaction partners while all other pairs did not share any interaction partners. By considering each family separately, we do risk obtaining some significant results purely by chance. The standard technique for addressing this type of multiple hypothesis testing, the Bonferroni correction, tends to be over-zealous and lead to a failure to reject the null hypothesis even when a large number of significant results before the correction supports the alternative hypothesis~\citep{Moran2003}. To account for multiple testing while also allowing the number of families showing significant trends to carry some weight, we use the correlated Bonferroni test introduced in~\citet{Drezler2016} (\emph{Supplemental Information 4}).
+
 
 % \clearpage
 
@@ -646,7 +647,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 \section*{Discussion} 
 
 
-  We found broad support for the hypothesis that more
+  We found general support for the hypothesis that more
   closely-related pairs of plants have a higher degree
   of niche overlap. Using a novel method which considers
   all pairs of plants together, 
@@ -666,12 +667,10 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   These species interact with only one plant and
   therefore weaken any signal of interaction partner overlap.
   The herbivory networks did not contain as many obligate 
-  specialists, but we note that many herbivorous insects are
-  oligotrophs which consume only a few closely-related 
-  hosts~\citep{Novotny2005,Brandle2006}.
+  specialists, but we note that herbivores, as well as pollinators, often interact with only a few closely-related plants~\citep{Novotny2005,Brandle2006,Astegiano2017}.
   These oligotrophs may affect overall phylogenetic signal in the same
-  way as the specialist partners: in both cases plants in different
-  families are unlikely to share interaction partners.
+  way as the strict specialists: in both cases plants in different
+  families are unlikely to share interaction partners since the interaction partners tend to only visit plants within a particular genus. It is also likely that at least some of the apparent specialists in our dataset are actually rare species for which many interactions have not yet been observed~\citep{Bluthgen2006,Poisot2015}. Without information on the sampling completeness of the networks in our dataset, it is difficult to estimate the size of this effect. In any case, the degree of phylogenetic conservation of interaction partners may change as we obtain more complete data on rare species.
 
 
   We found that the composition of plant families in a network
@@ -726,6 +725,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   labile~\citep{Junker2015,Ibanez2016,Endara2017}. 
 
 
+  [[I don't like this paragraph. Refine?]]
   Moreover, \emph{Polygonaceae} in pollination networks and 
   \emph{Fabaceae} in herbivory networks showed the opposite 
   pattern to what we expected. In these families, closely-related plants had 
@@ -746,7 +746,9 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   Indeed, animal pollination and seed dispersal have been shown to act
   as filters for several plant clades~\citep{Mayfield2009}, while selection to avoid 
   competition and restriction on numbers of interaction partners may lead to
-  more intimate or specialised interactions~\citep{Ponisio2017}. This is
+  more intimate or specialised interactions~\citep{Ponisio2017}. 
+  Reciprocal specialisation is particularly expected to occur in highly intimate interactions~\citep{Hembry2018}. Although pollination and leaf-chewing herbivory are both relatively low-intimacy interactions~\citep{Astegiano2017}, it is still possible that some plant families may tend to have more intimate interactions than others. This could result, for example, if a plant is pollinated by an insect which is also a herbivore in its larval stage~\citep{Hembry2018}. Testing this possibility is beyond the scope of the present manuscript, but could be interestting for future work. 
+  Past selection to avoid competition is 
   consistent with the relatively high proportion of extreme specialists we
   observed in the pollination networks, which likely contributes to the weak
   relationships between phylogenetic distance and interaction partner overlap
@@ -789,27 +791,25 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   % of stasis~\citep{Davis2014}.
 
 
-  For those few families which were well-represented in \emph{both} pollination
+    For those few families which were well-represented in \emph{both} pollination
   and herbivory networks, we can also contrast the 
-  trends in the two network types. While \emph{Asteraceae} showed the
-  expected decrease in interaction partner overlap with increasing
-  phylogenetic distance, the other families showed different trends in
-  different network types. This may indicate that one type of interaction
-  places greater constraints upon these families than the other, 
-  similar to the expectation that greater constraints upon consumers 
-  than upon their resources explains the asymmetry in conservation  
-  of interaction partners~\citep{Fontaine2015}. Plants
-  may not be able to respond to selection on both types of interaction
-  simultaneously because traits affecting pollination can also affect herbivory, and vice
-  versa~\citep{Strauss1997,Strauss2002,Adler2004,Adler2006,Theis2006}.
-  Associations with pollinators and herbivores may also be constrained by the
-  larger structure of the community. In one recent study, plants which are 
-  visited by many pollinators are also consumed by many herbivores~\citep{Sauve2016}.
-  This may be because pairing antagonistic and mutualistic interactions
-  balances the indirect effects of these interactions, leading to a
-  more stable community~\citep{Sauve2014}. As more networks describing 
-  pollination and herbivory in the same community become available, it 
-  will be interesting to test this hypothesis more thoroughly.
+  trends in the two network types. Notably, all families except \emph{Asteraceae} 
+  showed different trends in different network types. 
+  This could be because of conflicting selection from pollinators and herbivores,
+  with one type of selection placing greater constraints on plant traits than the other.
+  Multiple types of interactions (e.g., pollination, herbivory, nectar robbing) 
+  and even environmental factors can influence traits such as 
+  flower colour, nectar abundance, and flowering phenology~citep{Strauss2006}. 
+  These influences can act in the same or different directions~\citep{Strauss2006}.
+  Plant phenotypes in turn affect which species participate in both pollination and herbivory~\citep{Strauss1997,Strauss2002,Adler2004,Adler2006,Theis2006}.
+  The interplay between these different selective pressures may mean that plants
+  cannot evolve to respond optimally to both pollinators and herbivores. Put another
+  way, stronger selective pressure from herbivores might cause phenotypic changes
+  that disrupt phylogenetic signal in pollinators, or vice versa. This could result from
+  asymmetric degree distributions: within a single system, most plants tend to interact
+  with many pollinators \emph{or} many herbivores but not both~\citep{Melian2009,Pockock2012,Astegiano2017}.
+  These asymmetric interactions may also affect higher-order network structures such as
+  modularity or nestedness~\citep{Astegiano2017}. The nature of the effects of multiple interaction types on both phylogenetic signal in interactions and overall network structure is, however, still an open question deserving of much more research.
 
 
   Altogether, our study has revealed a wide variety of relationships 
@@ -965,7 +965,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     \begin{center}
       \centerline{\includegraphics*[height=.75\textwidth]{Figures/dataplots/observed_vs_random.eps}}
     \end{center}
-     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance (representing the change in log odds of a pair of plants sharing an interaction partner) was signficantly different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to 0.}
+     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance (representing the change in log odds of a pair of plants sharing an interaction partner) was signficantly different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to 0. }
     \label{obs_vs_random} 
   \end{figure}
 
