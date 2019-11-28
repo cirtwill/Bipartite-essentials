@@ -76,14 +76,14 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
 % \section*{Word Counts}
 
-% Main text: 6719 % Limit 6,500
+% Main text: 6541 % Limit 6,500 % Can subtract 25 for page numbers
 % Try to cut methods ... maybe then discussion.
 
 % \begin{itemize}
 %   \item Introduction: 1165 
-%   \item Materials and Methods: 2619 
+%   \item Materials and Methods: 2470
 %   \item Results: 960
-%   \item Discussion: 1892
+%   \item Discussion: 1863
 %   \item Acknowledgements: 83
 % \end{itemize}
 
@@ -209,7 +209,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 
 \clearpage
 
-\section*{Materials and Methods}
+\section*{Materials and Methods} 
 
   \subsection*{Network data}
 
@@ -217,21 +217,18 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     set of 59 pollination and 11 herbivory networks. These networks span 
     a range of biomes (desert to grassland to tundra) and 
     countries (Sweden to New Zealand). The herbivory networks included a 
-    variety of types of herbivores but were dominated by leaf-chewing insects. To ensure that we were analysing interactions 
-    influenced by similar sets of traits across networks, we restricted 
-    our herbivory networks to leaf-chewing insects and excluded 
-    sap-sucking, leaf-mining, and galling insects as well as seed 
-    predators and xylophagous insects; all of these interactions involve 
-    different plant tissues and means of feeding than leaf chewing 
-    and so may be influenced by different plant and insect traits. 
-    Specifically, we removed any non-leaf chewing insects and any 
+    variety of types of herbivores but were dominated by leaf-chewing insects. 
+    Leaf-chewing and other types of herbivory might be affected by different
+    plant traits and therefore cannot be expected to show the same trends
+    with respect to phylogeny. We therefore restricted our networks to
+    leaf-chewing insects by removing any non-leaf chewing insects and any 
     plants which had no interaction partners after removing other types  
-    of herbivores. The adjusted networks range in size between 19 and 
+    of herbivores.
+    The adjusted networks range in size between 19 and 
     997 total species (mean=162, median=97) with between 8 and 132 
     plant species (mean=39.1, median=29.5). See \emph{Table S1, 
     Supporting information 1} for details on the original sources of all 
-    networks. All networks were qualitative, recording the presence or 
-    absence of interactions rather than their strength.
+    networks. All networks were qualitative and did not include interaction strengths.
 
 
   \subsection*{Phylogenetic data}
@@ -243,22 +240,21 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     correctness. This was done using the function `get\_tsn' in the R~\citep{R}
     package \emph{taxize}~\citep{taxize1,taxize2}. Species which could not 
     be assigned to an accepted taxonomic name (e.g., `Unknown Forb') were 
-    discarded, as were those with non-unique common names and no binomial 
-    name given (e.g., `Ragwort) or binomial names that could not be definitively 
-    linked to  higher taxa (e.g., \emph{`Salpiglossus sp.'}). We were left with 
+    discarded, as were those with binomial names that could not be definitively 
+    linked to higher taxa (e.g., \emph{`Salpiglossus sp.'}). We were left with 
     2341 unique species in 1027 genera and 195 families. On average, 11.43\% of 
     plants were removed from each network (median 4.60\%, range 0-55.10\%).
 
 
     We then estimated phylogenetic distances between the remaining species. To accomplish 
-    this, we constructed a phylogenetic tree for our dataset based on a dated
-    `mega-tree' of angiosperms~\citep{Zanne2014}. Some species were not included
+    this, we constructed a phylogenetic tree based on a dated
+    `mega-tree' of angiosperms~\citep{Zanne2014}. Some species in our dataset were not included
     in the angiosperm mega-tree. For angiosperms,
     a sister taxon was identified using~\citet{APW} and the species added manually.
     Ferns, tree ferns, and a single club moss were added to the base of the tree.
     This means that closely-related non-angiosperm species appear to have very long 
-    phylogenetic distances between them. For this reason, we excluded comparisons 
-    between pairs of non-angiosperms from our subsequent analyses. As only two networks (both 
+    phylogenetic distances between them. We therefore excluded comparisons 
+    between pairs of non-angiosperms from our analyses. As only two networks (both 
     herbivory networks) included more than one such species and non-angiosperms
     were always a small minority of any network, we do not 
     believe that omitting these comparisons has greatly affected our results.
@@ -266,45 +262,41 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     pruned the dated mega-tree to include only species in that network.
 
 
-  \subsection*{Calculating niche overlap within communities}
+  \subsection*{Calculating niche overlap}
 
-    We calculated niche overlap for each pair of plants $i$ and $j$ based on the number of shared interaction
-    partners ($M_{ij}$) and the number of interaction partners which are not
-    shared ($U_{ij}$). The number of unshared interaction 
+    We calculated niche overlap for each pair of plants $i$ and $j$ based on the number of shared and unshared interaction partners ($M_{ij}$, $U_{ij}$, respectively). 
+    The number of unshared interaction 
     partners gives valuable information about cases where, for example, 
-    closely-related plants may have experienced disruptive selection, leading to weaker phylogenetic signal. The number of shared and unshared interaction partners together indicates the amount of information  provided by each pair of plants: a pair of generalists which share most of their interaction partners gives a stronger indication of phylogenetic signal than a pair of specialists with one common interaction partner.
+    closely-related plants may have experienced disruptive selection, leading to weaker phylogenetic signal. 
+    The sum $M_{ij} + U_{ij}$ indicates the amount of information  provided by each pair of plants: a pair of generalists which share most of their interaction partners gives a stronger indication of phylogenetic signal than a pair of extreme specialists with one common interaction partner.
 
 
-    We combined the numbers of shared and unshared interaction partners
-    into a Jaccard index ($J_{ij}$) describing 
-    the proportion of shared interactions. Importantly, we do this while 
-    preserving the amount of information provided by each pair of plants
-    (indicated by their numbers of interaction partners). $J_{ij}$ is usually defined as: 
-    %
-    \begin{equation}
-      J_{ij} = \frac{M_{ij}}{P_i+P_j-M_{ij}} ,
-    \end{equation}
-    %
-    where $M_{ij}$ is the set of \emph{mutual} (shared) interaction partners of 
-    species $i$ and $j$ and $P_i$ and $P_j$ are the sizes of the sets of interaction 
-    \emph{partners} for species $i$ and $j$ respectively. $J_{ij}$ can also be defined:
-    %
+    Together, $M_{ij}$ and $U_{ij}$ give a Jaccard index ($J_{ij}$) describing 
+    the proportion of shared interactions. $J_{ij}$ is defined: 
+    % %
+    % \begin{equation}
+    %   J_{ij} = \frac{M_{ij}}{P_i+P_j-M_{ij}} ,
+    % \end{equation}
+    % %
+    % where $M_{ij}$ is the set of \emph{mutual} (shared) interaction partners of 
+    % species $i$ and $j$ and $P_i$ and $P_j$ are the sizes of the sets of interaction 
+    % \emph{partners} for species $i$ and $j$ respectively. $J_{ij}$ can also be defined:
+    % %
     \begin{equation}
       J_{ij} = \frac{M_{ij}}{U_{ij}+M_{ij}} ,
     \end{equation}
     %
-    since $U_{ij}$ = $P_{i}$+$P_{j}$-2$M_{ij}$. This second definition more closely
-    relates to our methodology, which used the tuple ($M_{ij}$, $U_{ij}$) as the
-    dependent variable rather than the single value $J_{ij}$. Using this tuple form
-    allows us to give more 
-    weight to species sharing a large number of interaction partners as well as 
-    those sharing a large proportion. Note that species sharing a large \emph{number} of interaction partners may not share a large \emph{proportion} of interaction partners if the number of interaction partners that are not shared is also large. % Added because Josh got confused about the distinction.
+    where $M_{ij}$ is the set of \emph{mutual} (shared) interaction partners and $U_{ij}$ the set of unshared interaction partners for plants $i$ and $j$.
+    In our statistical analyses (see below), we used the tuple ($M_{ij}$, $U_{ij}$) as the
+    dependent variable rather than the single value $J_{ij}$. 
+    This allows us to preserve information about the amount of information provided by each pair of plants and weight the observations accordingly.
+    Note that species sharing a large \emph{number} of interaction partners may not share a large \emph{proportion} of interaction partners if the number of interaction partners that are not shared is also large. % Added because Josh got confused about the distinction.
 
 
-  \subsection*{Statistical analysis} 
+  \subsection*{Testing conservation of niche overlap within networks} 
 
     We modelled the relationship between niche overlap and phylogenetic 
-    distance using a logistic regression. We used both the numbers of shared 
+    distance using a logistic regression. We used the numbers of shared 
     ($M_{ij}$) and non-shared ($U_{ij}$) partners as dependent variables and 
     centred, scaled phylogenetic distance as the independent variable. This 
     approach is conceptually similar to modelling successes and failures in a 
@@ -313,12 +305,12 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     phylogenetic distance within 
     each network were fit using the R~\citep{R} base function ``glm'' and 
     took the form
-  %
+    %
       \begin{equation}
         {\rm logit}\left(J_{ij}\right) \propto \beta_{distance}\delta_{ij} ,
         \label{basic}
       \end{equation}
-  %
+    %
     where $\delta_{ij}$ is the phylogenetic distance between plants $i$ and 
     $j$ and $J_{ij}$ is defined by the tuple ($M_{ij}$, $U_{ij}$) . 
     The fixed effect of distance in this regression, $\beta_{distance}$, 
@@ -336,11 +328,11 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     random intercepts and slopes per network. This expanded regression was fit
     using the R~\citep{R} function `glmer' from package 
     \emph{lme4}~\citep{lme4} and took the form
-  %
+    %
       \begin{equation}
         {\rm logit}\left(J_{ij}\right) \propto \beta_{distance} \delta_{ij} + \beta_{pollination} I_{ij} + \beta_{distance:pollination} \delta_{ij} I_{ij} ,
       \end{equation}
-  %
+    %
     where $I_{ij}=1$ when plants $i$ and $j$ are drawn from a 
     pollination network and $I_{ij}=0$ when $i$ and $j$ are drawn from a herbivory network, and all other symbols 
     are as above. Note that we only compared pairs of plants taken from the 
@@ -355,11 +347,11 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 
 
     To test whether the relationship between phylogenetic distance and niche overlap depended on network size, we fit a general linear model for the slope of this relationship inferred from the glm models against the number of plant pairs for which distances could be calculated (hereafter ``network size"), network type (again using herbivory networks as a baseline), and their interaction:
-  %
+    %
       \begin{equation}
         \beta_{distance} \propto \beta_{size} \eta_{N} + \beta_{pollination} I_N + \beta_{size:pollination} \eta_{N} I_N ,
       \end{equation}
-  %
+    %
     where $\eta_{N}$ is the number of plant pairs in network $N$ for which distances could be calculated, $I_N$ is an indicator equal to 1 if network $N$ is a pollination network and 0 otherwise. 
 
 
@@ -368,15 +360,16 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 
     \subsubsection*{Accounting for non-independence}
 
-      Note that pairs of plants are not always independent: the same plant will 
-      appear in many pairs. This violates the assumption of independence used 
+      Note that pairs of plants are not independent: the same plant will 
+      appear in many pairs, and interactions may be influenced by the 
+      overall structure of the community. This violates the assumptions used 
       when calculating the significance of logistic regressions within 
       the R~\citep{R} base package or the package \emph{lme4}~\citep{lme4}. To 
-      calculate significance of the regression coefficients we observed, it was 
+      fairly estimate the significance of our regressions, it was 
       therefore necessary to compare the observed relationships to those in a 
       suite of appropriately permuted networks. To create these networks, we 
       shuffled interactions among species while preserving row and column 
-      totals. That is, each species retained the same number of interaction 
+      totals. Each species retained the same number of interaction 
       partners as in the observed network but the exact set of partners (and 
       therefore niche overlaps with all other species) varied across permuted 
       networks. We preserved the observed phylogenetic relationships between 
@@ -391,14 +384,14 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
       error for our analysis. Because the permuted networks should not demonstrate any particular relationship between phylogenetic distance and partner overlap, these slopes should be similar to those obtained after permuting these networks a second time.
       To estimate type I and type II errors, we created 500 permutations of each 
       permuted network and, again keeping the observed phylogenetic distances 
-      between plant species, repeated our analyses. We could then determine the 
+      between plant species, repeated our analyses. We then determined the 
       number of permuted networks which appear to have significant 
       overlap-phylogenetic distance relationships relative to the permutations 
       of these permuted networks (type I error). Type II error can be determined
-      from the distribution of p-values obtained when comparing the permuted 
+      from the distribution of $p$-values obtained when comparing the permuted 
       networks to permutations of the permuted networks. Although calculating 
       the exact type II error requires a specific alternative hypothesis, the 
-      uniform distribution of p-values we obtained after permuting the permuted 
+      uniform distribution of $p$-values we obtained after permuting the permuted 
       networks means that the type II error would increase linearly as the 
       alternative hypothesis was set farther from zero (\emph{Supporting Information 3}).
 
@@ -433,23 +426,23 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     % plant-animal sets per network.
 
 
-
-  \subsubsection*{Linking network-level trends and community composition}
+  \subsection*{Linking network-level trends and community composition}
 
     Next, we examined the connection between our network-level observations
     and the number of species in each plant family present in each community.
     Specifically, we tested the hypothesis that
     varying relationships between phylogenetic distance and
-    pairwise niche overlap are due to the different distributions 
+    niche overlap are due to the different distributions 
     of families across networks. We defined the relationship between
     phylogenetic distance and niche overlap as the change in 
     log odds of two plants in a given network sharing an interaction 
     partner per million years of divergence (i.e., the slope $\beta_{distance}$ from the 
     regression of niche overlap against phylogenetic distance within
     a single network). We then related differences in this relationship
-    to differences in the composition of the plant community (defined as the number of species in each plant family present in each network) using a non-parametric permutational multi-variate 
+    to differences in the composition of the plant community 
+    using a non-parametric permutational multi-variate 
     analysis of variance (PERMANOVA;~\citealp{Anderson2001}).
-    As we did not wish to inflate the perceived similarity between
+    To avoid inflating the perceived similarity between
     pairs of networks which did not include many of the same families,
     we used Bray-Curtis dissimilarity to define differences in plant
     community composition. Bray-Curtis dissimilarity considers only
@@ -467,7 +460,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     community composition, we stratified these permutations
     by network type. That is, the response variable of change in log odds for a pollination
     network could only be exchanged for that of another pollination
-    network. Stratifying the permutations in this way ensures that 
+    network. This stratification procedure ensures that 
     the null distribution used to calculate the $P$-value is not 
     biased by including combinations of changes in log odds and 
     community composition that would not occur because of inherent 
@@ -476,33 +469,15 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     to pollination networks). We used 9999 such stratified permutations 
     to obtain the null distribution and obtain a $P$-value.
 
-    % # This isn't mentioned anywhere else, likely a relic of an older plan.
-    % The PERMANOVA tests whether there is an association between
-    % community composition and network-level patterns but does not
-    % give any information on \emph{which} plant families have the
-    % greatest effects. To address this, we supplemented the 
-    % PERMANOVA with three constrained correspondence analyses (CCAs)
-    % which placed plant families along an axis representing the
-    % change in log odds of sharing an interaction partner.
-    % A correspondence 
-    % analysis (CA) is similar to other multivariate
-    % analyses such as principal components analysis in that it
-    % reduces multivariate data to a set of orthogonal axes. A
-    % subset of axes that explain the majority of variation in 
-    % the data can then be interpreted to elucidate trends that
-    % were difficult to interpret in the full multivariate space.
-    % A constrained correspondence analysis (CCA) creates an extra
-    % axis based on some constraint - in this case, the change in
-    % log odds of sharing an interaction partner. 
-
 
   \subsubsection*{Calculating niche overlap within families}
 
-
-    Finally, we wished to compare the breakdown of overlap of interactions in
-    different plant families.
-    Within-family genetic and trait diversity can be high due to adaptive radiations, heterogeneous selection, and other influences on different species. Plant families offer a reasonable balance between collecting enough species to identify meaningful trends and maintaining a tractable number of analyses. They are therefore the best taxonomic level to investigate phylogenetic conservation in more detail across our large dataset.
-     To do this, we used the same definitions of 
+    Finally, we compared the breakdown of niche overlap in different plant families.
+    Within-family genetic and trait diversity can be high due to adaptive radiations, heterogeneous selection, and other influences on different species. 
+    Plant families offer a reasonable balance between collecting enough species to identify meaningful trends and maintaining a tractable number of analyses. 
+    They are therefore the best taxonomic level to investigate phylogenetic conservation in more detail across our large dataset.
+    To test whether different families show different conservation of interactions, 
+    we used the same definitions of 
     overlap and phylogenetic distance as in the within-network analysis but 
     restricted our regressions to pairs of plants from the same family and 
     the same network. Unlike in our previous analysis, we analysed data from 
@@ -512,14 +487,13 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     subset of data.
 
 
-    For each plant family, within each network type, we then fit one of two 
+    For each plant family, within each network type, we fit one of two 
     similar sets of models. If family $f$ was found in several networks of 
     the same type (e.g., several pollination networks), we fit a 
     mixed-effects logistic regression relating niche overlap to a fixed 
     effect of phylogenetic distance and a random effect for each network 
     using the R~\citep{R} function ``glmer'' from package
-     \emph{lme4}~\citep{lme4}. If family $f$ was found in only one network
-    (and therefore only one network type), we omitted the 
+     \emph{lme4}~\citep{lme4}. If family $f$ was found in only one network, we omitted the 
     network-level random effect and fit a logistic regression using the 
     R~\citep{R} base function ``glm''. These equations took the same form as equation~\ref{basic}.
 
@@ -566,7 +540,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     $P$\textless0.001 for a binomial regression of specialists and 
     generalists over network type). As extreme specialists by definition 
     are never shared by more than one plant, a large proportion of specialists
-    would decrease interaction partner overlap.
+    would decrease niche overlap.
 
 
     Despite these general trends, there was substantial variation between 
@@ -649,33 +623,33 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 
   We found general support for the hypothesis that more
   closely-related pairs of plants have a higher degree
-  of niche overlap. Using a novel method which considers
-  all pairs of plants together, 
+  of niche overlap. Taking all networks together, 
   the probability of two plants sharing the same animal 
-  interaction partners generally decreased with increasing 
+  interaction partners decreased with increasing 
   phylogenetic distance. Considering networks separately,
-  $\approx$56\%  of the pollination and $\approx$64\% of the 
-  herbivory networks exhibited the expected trend of decreasing 
+  $\approx$56\%  of pollination and $\approx$64\% of
+  herbivory networks showed the expected trend of decreasing 
   overlap with increasing distance. This variation between networks
   echoes earlier studies \citep[e.g.,][]{Fontaine2015,Hutchinson2017},
   which also found broad evidence for phylogenetic conservation 
   of interaction partners despite variation between particular 
   networks. The lack of a significant relationship between
-  phylogenetic distance and interaction partner overlap in many
+  phylogenetic distance and niche overlap in many
   networks could be partly due to the large number of extreme
-  specialists, especially among the pollination networks.
+  specialist insects, especially in the pollination networks.
   These species interact with only one plant and
-  therefore weaken any signal of interaction partner overlap.
+  therefore weaken any signal of niche overlap.
   The herbivory networks did not contain as many obligate 
-  specialists, but we note that herbivores, as well as pollinators, often interact with only a few closely-related plants~\citep{Novotny2005,Brandle2006,Astegiano2017}.
+  specialists, but we note that herbivores, like pollinators, often interact with only a few closely-related plants~\citep{Novotny2005,Brandle2006,Astegiano2017}.
   These oligotrophs may affect overall phylogenetic signal in the same
-  way as the strict specialists: in both cases plants in different
-  families are unlikely to share interaction partners since the interaction partners tend to only visit plants within a particular genus. It is also likely that at least some of the apparent specialists in our dataset are actually rare species for which many interactions have not yet been observed~\citep{Bluthgen2006,Poisot2015}. Without information on the sampling completeness of the networks in our dataset, it is difficult to estimate the size of this effect. In any case, the degree of phylogenetic conservation of interaction partners may change as we obtain more complete data on rare species.
+  way as the strict specialists: in both cases plants that are not very closely related are unlikely to share interaction partners. Note that some of the apparent specialists in our dataset may actually be rare species involved in more interactions which have not yet been observed~\citep{Bluthgen2006,Poisot2015}. Without information on the sampling completeness of the networks in our dataset, it is difficult to estimate the size of this effect. 
+  It is possible, however, that we might observe stronger relationships between phylogenetic
+  distance and niche overlap with more complete data on rare species.
 
 
   We found that the composition of plant families in a network
   was not related to the slope of the relationship between phylogenetic
-  distance and interaction partner overlap. This suggests that 
+  distance and niche overlap. This suggests that 
   conservation of interaction partners among closely related plants
   (e.g., congeners or members of the same subfamilies) is more
   important than phylogenetic signal from deeper within the phylogenetic
@@ -684,7 +658,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   Odegaard2005} and in whole herbivory networks~\citep{Volf2017}. As
   we did not find any relationship between the families present in
   a network and the relationship between phylogenetic distance and
-  interaction partner overlap in either pollination or herbivory networks,
+  niche overlap in either pollination or herbivory networks,
   the greater importance of shallow phylogeny (as reported for leaf
   miners and gallers in~\citet{Volf2017}) may be a general 
   feature of plant-insect interaction networks. This contrasts with
@@ -692,7 +666,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   of the phylogenetic tree rather than whether speciation was more or
   less recent had a larger effect on network structure. As~\citet{Chamberlain2014}
   were interested in overall structural properties of networks rather
-  than interaction partner overlap, this discrepancy may indicate that
+  than niche overlap, this discrepancy may indicate that
   different aspects of plant-insect interaction networks are influenced
   by different aspects of plant phylogenies.
 
@@ -717,7 +691,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   positive slope was extremely steep. This could indicate different 
   rates of phenotypic drift or evolution in different families (or their interaction partners). 
   In other families, there was no significant relationship between phylogenetic
-  distance and interaction partner overlap. In these cases, key traits affecting 
+  distance and niche overlap. In these cases, key traits affecting 
   plant-insect interactions may be highly labile or plastic (environmentally determined). These possibilities are supported by several studies showing a stronger relationship between niche overlap and trait similarity than niche overlap and phylogenetic similarity~\citep{Junker2015,Ibanez2016,Endara2017}. 
 
 
@@ -749,7 +723,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   Whether or not intimacy plays a role in structuring these interactions, past selection to avoid competition is 
   consistent with the relatively high proportion of extreme specialists we
   observed in the pollination networks. As described above, these specialists likely weaken the relationship between phylogenetic distance and niche overlap. contribute to the weak
-  relationships between phylogenetic distance and interaction partner overlap
+  relationships between phylogenetic distance and niche overlap
   in many networks. 
 
 
