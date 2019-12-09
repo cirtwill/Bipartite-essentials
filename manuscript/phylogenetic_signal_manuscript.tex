@@ -44,8 +44,7 @@
 \footskip 1.0cm
 
 
-\title{Related plants tend to share pollinators and herbivores, but strength of phylogenetic signal varies among plant families [[Alternative 1: Broad conservation of pollinators and herbivores in a global dataset]]
-[[Alternative 2: Despite variation among families, pollinators and herbivores are broadly conserved among related plants]]}
+\title{Related plants tend to share pollinators and herbivores, but strength of phylogenetic signal varies among plant families}
 
 
 
@@ -92,7 +91,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 % \noindent Tables: 2
 
 
-% \noindent Supporting information: 1 file containing 4 sections.
+% \noindent Supporting information: 1 file containing 5 sections.
 
 
 % \vspace{0.2 in}
@@ -311,7 +310,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
       \end{equation}
     %
     where $\delta_{ij}$ is the phylogenetic distance between plants $i$ and 
-    $j$ and $J_{ij}$ is defined by the tuple ($M_{ij}$, $U_{ij}$) . 
+    $j$ and $J_{ij}$ is defined by the tuple ($M_{ij}$, $U_{ij}$) (see \emph{Supplemental Information 2} for R implementation). 
     The fixed effect of distance in this regression, $\beta_{distance}$, 
     can be understood as the change in log odds of sharing an interaction 
     partner per million-year change in phylogenetic distance. 
@@ -342,7 +341,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 
 
     To demonstrate the power of defining $J_{ij}$ as a tuple of $M_{ij}$ and $U_{ij}$ rather than a single value, we repeated the above analyses using a Jaccard index based only on the proportion of interaction partners that are shared (i.e., $J_{ij}$ = $M_{ij}$/[$M_{ij}+U_{ij}$]). Note that while the proportion of shared interaction partners is the same in both cases, the tuple formulation gives more weight to plants with many interaction partners as these provide more information. When comparing the two approaches 
-    we observed similar trends but, notably, the tuple definition of $J_{ij}$ had greater power to detect weak relationships (\emph{Supporting information 2}). We therefore show only the results when defining $J_{ij}$ as a tuple in the main text.
+    we observed similar trends but, notably, the tuple definition of $J_{ij}$ had greater power to detect weak relationships (\emph{Supporting information 3}). We therefore show only the results when defining $J_{ij}$ as a tuple in the main text.
 
 
     To test whether the relationship between phylogenetic distance and niche overlap depended on network size, we fit a general linear model for the slope of this relationship inferred from the glm models against the number of plant pairs for which distances could be calculated (hereafter ``network size"), network type (again using herbivory networks as a baseline), and their interaction:
@@ -431,7 +430,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     and the number of species in each plant family present in each community.
     Specifically, we tested the hypothesis that
     varying relationships between phylogenetic distance and
-    niche overlap are due to the different distributions 
+    pairwise niche overlap are due to the different distributions 
     of families across networks. We defined the relationship between
     phylogenetic distance and niche overlap as the change in 
     log odds of two plants in a given network sharing an interaction 
@@ -531,15 +530,11 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     pair of plants which diverged 750mya would 
     have a probability of 0.121 of sharing a given herbivore or 
     0.011 of sharing a given pollinator.
-    These trends may be partly 
-    due to the greater proportion of specialist pollinators than specialist 
-    herbivores. In our dataset, an average of 48\% (+/- 14) of pollinators 
+    These trends may be related to the numbers of extreme specialists in each network. In our dataset, an average of 48\% (+/- 14) of pollinators 
     in a given web were extreme specialists (i.e., visited only one plant 
     species) compared to 29\% (+/- 29) of herbivores ($z$=5.62, df=68, 
     $P$\textless0.001 for a binomial regression of specialists and 
-    generalists over network type). As extreme specialists by definition 
-    are never shared by more than one plant, a large proportion of specialists
-    would decrease niche overlap.
+    generalists over network type). 
 
 
     Despite these general trends, there was substantial variation between 
@@ -582,16 +577,16 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     and overlap always had a more negative slope than that obtained from the 
     permuted networks, while the 10 networks with positive relationships 
     between phylogenetic distance and overlap always had more positive 
-    relationships than the permuted networks. This suggests that even in 
+    relationships than the permuted networks. This indicates that even in 
     the networks with non-significant relationships, the association between niche overlap and 
-    phylogenetic distance was not random. When the slopes of the permuted 
+    phylogenetic distance was not random and confirms that the significant results we observe are not due to non-independence of plants within a network. When the slopes of the permuted 
     networks were compared to those obtained from permutations of the 
-    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting information 3}). 
+    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting information 4}). 
 
 
   \subsection*{Linking network-level trends and community composition} 
 
-    We were interested in whether the slope of the relationship between phylogenetic distance varied with community composition. In a PERMANOVA of slope against community composition, stratified by network type, we did not find a significant relationship between slope and community composition ($F_{1,68}$=1.06, $p$=0.493). Of the 200 families in our dataset, only 29 were represented by more than 20 species. Lumping all other families into an ``other'' category and repeating the PERMANOVA, we still did not find a significant relationship between slope and community composition ($F_{1,68}$=1.12, $p$=0.409). 
+    We were interested in whether the slope of the relationship between phylogenetic distance and niche overlap varied with community composition. In a PERMANOVA of slope against community composition, stratified by network type, we did not find a significant relationship between slope and community composition ($F_{1,68}$=1.06, $p$=0.493). Of the 200 families in our dataset, only 29 were represented by more than 20 species. Lumping all other families into an ``other'' category and repeating the PERMANOVA, we still did not find a significant relationship between slope and community composition ($F_{1,68}$=1.12, $p$=0.409). 
     % Also performed a CCA to see which fams had most positive/negative associations, but with non-sig results I don't think it's interesting.
 
 
@@ -604,11 +599,11 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     Considering each family separately, the relationship between within-family niche overlap and phylogenetic distance varied widely in both pollination and herbivory networks. 
     In pollination networks, overlap decreased significantly with increasing phylogenetic distance in 14 of the 48 well-represented families (Table~\ref{family_slopes_pp}; Fig.~\ref{within_family_regression}). If we apply the correlated Bonferroni correction to account for multiple testing~\citep{Drezner2016}, all of these slopes remain significant (\emph{Supplemental Information 4}).
     There was no significant relationship between overlap and phylogenetic distance in
-    a further 34 plant families (see \emph{Supporting information 4} for further 
+    a further 34 plant families (see \emph{Supporting information 5} for further 
     details). Finally, the overlap between pairs of \emph{Apiaceae} and \emph{Poaceae} increased significantly with increasing phylogenetic distance.
 
 
-    Of the nine plant families that were sufficiently well represented in herbivory 
+    Of the nine plant families that were well-represented in herbivory 
     networks, overlap decreased significantly with increasing phylogenetic distance in four 
     (Table~\ref{family_slopes_ph}; Fig.~\ref{within_family_regression}). Four
     families did not show significant relationships between phylogenetic distance and overlap,
@@ -717,9 +712,8 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   as filters for several plant clades~\citep{Mayfield2009}. Selection to avoid 
   competition and restrict numbers of interaction partners may lead to
   more intimate or specialised interactions~\citep{Ponisio2017}. 
-  Reciprocal specialisation is particularly expected in highly intimate interactions~\citep{Hembry2018} rather than the relatively low-intimacy pollination or leaf-chewing herbivory we consider here~\citep{Astegiano2017}.
-  Despite this, it is still possible that some plant families may tend to have more intimate interactions than others. This could result, for example, if a plant is pollinated by an insect which is also a herbivore in its larval stage~\citep{Hembry2018}. 
-  Whether or not intimacy plays a role in structuring these interactions, past selection to avoid competition is 
+  This is particularly the case in highly intimate interactions, where both partners may specialise~\citep{Hembry2018}.
+  Past selection to avoid competition is 
   consistent with the relatively high proportion of extreme specialists we
   observed in the pollination networks. As described above, these specialists likely weaken the relationship between phylogenetic distance and niche overlap.
 
@@ -928,9 +922,10 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     \begin{center}
       \centerline{\includegraphics*[height=.75\textwidth]{Figures/dataplots/observed_vs_random.eps}}
     \end{center}
-     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance (representing the change in log odds of a pair of plants sharing an interaction partner) was significantly different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to 0. }
+     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance (representing the change in log odds of a pair of plants sharing an interaction partner) was significantly different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines (permutation slopes ranged between -1.34$\times10^{-12}$ and 9.19$\times10^{-13}$). For both network types, the slopes obtained from permuted networks were always very close to 0. }
     \label{obs_vs_random} 
   \end{figure}
+
 
   \begin{figure}[!h]
     \begin{center}

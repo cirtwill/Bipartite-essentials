@@ -174,7 +174,29 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 \clearpage
 \newpage
 
-\section*{Supporting information 2: Repeating our analyses with proportion of shared partners}
+\section*{Supporting information 2: R implementation of tuple-form regression}
+
+    
+    We first fit a series of regressions (one per network) relating the Jaccard dissimilarity of the interaction partners of plants $i$ and $j$ ($J_{ij}$) to the phylogenetic  distance between them ($\delta_{ij}$), using the form
+    %
+      \begin{equation}
+        {\rm logit}\left(J_{ij}\right) \propto \beta_{distance}\delta_{ij} .
+        \label{basic}
+      \end{equation}
+    %
+    We fit these regressions using the R~\citep{R} base function ``glm'', which will accept $J_{ij}$ formatted as either a single value summarizing the probability of sharing an interaction partner \emph{or} the numbers of shared and un-shared interaction partners ($M_{ij}$ and $U_{ij}$). As we wished to use the tuple ($M_{ij}$, $U_{ij}$) as our input, the command in R was:
+
+
+    \emph{model=glm(cbind(M\_ij,U\_ij) $\sim$ scale(delta\_ij),family="binomial")}.
+
+
+    We used the same tuple-input form of the binomial regression for all subsequent regressions.
+
+
+\clearpage
+
+
+\section*{Supporting information 3: Repeating our analyses with proportion of shared partners}
 
     We repeated some of our analyses using the proportion of shared interaction partners as the response rather than a tuple describing the number of interaction partners that are shared and not shared. This approach is common when performing logistic regressions, but loses information about the varying weights of evidence about different plant pairs. This lost information can limit the power of the regression to detect weak trends.
 
@@ -202,7 +224,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \clearpage
 
-\section*{Supporting information 3: Distributions of $p$-values for permuted networks}
+\section*{Supporting information 4: Distributions of $p$-values for permuted networks}
 
 
     Comparing the permuted networks to permutations of the permuted networks, the slope obtained from the initial permuted network showed no clear relationship to the slopes obtained from 500 permutations of the permuted network. Averaged over the 1000 permutations of each observed network, the slope of the permuted network was more extreme than 48.1-51.3\% of the permutations of the permuted network. This confirms that shuffling phylogenetic distances between plant pairs destroys the relationship between distance and interaction partner overlap, and that further shuffling distances does not have a predictable effect.
@@ -242,7 +264,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \clearpage
 
-\section*{Supporting information 4: Details of within-family regressions}
+\section*{Supporting information 5: Details of within-family regressions}
 
     Models for nine families could not be fit because there was no variation in the phylogenetic distance between plants, their numbers of shared interaction partners, or both. These families were \emph{Amaranthaceae}, \emph{Araliaceae}, \emph{Cactaceae}, \emph{Cornaceae}, \emph{Gentianaceae}, \emph{Liliaceae}, \emph{Oxalidaceae}, \emph{Rhamnaceae}, and \emph{Zingiberaceae}. Further, we could not fit a model for \emph{Lauraceae} in pollination networks or \emph{Sapindaceae} in herbivory or pollination networks as only one plant pair in each network type shared any interaction partners.
 
