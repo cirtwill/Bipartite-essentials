@@ -71,3 +71,5 @@ PP_slope_test=with(pptab,glm(Jaccard_slope~n_pairs))
 PP_pval_test=with(pptab,glm(Jaccard_p~n_pairs))
 
 
+stupidCtest=with(outtab,glm(Jaccard_slope~nettype*C))
+

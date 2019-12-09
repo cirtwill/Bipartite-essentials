@@ -19,7 +19,7 @@ for(n in 1:length(c(phfiles,ppfiles))){
   file=c(phfiles,ppfiles)[n]
   print(file)
   netname=gsub('../data/Corrected_Matrices/','',file)
-  net=gsub('_corrected.csv',"",netname)
+  net=gsub('_corrected.csv','',netname)
 
   if(file%in%phfiles){
     nettype='ph'} else {
