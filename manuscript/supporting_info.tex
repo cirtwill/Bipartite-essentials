@@ -221,10 +221,24 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
       \end{figure}
 
 
+\section*{Supporting information 4: A test of connectance}
+
+    To test whether the relationship between phylogenetic distance and niche overlap depended on connectance, we fit a general linear model for the slope of this relationship inferred from the glm models against connectance (C), network type (again using herbivory networks as a baseline), and their interaction:
+    %
+      \begin{equation}
+        \beta_{distance} \propto \beta_{C} \eta_{N} + \beta_{pollination} I_N + \beta_{C:pollination} \eta_{N} I_N ,
+      \end{equation}
+    %
+    where $\eta_{N}$ is the number of plant pairs in network $N$ for which distances could be calculated, $I_N$ is an indicator equal to 1 if network $N$ is a pollination network and 0 otherwise. 
+
+    
+    The strength of the relationship did not depend on network type ($\beta_{pollination}$=-0.015, $p$=0.860), connectance ($\beta_{C}$=-0.652, $p$=0.051), or their interaction ($\beta_{C:pollination}$=0.687, $p$=0.084). 
+    If we removed the interaction term and re-fit the model, the strength of the relationships between phylogenetic distance and niche overlap still did not depend on connectance ($\beta_{C}$=-0.169, $p$=0.356). We conclude that connectance does not constrain pairwise niche overlap in our dataset.
+
 
 \clearpage
 
-\section*{Supporting information 4: Distributions of $p$-values for permuted networks}
+\section*{Supporting information 5: Distributions of $p$-values for permuted networks}
 
 
     Comparing the permuted networks to permutations of the permuted networks, the slope obtained from the initial permuted network showed no clear relationship to the slopes obtained from 500 permutations of the permuted network. Averaged over the 1000 permutations of each observed network, the slope of the permuted network was more extreme than 48.1-51.3\% of the permutations of the permuted network. This confirms that shuffling phylogenetic distances between plant pairs destroys the relationship between distance and interaction partner overlap, and that further shuffling distances does not have a predictable effect.
@@ -264,7 +278,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \clearpage
 
-\section*{Supporting information 5: Details of within-family regressions}
+\section*{Supporting information 6: Details of within-family regressions}
 
     Models for nine families could not be fit because there was no variation in the phylogenetic distance between plants, their numbers of shared interaction partners, or both. These families were \emph{Amaranthaceae}, \emph{Araliaceae}, \emph{Cactaceae}, \emph{Cornaceae}, \emph{Gentianaceae}, \emph{Liliaceae}, \emph{Oxalidaceae}, \emph{Rhamnaceae}, and \emph{Zingiberaceae}. Further, we could not fit a model for \emph{Lauraceae} in pollination networks or \emph{Sapindaceae} in herbivory or pollination networks as only one plant pair in each network type shared any interaction partners.
 

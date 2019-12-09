@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}  
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL second_submission.tex                Wed Nov 13 16:11:15 2019
-%DIF ADD phylogenetic_signal_manuscript.tex   Mon Dec  9 11:13:05 2019
+%DIF ADD phylogenetic_signal_manuscript.tex   Mon Dec  9 17:45:10 2019
 \usepackage{amsmath}
 \usepackage{url}
 \usepackage[dvips]{graphicx}
@@ -136,62 +136,47 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 \baselineskip=8.5mm
 \begin{spacing}{1.0}
 
-\DIFdelbegin \section*{\DIFdel{Word Counts}}
-%DIFAUXCMD
-\DIFdelend %DIF >  \section*{Word Counts}
+\DIFaddbegin \clearpage
 
-\DIFdelbegin \DIFdel{Main text: 5612 %DIF <  Limit 6,500
-}\DIFdelend %DIF >  Main text: 6498 % Limit 6,500 % Can also subtract 25 for page numbers
+\DIFaddend \section*{Word Counts}
 
-\DIFdelbegin %DIFDELCMD < \begin{itemize}
-\begin{itemize}%DIFAUXCMD
-%DIFDELCMD <   \item %%%
-\item%DIFAUXCMD
-\DIFdel{Introduction: 1074
-  }%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Materials and Methods: 2223 
-  }%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Results: 890
-  }%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Discussion: 1342
-  }%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Acknowledgements: 83
-}
-\end{itemize}%DIFAUXCMD
-%DIFDELCMD < \end{itemize}
-%DIFDELCMD < %%%
-\DIFdelend %DIF >  \begin{itemize}
-%DIF >    \item Introduction: 1165 
-%DIF >    \item Materials and Methods: 2470
-%DIF >    \item Results: 960
-%DIF >    \item Discussion: 1820
-%DIF >    \item Acknowledgements: 83
-%DIF >  \end{itemize}
+Main text: \DIFdelbegin \DIFdel{5612 %DIF <  Limit 6,500
+}\DIFdelend \DIFaddbegin \DIFadd{6409 %DIF >  Limit 6,500 % 
+}\DIFaddend 
+
+\begin{itemize}
+  \item Introduction: \DIFdelbegin \DIFdel{1074
+  }\DIFdelend \DIFaddbegin \DIFadd{1163
+  }\DIFaddend \item Materials and Methods: \DIFdelbegin \DIFdel{2223 
+  }\DIFdelend \DIFaddbegin \DIFadd{2469
+  }\DIFaddend \item Results: \DIFdelbegin \DIFdel{890
+  }\DIFdelend \DIFaddbegin \DIFadd{949
+  }\DIFaddend \item Discussion: \DIFdelbegin \DIFdel{1342
+  }\DIFdelend \DIFaddbegin \DIFadd{1745
+  }\DIFaddend \item Acknowledgements: 83
+\end{itemize}
 
 %DIF <  Word counts updated July 2, include some comments.
-%DIF >  \noindent Figures: 3
-
-
-\DIFdelbegin \DIFdel{Figures: 3
-}\DIFdelend %DIF >  \noindent Tables: 2
-
-
-\DIFdelbegin \DIFdel{Tables: 2
-}\DIFdelend %DIF >  \noindent Supporting information: 1 file containing 5 sections.
-
-
-\DIFdelbegin \DIFdel{Supporting information: 1 file containing 4 sections.
-}\DIFdelend %DIF >  \vspace{0.2 in}
-
-\DIFdelbegin %DIFDELCMD < \vspace{0.4 in}
-%DIFDELCMD < 
+\DIFdelbegin %DIFDELCMD < 
 
 %DIFDELCMD < %%%
-\DIFdelend \section*{Summary} %DIF <  Must be <200 words. Currently 199
+\DIFdelend \DIFaddbegin \noindent \DIFaddend Figures: 3
+
+
+\DIFaddbegin \noindent \DIFaddend Tables: 2
+
+
+\DIFaddbegin \noindent \DIFaddend Supporting information: 1 file containing \DIFdelbegin \DIFdel{4 }\DIFdelend \DIFaddbegin \DIFadd{6 }\DIFaddend sections.
+
+\DIFdelbegin %DIFDELCMD < \vspace{0.4 in}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \clearpage
+\DIFaddend 
+
+%DIF >  \vspace{0.2 in}
+\DIFaddbegin 
+
+\DIFaddend \section*{Summary} %DIF <  Must be <200 words. Currently 199
 %DIF >  Must be <200 words. Currently 200. 
 
   \begin{itemize}
@@ -222,8 +207,9 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 \DIFaddend 
 
   Interactions with animals affect plants' life cycles in several critical
-  ways~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-\citep{Mayr2001,Sauve2016}}\hspace{0pt}%DIFAUXCMD
+  ways \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{Mayr2001}} \mbox{%DIFAUXCMD
+\citep{Sauve2016}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \citep{Mayr2001}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend . On one hand,
@@ -250,13 +236,19 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
   patterns of interactions with animals, especially if there is some selection in either group to avoid competition or the number of potential partners is limited~\citep{Schemske1999,Ponisio2017}. That is, there may be \emph{phylogenetic signal} in plants' interactions such that closely-related plants may tend to have similar interaction partners.
   Recent studies that have investigated this question at the level of whole
   communities, however, have yielded mixed results\DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
-\citep{Rezende2007a,Gomez2010,Rohr2014a,Fontaine2015,Lind2015,Ibanez2016,Bergamini2017,Sydenham2017,Volf2017,Hutchinson2017}}\hspace{0pt}%DIFAUXCMD
+\citep{Rezende2007a}}
+\mbox{%DIFAUXCMD
+\citep{Gomez2010,Rohr2014a,Fontaine2015}}\\
+\mbox{%DIFAUXCMD
+\citep{Lind2015,Ibanez2016,Bergamini2017,Sydenham2017}}\\
+\mbox{%DIFAUXCMD
+\citep{Volf2017,Hutchinson2017}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend .
   In particular, significant phylogenetic signal in plants' sets of interaction partners tends to be rare in empirical networks (\citealp{Rezende2007a,Lind2015,Ibanez2016}; but see~\citealp{Elias2013,Fontaine2015,Hutchinson2017}). 
   Moreover, statistically significant degrees of phylogenetic signal or coevolution may only result in small differences in network structure, adding to the difficulty of understanding patterns in species' interaction partners~\citep{Ponisio2017}.
-  Further, the plant and animal components of networks can show different degrees of phylogenetic conservation of interaction partners. In mutualistic networks, animals often show a stronger phylogenetic signal in their partners than do plants~\citep{Rezende2007a,Chamberlain2014,Rohr2014,Vamosi2014,Lind2015,Fontaine2015} (but see~\citet{Rafferty2013} for a counterexample). In antagonistic networks, however, actively-foraging consumers tend to show less phylogenetic signal than their prey~\citep{Ives2006,Cagnolo2011,Naisbit2011,Fontaine2015}. \DIFaddbegin \DIFadd{In part, this may be related to different degrees of interaction intimacy (dependence of one partner on another), which appears to contribute to network structure in mutualistic, but not antagonistic, networks~\mbox{%DIFAUXCMD
+  Further, the plant and animal components of networks can show different degrees of phylogenetic conservation of interaction partners. In mutualistic networks, animals often show a stronger phylogenetic signal in their partners than do plants~\citep{Rezende2007a,Chamberlain2014,Rohr2014,Vamosi2014,Lind2015,Fontaine2015} (but see~\citet{Rafferty2013} for a counterexample). In antagonistic networks, however, actively-foraging consumers tend to show less phylogenetic signal than their prey~\citep{Ives2006,Cagnolo2011,Naisbit2011,Fontaine2015}. \DIFdelbegin \DIFdel{Thus, }\DIFdelend \DIFaddbegin \DIFadd{In part, this may be related to different degrees of interaction intimacy (dependence of one partner on another), which appears to contribute to network structure in mutualistic, but not antagonistic, networks~\mbox{%DIFAUXCMD
 \citep{Guimaraes2007,Ponisio2017}}\hspace{0pt}%DIFAUXCMD
-. }\DIFaddend Thus, it is not straightforward to assume that interactions will always be similar among related species. 
+. In any case, }\DIFaddend it is not straightforward to assume that interactions will always be similar among related species. 
 
 
   \DIFdelbegin \DIFdel{Several }\DIFdelend \DIFaddbegin \DIFadd{There are several }\DIFaddend mechanisms that might weaken the conservation of \DIFdelbegin \DIFdel{interactions
@@ -274,7 +266,9 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
   herbivory~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citep{Strauss2002,Adler2004,Theis2006}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\citep{Strauss2002,Adler2004,Strauss2006,Theis2006}}\hspace{0pt}%DIFAUXCMD
+\citep{Strauss2002}}\\
+\mbox{%DIFAUXCMD
+\citep{Adler2004,Strauss2006,Theis2006}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend . 
   Conversely, herbivory can reduce pollination by inducing chemical 
   defences~\citep{Adler2006} or altering floral display or nectar 
@@ -354,7 +348,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
     and so may be influenced }\DIFdelend \DIFaddbegin \DIFadd{leaf-chewing insects. 
     Leaf-chewing and other types of herbivory might be affected }\DIFaddend by different
     plant \DIFdelbegin \DIFdel{and insect traits . 
-    Specifically, we removed }\DIFdelend \DIFaddbegin \DIFadd{traits and therefore cannot be expected to show the same trends
+    Specifically, we removed }\DIFdelend \DIFaddbegin \DIFadd{traits and cannot be expected to show the same trends
     with respect to phylogeny. We therefore restricted our networks to
     leaf-chewing insects by removing }\DIFaddend any non-leaf \DIFdelbegin \DIFdel{consuming }\DIFdelend \DIFaddbegin \DIFadd{chewing }\DIFaddend insects and any 
     plants which had no interaction partners after removing other types  
@@ -444,8 +438,9 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
     \DIFaddbegin \DIFadd{In our statistical analyses (see below), we used the tuple ($M_{ij}$, $U_{ij}$) as the
     dependent variable rather than the single value $J_{ij}$. 
     This allows us to preserve information about the amount of information provided by each pair of plants and weight the observations accordingly.
-    }\DIFaddend Note that species sharing a large \emph{number} of interaction partners may not share a large \emph{proportion} of interaction partners if the number of interaction partners that are not shared is also large. % Added because Josh got confused about the distinction.
-\DIFdelbegin \DIFdel{To capture all of this information for each species pair, we therefore recorded the number of 
+    }\DIFaddend Note that species sharing a large \emph{number} of interaction partners may not share a large \emph{proportion} of interaction partners if the number of interaction partners that are not shared is also large. 
+%DIF <  Added because Josh got confused about the distinction.
+    \DIFdelbegin \DIFdel{To capture all of this information for each species pair, we therefore recorded the number of 
     shared interaction partners ($M_{ij}$) and the number of interaction partners 
     that were not shared 
     ($U_{ij}$ = $P_{i}$+$P_{j}$-2$M_{ij}$). Instead of a single index $J_{ij}$, 
@@ -474,7 +469,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
       \end{equation}
     %
     where $\delta_{ij}$ is the phylogenetic distance between plants $i$ and 
-    $j$ \DIFaddbegin \DIFadd{and $J_{ij}$ is defined by the tuple ($M_{ij}$, $U_{ij}$) (see }\emph{\DIFadd{Supplemental Information 2}} \DIFadd{for R implementation)}\DIFaddend . 
+    $j$ \DIFaddbegin \DIFadd{and $J_{ij}$ is defined by the tuple ($M_{ij}$, $U_{ij}$) (see }\emph{\DIFadd{Supporting information 2}} \DIFadd{for R implementation)}\DIFaddend . 
     The fixed effect of distance in this regression, $\beta_{distance}$, 
     can be understood as the change in log odds of sharing an interaction 
     partner per million-year change in phylogenetic distance. 
@@ -520,7 +515,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
     \DIFadd{As the interaction between network type and network size was strong and opposite to the direction of the main effect of network size, we fit an additional general linear model using only data from pollination networks and including only the effect of network size (herbivory networks were the baseline in the full glm). Both models were fit using the R~\mbox{%DIFAUXCMD
 \citep{R} }\hspace{0pt}%DIFAUXCMD
-base function ``glm".
+base function ``glm". A similar model relating the strength of the relationship between phylogenetic distance and niche overlap to connectance showed no significant trends (}\emph{\DIFadd{Supporting information 4}}\DIFadd{).
 }
 
 
@@ -559,7 +554,7 @@ base function ``glm".
       the exact type II error requires a specific alternative hypothesis, the 
       uniform distribution of \DIFdelbegin \DIFdel{p-values }\DIFdelend \DIFaddbegin \DIFadd{$p$-values }\DIFaddend we obtained after permuting the permuted 
       networks means that the type II error would increase linearly as the 
-      alternative hypothesis was set farther from zero \DIFaddbegin \DIFadd{(}\emph{\DIFadd{Supporting Information 3}}\DIFadd{)}\DIFaddend .
+      alternative hypothesis was set farther from zero \DIFaddbegin \DIFadd{(}\emph{\DIFadd{Supporting information 5}}\DIFadd{)}\DIFaddend .
 
 
     \DIFdelbegin \DIFdel{To test whether the relationship between phylogenetic distance and niche overlap depended on network size, we fit a general linear model for the slope of this relationship inferred from the glm models against the number of plant pairs for which distances could be calculated (hereafter ``network size"), network type (again using herbivory networks as a baseline), and their interaction:
@@ -622,14 +617,14 @@ base function ``glm".
     partner per million years of divergence (i.e., the slope $\beta_{distance}$ from the 
     regression of niche overlap against phylogenetic distance within
     a single network). We then related differences in this relationship
-    to differences in the composition of the plant community 
-    \DIFdelbegin \DIFdel{in each
-    network }\DIFdelend using a non-parametric permutational multi-variate 
+    to differences in \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{Bray-Curtis dissimilarity in the family-wise }\DIFaddend composition of the \DIFdelbegin \DIFdel{plant community in each
+    network }\DIFdelend \DIFaddbegin \DIFadd{two plant communities 
+    }\DIFaddend using a non-parametric permutational multi-variate 
     analysis of variance (PERMANOVA;~\citealp{Anderson2001}).
-    \DIFdelbegin \DIFdel{As we did not wish to inflate }\DIFdelend \DIFaddbegin \DIFadd{To avoid inflating }\DIFaddend the perceived similarity between
+    \DIFdelbegin \DIFdel{As we did not wish to inflate the perceived similarity between
     pairs of networks which did not include many of the same families,
-    we used Bray-Curtis dissimilarity to define differences in plant
-    community composition. Bray-Curtis dissimilarity considers only
+    we used }\DIFdelend Bray-Curtis dissimilarity \DIFdelbegin \DIFdel{to define differences in plant
+    community composition. Bray-Curtis dissimilarity }\DIFdelend considers only
     those plant families which appear in at least one of a pair of
     networks~\citep{Anderson2001,Cirtwill2015}, ensuring that the
     shared absence of rare plant families will not make 
@@ -714,7 +709,7 @@ base function ``glm".
 \citep{Moran2003}}\hspace{0pt}%DIFAUXCMD
 . To account for multiple testing while also allowing the number of families showing significant trends to carry some weight, we use the correlated Bonferroni test introduced in~\mbox{%DIFAUXCMD
 \citet{Drezner2016} }\hspace{0pt}%DIFAUXCMD
-(}\emph{\DIFadd{Supplemental Information 4}}\DIFadd{).
+(}\emph{\DIFadd{Supporting information 6}}\DIFadd{).
 }\DIFaddend 
 
 
@@ -805,7 +800,7 @@ base function ``glm".
     the networks with non-significant relationships, the association between niche overlap and 
     phylogenetic distance was not random \DIFaddbegin \DIFadd{and confirms that the significant results we observe are not due to non-independence of plants within a network}\DIFaddend . When the slopes of the permuted 
     networks were compared to those obtained from permutations of the 
-    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting information \DIFdelbegin \DIFdel{3}\DIFdelend \DIFaddbegin \DIFadd{4}\DIFaddend }). 
+    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting information \DIFdelbegin \DIFdel{3}\DIFdelend \DIFaddbegin \DIFadd{5}\DIFaddend }). 
 
 
   \subsection*{Linking network-level trends and community composition} 
@@ -824,9 +819,9 @@ base function ``glm".
     \DIFdelbegin \DIFdel{For the 48 families that were well represented in }\DIFdelend \DIFaddbegin \DIFadd{In }\DIFaddend pollination networks, overlap decreased significantly with increasing phylogenetic distance in \DIFdelbegin \DIFdel{12 }\DIFdelend \DIFaddbegin \DIFadd{14 of the 48 well-represented families }\DIFaddend (Table~\ref{family_slopes_pp}\DIFdelbegin \DIFdel{).
     }\DIFdelend \DIFaddbegin \DIFadd{; Fig.~\ref{within_family_regression}). If we apply the correlated Bonferroni correction to account for multiple testing~\mbox{%DIFAUXCMD
 \citep{Drezner2016}}\hspace{0pt}%DIFAUXCMD
-, all of these slopes remain significant (}\emph{\DIFadd{Supplemental Information 4}}\DIFadd{).
+, all of these slopes remain significant (}\emph{\DIFadd{Supporting information 6}}\DIFadd{).
     }\DIFaddend There was no significant relationship between overlap and phylogenetic distance in
-    a further 34 plant families (see \emph{Supporting information \DIFdelbegin \DIFdel{4}\DIFdelend \DIFaddbegin \DIFadd{5}\DIFaddend } for further 
+    a further 34 plant families (see \emph{Supporting information \DIFdelbegin \DIFdel{4}\DIFdelend \DIFaddbegin \DIFadd{6}\DIFaddend } for further 
     details). Finally, the overlap between pairs of \emph{Apiaceae} and \emph{Poaceae} increased significantly with increasing phylogenetic distance.
 
 
@@ -835,7 +830,7 @@ base function ``glm".
     (Table~\ref{family_slopes_ph}; Fig.~\ref{within_family_regression}). Four
     families did not show significant relationships between phylogenetic distance and overlap,
     and in one family, \emph{Fabaceae}, overlap of interaction partners increased significantly with 
-    increasing phylogenetic distance. \DIFaddbegin \DIFadd{If we again apply the correlated Bonferroni correction, all five significant slopes remain significant  (}\emph{\DIFadd{Supplemental Information 4}}\DIFadd{).
+    increasing phylogenetic distance. \DIFaddbegin \DIFadd{If we again apply the correlated Bonferroni correction, all five significant slopes remain significant  (}\emph{\DIFadd{Supportin information 6}}\DIFadd{).
 }\DIFaddend 
 
 %DIF <  \clearpage
@@ -870,7 +865,9 @@ base function ``glm".
   oligotrophs which consume }\DIFdelend \DIFaddbegin \DIFadd{herbivores, like pollinators, often interact with }\DIFaddend only a few closely-related \DIFdelbegin \DIFdel{hosts~\mbox{%DIFAUXCMD
 \citep{Novotny2005,Yguel2011}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{plants~\mbox{%DIFAUXCMD
-\citep{Novotny2005,Brandle2006,Astegiano2017}}\hspace{0pt}%DIFAUXCMD
+\citep{Novotny2005}}\\
+\mbox{%DIFAUXCMD
+\citep{Brandle2006,Astegiano2017}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend .
   These oligotrophs may affect overall phylogenetic signal in the same
   way as the \DIFdelbegin \DIFdel{specialist partners}\DIFdelend \DIFaddbegin \DIFadd{strict specialists}\DIFaddend : in both cases plants \DIFdelbegin \DIFdel{in different
@@ -1034,7 +1031,9 @@ Finally, although we do not have information about plants'
   may not be able to respond to selection on both types of interaction
   simultaneously because traits affecting pollinationcan also affect herbivory, and vice
   versa~\mbox{%DIFAUXCMD
-\citep{Strauss1997,Strauss2002,Adler2004,Adler2006,Theis2006}}\hspace{0pt}%DIFAUXCMD
+\citep{Strauss1997}}\\
+\mbox{%DIFAUXCMD
+\citep{Strauss2002,Adler2004,Adler2006,Theis2006}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend .
   \DIFdelbegin \DIFdel{Associations with }\DIFdelend \DIFaddbegin \DIFadd{Multiple types of interactions (e.g., pollination, herbivory, nectar robbing) 
   and even environmental factors can influence traits such as 
@@ -1045,7 +1044,9 @@ Finally, although we do not have information about plants'
 \citep{Strauss2006}}\hspace{0pt}%DIFAUXCMD
 .
   Plant phenotypes in turn affect which species participate in both pollination and herbivory~\mbox{%DIFAUXCMD
-\citep{Strauss1997,Strauss2002,Adler2004,Adler2006,Theis2006}}\hspace{0pt}%DIFAUXCMD
+\citep{Strauss1997,Strauss2002}}\\
+\mbox{%DIFAUXCMD
+\citep{Adler2004,Adler2006,Theis2006}}\hspace{0pt}%DIFAUXCMD
 .
   The interplay between these different selective pressures may mean that plants
   cannot evolve to respond optimally to both }\DIFaddend pollinators and herbivores\DIFdelbegin \DIFdel{may also be constrained by the
@@ -1066,7 +1067,7 @@ Finally, although we do not have information about plants'
 \citep{Melian2009,Pocock2012,Astegiano2017}}\hspace{0pt}%DIFAUXCMD
 .
   These asymmetric interactions may also affect higher-order network structures such as
-  modularity or nestedness~\mbox{%DIFAUXCMD
+  modularity or nestedness \mbox{%DIFAUXCMD
 \citep{Astegiano2017}}\hspace{0pt}%DIFAUXCMD
 . The nature of the effects of multiple interaction types on both phylogenetic signal in interactions and overall network structure is, however, still an open question deserving of much more research.
 }\DIFaddend 
@@ -1326,7 +1327,7 @@ Finally, although we do not have information about plants'
     \begin{center}
       \centerline{\includegraphics*[height=.75\textwidth]{Figures/dataplots/observed_vs_random.eps}}
     \end{center}
-     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance \DIFaddbeginFL \DIFaddFL{(representing the change in log odds of a pair of plants sharing an interaction partner) }\DIFaddendFL was \DIFdelbeginFL \DIFdelFL{signficantly }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{significantly }\DIFaddendFL different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines \DIFaddbeginFL \DIFaddFL{(permutation slopes ranged between -1.34$\times10^{-12}$ and 9.19$\times10^{-13}$)}\DIFaddendFL . For both network types, the slopes obtained from permuted networks were always very close to 0. }
+     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance \DIFaddbeginFL \DIFaddFL{(representing the change in log odds of a pair of plants sharing an interaction partner) }\DIFaddendFL was \DIFdelbeginFL \DIFdelFL{signficantly }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{significantly }\DIFaddendFL different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to \DIFdelbeginFL \DIFdelFL{0.}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0 (range -1.34$\times10^{-12}$ to 9.19$\times10^{-13}$).  }\DIFaddendFL }
     \label{obs_vs_random} 
   \end{figure}
 

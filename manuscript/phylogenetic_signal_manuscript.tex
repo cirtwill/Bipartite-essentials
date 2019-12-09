@@ -73,26 +73,29 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 \baselineskip=8.5mm
 \begin{spacing}{1.0}
 
-% \section*{Word Counts}
+\clearpage
 
-% Main text: 6498 % Limit 6,500 % Can also subtract 25 for page numbers
+\section*{Word Counts}
 
-% \begin{itemize}
-%   \item Introduction: 1165 
-%   \item Materials and Methods: 2470
-%   \item Results: 960
-%   \item Discussion: 1820
-%   \item Acknowledgements: 83
-% \end{itemize}
+Main text: 6409 % Limit 6,500 % 
 
-% \noindent Figures: 3
+\begin{itemize}
+  \item Introduction: 1163
+  \item Materials and Methods: 2469
+  \item Results: 949
+  \item Discussion: 1745
+  \item Acknowledgements: 83
+\end{itemize}
+
+\noindent Figures: 3
 
 
-% \noindent Tables: 2
+\noindent Tables: 2
 
 
-% \noindent Supporting information: 1 file containing 5 sections.
+\noindent Supporting information: 1 file containing 6 sections.
 
+\clearpage
 
 % \vspace{0.2 in}
 
@@ -146,7 +149,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
   communities, however, have yielded mixed results.
   In particular, significant phylogenetic signal in plants' sets of interaction partners tends to be rare in empirical networks (\citealp{Rezende2007a,Lind2015,Ibanez2016}; but see~\citealp{Elias2013,Fontaine2015,Hutchinson2017}). 
   Moreover, statistically significant degrees of phylogenetic signal or coevolution may only result in small differences in network structure, adding to the difficulty of understanding patterns in species' interaction partners~\citep{Ponisio2017}.
-  Further, the plant and animal components of networks can show different degrees of phylogenetic conservation of interaction partners. In mutualistic networks, animals often show a stronger phylogenetic signal in their partners than do plants~\citep{Rezende2007a,Chamberlain2014,Rohr2014,Vamosi2014,Lind2015,Fontaine2015} (but see~\citet{Rafferty2013} for a counterexample). In antagonistic networks, however, actively-foraging consumers tend to show less phylogenetic signal than their prey~\citep{Ives2006,Cagnolo2011,Naisbit2011,Fontaine2015}. In part, this may be related to different degrees of interaction intimacy (dependence of one partner on another), which appears to contribute to network structure in mutualistic, but not antagonistic, networks~\citep{Guimaraes2007,Ponisio2017}. Thus, it is not straightforward to assume that interactions will always be similar among related species. 
+  Further, the plant and animal components of networks can show different degrees of phylogenetic conservation of interaction partners. In mutualistic networks, animals often show a stronger phylogenetic signal in their partners than do plants~\citep{Rezende2007a,Chamberlain2014,Rohr2014,Vamosi2014,Lind2015,Fontaine2015} (but see~\citet{Rafferty2013} for a counterexample). In antagonistic networks, however, actively-foraging consumers tend to show less phylogenetic signal than their prey~\citep{Ives2006,Cagnolo2011,Naisbit2011,Fontaine2015}. In part, this may be related to different degrees of interaction intimacy (dependence of one partner on another), which appears to contribute to network structure in mutualistic, but not antagonistic, networks~\citep{Guimaraes2007,Ponisio2017}. In any case, it is not straightforward to assume that interactions will always be similar among related species. 
 
 
   There are several mechanisms that might weaken the conservation of interaction partners. Pollination and herbivory may be affected
@@ -217,7 +220,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     countries (Sweden to New Zealand). The herbivory networks included a 
     variety of types of herbivores but were dominated by leaf-chewing insects. 
     Leaf-chewing and other types of herbivory might be affected by different
-    plant traits and therefore cannot be expected to show the same trends
+    plant traits and cannot be expected to show the same trends
     with respect to phylogeny. We therefore restricted our networks to
     leaf-chewing insects by removing any non-leaf chewing insects and any 
     plants which had no interaction partners after removing other types  
@@ -288,7 +291,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     In our statistical analyses (see below), we used the tuple ($M_{ij}$, $U_{ij}$) as the
     dependent variable rather than the single value $J_{ij}$. 
     This allows us to preserve information about the amount of information provided by each pair of plants and weight the observations accordingly.
-    Note that species sharing a large \emph{number} of interaction partners may not share a large \emph{proportion} of interaction partners if the number of interaction partners that are not shared is also large. % Added because Josh got confused about the distinction.
+    Note that species sharing a large \emph{number} of interaction partners may not share a large \emph{proportion} of interaction partners if the number of interaction partners that are not shared is also large. 
 
 
   \subsection*{Testing conservation of niche overlap within networks} 
@@ -310,7 +313,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
       \end{equation}
     %
     where $\delta_{ij}$ is the phylogenetic distance between plants $i$ and 
-    $j$ and $J_{ij}$ is defined by the tuple ($M_{ij}$, $U_{ij}$) (see \emph{Supplemental Information 2} for R implementation). 
+    $j$ and $J_{ij}$ is defined by the tuple ($M_{ij}$, $U_{ij}$) (see \emph{Supporting information 2} for R implementation). 
     The fixed effect of distance in this regression, $\beta_{distance}$, 
     can be understood as the change in log odds of sharing an interaction 
     partner per million-year change in phylogenetic distance. 
@@ -353,7 +356,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     where $\eta_{N}$ is the number of plant pairs in network $N$ for which distances could be calculated, $I_N$ is an indicator equal to 1 if network $N$ is a pollination network and 0 otherwise. 
 
 
-    As the interaction between network type and network size was strong and opposite to the direction of the main effect of network size, we fit an additional general linear model using only data from pollination networks and including only the effect of network size (herbivory networks were the baseline in the full glm). Both models were fit using the R~\citep{R} base function ``glm".
+    As the interaction between network type and network size was strong and opposite to the direction of the main effect of network size, we fit an additional general linear model using only data from pollination networks and including only the effect of network size (herbivory networks were the baseline in the full glm). Both models were fit using the R~\citep{R} base function ``glm". A similar model relating the strength of the relationship between phylogenetic distance and niche overlap to connectance showed no significant trends (\emph{Supporting information 4}).
 
 
     \subsubsection*{Accounting for non-independence}
@@ -391,7 +394,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
       the exact type II error requires a specific alternative hypothesis, the 
       uniform distribution of $p$-values we obtained after permuting the permuted 
       networks means that the type II error would increase linearly as the 
-      alternative hypothesis was set farther from zero (\emph{Supporting Information 3}).
+      alternative hypothesis was set farther from zero (\emph{Supporting information 5}).
 
 
     % To determine how overlap of interaction partners
@@ -437,13 +440,10 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     partner per million years of divergence (i.e., the slope $\beta_{distance}$ from the 
     regression of niche overlap against phylogenetic distance within
     a single network). We then related differences in this relationship
-    to differences in the composition of the plant community 
+    to differences in Bray-Curtis dissimilarity in the family-wise composition of the two plant communities 
     using a non-parametric permutational multi-variate 
     analysis of variance (PERMANOVA;~\citealp{Anderson2001}).
-    To avoid inflating the perceived similarity between
-    pairs of networks which did not include many of the same families,
-    we used Bray-Curtis dissimilarity to define differences in plant
-    community composition. Bray-Curtis dissimilarity considers only
+    Bray-Curtis dissimilarity considers only
     those plant families which appear in at least one of a pair of
     networks~\citep{Anderson2001,Cirtwill2015}, ensuring that the
     shared absence of rare plant families will not make 
@@ -499,7 +499,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     Models for two families did not converge. In the \emph{Lauraceae}, (represented by four species in one pollination network) and the \emph{Sapindaceae} (represented by five species in one herbivory network and five species in two pollination networks), only one pair of species per network type shared any interaction partners while all other pairs did not share any interaction partners. 
 
 
-    By considering each family separately, we do risk obtaining some significant results purely by chance. The standard technique for addressing this type of multiple hypothesis testing, the Bonferroni correction, tends to be over-zealous and lead to a failure to reject the null hypothesis even when a large number of significant results before the correction supports the alternative hypothesis~\citep{Moran2003}. To account for multiple testing while also allowing the number of families showing significant trends to carry some weight, we use the correlated Bonferroni test introduced in~\citet{Drezner2016} (\emph{Supplemental Information 4}).
+    By considering each family separately, we do risk obtaining some significant results purely by chance. The standard technique for addressing this type of multiple hypothesis testing, the Bonferroni correction, tends to be over-zealous and lead to a failure to reject the null hypothesis even when a large number of significant results before the correction supports the alternative hypothesis~\citep{Moran2003}. To account for multiple testing while also allowing the number of families showing significant trends to carry some weight, we use the correlated Bonferroni test introduced in~\citet{Drezner2016} (\emph{Supporting information 6}).
 
 
 \clearpage
@@ -581,7 +581,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     the networks with non-significant relationships, the association between niche overlap and 
     phylogenetic distance was not random and confirms that the significant results we observe are not due to non-independence of plants within a network. When the slopes of the permuted 
     networks were compared to those obtained from permutations of the 
-    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting information 4}). 
+    permuted networks, there was no relationship, which speaks to the robustness of our methodology (\emph{Supporting information 5}). 
 
 
   \subsection*{Linking network-level trends and community composition} 
@@ -597,9 +597,9 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
 
 
     Considering each family separately, the relationship between within-family niche overlap and phylogenetic distance varied widely in both pollination and herbivory networks. 
-    In pollination networks, overlap decreased significantly with increasing phylogenetic distance in 14 of the 48 well-represented families (Table~\ref{family_slopes_pp}; Fig.~\ref{within_family_regression}). If we apply the correlated Bonferroni correction to account for multiple testing~\citep{Drezner2016}, all of these slopes remain significant (\emph{Supplemental Information 4}).
+    In pollination networks, overlap decreased significantly with increasing phylogenetic distance in 14 of the 48 well-represented families (Table~\ref{family_slopes_pp}; Fig.~\ref{within_family_regression}). If we apply the correlated Bonferroni correction to account for multiple testing~\citep{Drezner2016}, all of these slopes remain significant (\emph{Supporting information 6}).
     There was no significant relationship between overlap and phylogenetic distance in
-    a further 34 plant families (see \emph{Supporting information 5} for further 
+    a further 34 plant families (see \emph{Supporting information 6} for further 
     details). Finally, the overlap between pairs of \emph{Apiaceae} and \emph{Poaceae} increased significantly with increasing phylogenetic distance.
 
 
@@ -608,7 +608,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     (Table~\ref{family_slopes_ph}; Fig.~\ref{within_family_regression}). Four
     families did not show significant relationships between phylogenetic distance and overlap,
     and in one family, \emph{Fabaceae}, overlap of interaction partners increased significantly with 
-    increasing phylogenetic distance. If we again apply the correlated Bonferroni correction, all five significant slopes remain significant  (\emph{Supplemental Information 4}).
+    increasing phylogenetic distance. If we again apply the correlated Bonferroni correction, all five significant slopes remain significant  (\emph{Supportin information 6}).
 
 \clearpage
 
@@ -922,7 +922,7 @@ ecological networks, herbivory, niche overlap, phylogenetic signal, pollination,
     \begin{center}
       \centerline{\includegraphics*[height=.75\textwidth]{Figures/dataplots/observed_vs_random.eps}}
     \end{center}
-     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance (representing the change in log odds of a pair of plants sharing an interaction partner) was significantly different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines (permutation slopes ranged between -1.34$\times10^{-12}$ and 9.19$\times10^{-13}$). For both network types, the slopes obtained from permuted networks were always very close to 0. }
+     \caption{The slopes of the mixed-effect logistic regression of pairwise niche overlap against phylogenetic distance (representing the change in log odds of a pair of plants sharing an interaction partner) was significantly different from 0 for each network. Here we show the observed slopes for herbivory (green squares) and pollination (purple diamonds) networks. Thick, dashed lines represent the mean slopes across all networks of each type. The maximum and minimum slopes obtained from 999 permutations of each network are depicted by thin, black lines. For both network types, the slopes obtained from permuted networks were always very close to 0 (range -1.34$\times10^{-12}$ to 9.19$\times10^{-13}$).  }
     \label{obs_vs_random} 
   \end{figure}
 
