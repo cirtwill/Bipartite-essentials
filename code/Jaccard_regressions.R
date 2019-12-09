@@ -20,7 +20,7 @@ for(n in 1:length(files)){
   size=nrow(netdata)
 
   obs_slopes=c(Jaccard$coefficients['scale(distance)'],summary(Jaccard)$coefficients['scale(distance)',4],Sorenson$coefficients['scale(distance)'],summary(Sorenson)$coefficients['scale(distance)',4])
-  outtab[n,]=c(net,obs_slopes,size)
+  outtab[n,]=c(net,obs_slopes,size,C)
 
   if(n<12){
   	netdata$nettype='ph'
@@ -56,7 +56,12 @@ outtab$nettype=c(rep('PH',11),rep('PP',59))
 outtab$nettype=as.factor(outtab$nettype)
 outtab$n_pairs=as.numeric(as.character(outtab$n_pairs))
 # I think it may be best to make observed slopes, random slopes, and random-random slopes separately?
-
+source('how_many_extreme_specialists.R')
+outtab$network=as.character(droplevels(outtab$network))
+result_table$network=as.character(droplevels(result_table$network))
+outtab<-outtab[order(outtab$network),]
+result_table<-result_table[order(result_table$network),]
+outtab$C=result_table$C
 
 slope_test=with(outtab,glm(Jaccard_slope~nettype*n_pairs))
 pval_test=with(outtab,glm(Jaccard_p~nettype*n_pairs))

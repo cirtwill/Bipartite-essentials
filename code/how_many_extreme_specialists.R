@@ -5,19 +5,21 @@ library(MASS)
 
 phfiles<-as.character(list.files(path="../data/Corrected_Matrices/Plant_herbivore_matrices", full.names=TRUE, pattern="*.csv"))
 ppfiles<-as.character(list.files(path="../data/Corrected_Matrices/Stouffer_Ecology_Matrices", full.names=TRUE, pattern="*.csv"))
-planttree=read.newick("../data/plant_phylogeny/dated_tree.new")
+# planttree=read.newick("../data/plant_phylogeny/dated_tree.new")
 
 #### Directory of species names and networks
-speciesnames=read.table('../data/plant_phylogeny/corrected_names.tsv',header=TRUE,sep=',')
+# speciesnames=read.table('../data/plant_phylogeny/corrected_names.tsv',header=TRUE,sep=',')
 
 # Set up the results storage table
-result_table=matrix(nrow=length(c(phfiles,ppfiles)),ncol=9,data=1000)
-colnames(result_table)=c("network","network_type","spec_plants","spec_animals","gen_plants","gen_animals","n_plants","n_animals","plants_in_tree")
+result_table=matrix(nrow=length(c(phfiles,ppfiles)),ncol=12,data=1000)
+# colnames(result_table)=c("network","network_type","spec_plants","spec_animals","gen_plants","gen_animals","n_plants","n_animals","plants_in_tree")
+colnames(result_table)=c("network","network_type","spec_plants","spec_animals","gen_plants","gen_animals","n_plants","n_animals","mean_deg_insect","mean_deg_plant","median_deg_insect","C")
 
 for(n in 1:length(c(phfiles,ppfiles))){
   file=c(phfiles,ppfiles)[n]
   print(file)
   netname=gsub('../data/Corrected_Matrices/','',file)
+  net=gsub('_corrected.csv',"",netname)
 
   if(file%in%phfiles){
     nettype='ph'} else {
@@ -26,6 +28,9 @@ for(n in 1:length(c(phfiles,ppfiles))){
   network_matrix=read.csv(file,header=TRUE,sep=',',row.names=1)
   if('X'%in%colnames(network_matrix)){          # Trim any superfluous columns
     network_matrix$X=NULL    }
+  if('X.1'%in%colnames(network_matrix)){          # Trim any superfluous columns
+    network_matrix$X.1=NULL    }
+
 
   numeric_matrix=matrix(nrow=nrow(network_matrix),ncol=ncol(network_matrix))
   #Ensure all columns are numeric
@@ -43,7 +48,9 @@ for(n in 1:length(c(phfiles,ppfiles))){
   pdeg=colSums(numeric_matrix)
   adeg=rowSums(numeric_matrix)
 
-  n_in_tree=length(which(colnames(network_matrix) %in% planttree$tip.label))
+  C=sum(numeric_matrix)/(nrow(network_matrix)*ncol(network_matrix))
+
+  # n_in_tree=length(which(colnames(network_matrix) %in% planttree$tip.label))
 
   special_plants=as.numeric(length(which(pdeg==1)))
   special_animals=as.numeric(length(which(adeg==1)))
@@ -69,7 +76,11 @@ for(n in 1:length(c(phfiles,ppfiles))){
   result_table[n,6]=general_animals
   result_table[n,7]=as.numeric(length(colnames(numeric_matrix)))
   result_table[n,8]=as.numeric(length(rownames(numeric_matrix)))
-  result_table[n,9]=as.numeric(n_in_tree)
+  # result_table[n,9]=as.numeric(n_in_tree)
+  result_table[n,9]=as.numeric(mean(adeg))
+  result_table[n,10]=as.numeric(mean(pdeg))
+  result_table[n,11]=as.numeric(median(adeg))
+  result_table[n,12]=C
   # if((as.numeric(result_table[n,3])+as.numeric(result_table[n,5]))!=1){
   #   print('proportion error')
   #   print((as.numeric(result_table[n,3])+as.numeric(result_table[n,5])))
@@ -84,7 +95,10 @@ result_table$gen_plants=as.numeric(as.character(result_table$gen_plants))
 result_table$gen_animals=as.numeric(as.character(result_table$gen_animals))
 result_table$n_plants=as.numeric(as.character(result_table$n_plants))
 result_table$n_animals=as.numeric(as.character(result_table$n_animals))
-
+result_table$mean_deg_insect=as.numeric(as.character(result_table$mean_deg_insect))
+result_table$mean_deg_plant=as.numeric(as.character(result_table$mean_deg_plant))
+result_table$median_deg_insect=as.numeric(as.character(result_table$median_deg_insect))
+result_table$C=as.numeric(as.character(result_table$C))
 
 mod=glm(cbind(spec_animals,gen_animals) ~ network_type, result_table, family='binomial')
 
