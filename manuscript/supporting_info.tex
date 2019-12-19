@@ -46,22 +46,10 @@
 
 \title{At a global scale, conservation of pollinators and herbivores between related plants varies widely across communities and between plant families - Supporting Information}
 
-\author{Alyssa R. Cirtwill$^{1,2}$, Giulio V. Dalla Riva$^{3}$, Nick J. Baker$^{1}$,\\
-Mikael Ohlsson$^{4}$, Isabelle Norstr\"{o}m$^{4}$, Inger-Marie Wohlfarth$^{4}$,\\
-Joshua A. Thia$^{1,5}$, 
-% Christie J. Webber$^{1}$, 
-Daniel B. Stouffer$^{1}$}
-\date{\small$^1$Centre for Integrative Ecology, School of Biological Sciences\\
-\medskip$^2$Present address: Department of Ecology,\\
-Environment, and Plant Sciences (DEEP)\\
-Stockholm University\\
-114 19 Stockholm, Sweden\\
-\medskip$^3$Biomathematics Research Centre, School of Mathematics and Statistics\\
-University of Canterbury\\Private Bag 4800\\
-Christchurch 8140, New Zealand\\
-\medskip$^4$Department of Physics, Chemistry, and Biology (IFM)\\ Link\"{o}ping University\\ 581 83 Link\"{o}ping, Sweden\\
-\medskip$^5$Present Address: School of Biological Sciences\\
-The University of Queensland\\Brisbane, QLD 4072, Australia }
+\author{Alyssa R. Cirtwill, Giulio V. Dalla Riva, Nick J. Baker,\\
+Mikael Ohlsson, Isabelle Norstr\"{o}m, Inger-Marie Wohlfarth,\\
+Joshua A. Thia, Daniel B. Stouffer}
+\date{Article accepted: December 13, 2019}
 
 
 
@@ -70,11 +58,11 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 \baselineskip=8.5mm
 \begin{spacing}{1.5}
 
-\linenumbers
+% \linenumbers
 \beginsupplement
 \clearpage
 
-\section*{Supporting information 1: Sources for networks}
+\section*{Notes S1: Sources for networks}
   \begin{table}[!h]
     \caption{Original sources for each network used in our analyses. All networks beginning 'M\_PL\_' were collected from~\citet{weboflife}. Further details for unpublished networks may be found there.}
     \label{sources}
@@ -174,7 +162,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 \clearpage
 \newpage
 
-\section*{Supporting information 2: R implementation of tuple-form regression}
+\section*{Notes S2: R implementation of tuple-form regression}
 
     
     We first fit a series of regressions (one per network) relating the Jaccard dissimilarity of the interaction partners of plants $i$ and $j$ ($J_{ij}$) to the phylogenetic  distance between them ($\delta_{ij}$), using the form
@@ -195,8 +183,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \clearpage
 
-
-\section*{Supporting information 3: Repeating our analyses with proportion of shared partners}
+\section*{Notes S3: Repeating our analyses with proportion of shared partners}
 
     We repeated some of our analyses using the proportion of shared interaction partners as the response rather than a tuple describing the number of interaction partners that are shared and not shared. This approach is common when performing logistic regressions, but loses information about the varying weights of evidence about different plant pairs. This lost information can limit the power of the regression to detect weak trends.
 
@@ -221,7 +208,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
       \end{figure}
 
 
-\section*{Supporting information 4: A test of connectance}
+\section*{Notes S4: A test of connectance}
 
     To test whether the relationship between phylogenetic distance and niche overlap depended on connectance, we fit a general linear model for the slope of this relationship inferred from the glm models against connectance (C), network type (again using herbivory networks as a baseline), and their interaction:
     %
@@ -238,7 +225,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \clearpage
 
-\section*{Supporting information 5: Distributions of $p$-values for permuted networks}
+\section*{Notes S5: Distributions of $p$-values for permuted networks}
 
 
     Comparing the permuted networks to permutations of the permuted networks, the slope obtained from the initial permuted network showed no clear relationship to the slopes obtained from 500 permutations of the permuted network. Averaged over the 1000 permutations of each observed network, the slope of the permuted network was more extreme than 48.1-51.3\% of the permutations of the permuted network. This confirms that shuffling phylogenetic distances between plant pairs destroys the relationship between distance and interaction partner overlap, and that further shuffling distances does not have a predictable effect.
@@ -278,7 +265,7 @@ The University of Queensland\\Brisbane, QLD 4072, Australia }
 
 \clearpage
 
-\section*{Supporting information 6: Details of within-family regressions}
+\section*{Notes S6: Details of within-family regressions}
 
     Models for nine families could not be fit because there was no variation in the phylogenetic distance between plants, their numbers of shared interaction partners, or both. These families were \emph{Amaranthaceae}, \emph{Araliaceae}, \emph{Cactaceae}, \emph{Cornaceae}, \emph{Gentianaceae}, \emph{Liliaceae}, \emph{Oxalidaceae}, \emph{Rhamnaceae}, and \emph{Zingiberaceae}. Further, we could not fit a model for \emph{Lauraceae} in pollination networks or \emph{Sapindaceae} in herbivory or pollination networks as only one plant pair in each network type shared any interaction partners.
 
